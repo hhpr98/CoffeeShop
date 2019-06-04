@@ -19,7 +19,14 @@ namespace CFProject
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+            List<A> data = new List<A>() { new A() { name = "A", cost = 1 }, new A() { name = "B", cost = 2 } };
+            grvData.DataSource = data;
         }
+    }
+
+    class A
+    {
+        public String name { get; set; }
+        public int cost { get; set; }
     }
 }
