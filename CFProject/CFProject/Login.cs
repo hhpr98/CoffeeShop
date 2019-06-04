@@ -22,5 +22,41 @@ namespace CFProject
             Bitmap avt = new Bitmap(Application.StartupPath + "\\Resources\\avatar.jpg");
             pbAvatar.Image = avt;
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main frmMain = new Main();
+            frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
+            frmMain.ShowDialog();
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShow.Checked)
+            {
+               txtPassword.UseSystemPasswordChar = false;
+               //txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                //char c = '•';
+                //char c = (char)0x2022;// or 0x25cf depending on the one you choose
+                //char c = '\u2022';// or "\u25cf"
+                //txtPassword.PasswordChar = c;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+           
+        }
     }
 }
