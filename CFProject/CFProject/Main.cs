@@ -23,6 +23,23 @@ namespace CFProject
             grvData.DataSource = data;
         }
 
+        private void thôngTinToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Quản lí quán cafe v1.0\n1612203 - 1612209\nKhoa CNTT - ĐH KHTN - ĐHQGTPHCM", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control frmControl = new Control();
+            this.Hide();
+            frmControl.ShowDialog();
+            this.Show();
+        }
     }
 
     class A
