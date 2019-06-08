@@ -22,6 +22,7 @@ namespace CFProject
             List<A> data = new List<A>() { new A() { name = "A", cost = 1 }, new A() { name = "B", cost = 2 } };
             grvData.DataSource = data;
         }
+
     }
 
     class A
