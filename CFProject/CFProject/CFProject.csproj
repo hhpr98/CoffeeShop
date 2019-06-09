@@ -52,6 +52,9 @@
     <Compile Include="CFButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ComboBoxH.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Control.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +76,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabControlH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxH.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Control.resx">

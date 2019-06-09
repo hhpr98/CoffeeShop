@@ -30,12 +30,27 @@
         {
             this.tabCategory = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDescription = new CFProject.TextBoxH();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtName = new CFProject.TextBoxH();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSearch = new Custom_Controls_in_CS.ButtonZ();
+            this.txtSearch = new CFProject.TextBoxH();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnDelete = new Custom_Controls_in_CS.ButtonZ();
+            this.btnEdit = new Custom_Controls_in_CS.ButtonZ();
+            this.btnAdd = new Custom_Controls_in_CS.ButtonZ();
             this.tabManagement = new TabControlH.TabControlH();
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
-            this.buttonZ1 = new Custom_Controls_in_CS.ButtonZ();
+            this.cbCategory = new CFProject.ComboBoxH();
             this.tabFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabManagement.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +69,20 @@
             // tabFood
             // 
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabFood.Controls.Add(this.buttonZ1);
+            this.tabFood.Controls.Add(this.cbCategory);
+            this.tabFood.Controls.Add(this.pbImage);
+            this.tabFood.Controls.Add(this.label4);
+            this.tabFood.Controls.Add(this.label3);
+            this.tabFood.Controls.Add(this.txtDescription);
+            this.tabFood.Controls.Add(this.label2);
+            this.tabFood.Controls.Add(this.txtName);
+            this.tabFood.Controls.Add(this.label1);
+            this.tabFood.Controls.Add(this.btnSearch);
+            this.tabFood.Controls.Add(this.txtSearch);
+            this.tabFood.Controls.Add(this.dataGridView1);
+            this.tabFood.Controls.Add(this.btnDelete);
+            this.tabFood.Controls.Add(this.btnEdit);
+            this.tabFood.Controls.Add(this.btnAdd);
             this.tabFood.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabFood.Location = new System.Drawing.Point(4, 29);
             this.tabFood.Name = "tabFood";
@@ -63,6 +91,210 @@
             this.tabFood.TabIndex = 0;
             this.tabFood.Text = "Món ăn";
             this.tabFood.UseVisualStyleBackColor = true;
+            // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(650, 252);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(212, 133);
+            this.pbImage.TabIndex = 13;
+            this.pbImage.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(536, 252);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 16);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Hình ảnh";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(536, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Phân loại";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(650, 147);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(212, 28);
+            this.txtDescription.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(536, 153);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Mô tả";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(650, 98);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(212, 28);
+            this.txtName.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(536, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Tên món";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BorderWidth = 2;
+            this.btnSearch.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
+            this.btnSearch.ButtonText = "";
+            this.btnSearch.EndColor = System.Drawing.Color.Blue;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.GradientAngle = 100;
+            this.btnSearch.Location = new System.Drawing.Point(797, 16);
+            this.btnSearch.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnSearch.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnSearch.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnSearch.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.ShowButtontext = true;
+            this.btnSearch.Size = new System.Drawing.Size(75, 33);
+            this.btnSearch.StartColor = System.Drawing.Color.Blue;
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Tìm";
+            this.btnSearch.TextLocation_X = 24;
+            this.btnSearch.TextLocation_Y = 16;
+            this.btnSearch.Transparent1 = 75;
+            this.btnSearch.Transparent2 = 50;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(533, 16);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(241, 33);
+            this.txtSearch.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 65);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(470, 344);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderWidth = 2;
+            this.btnDelete.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
+            this.btnDelete.ButtonText = "";
+            this.btnDelete.EndColor = System.Drawing.Color.Blue;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.GradientAngle = 100;
+            this.btnDelete.Location = new System.Drawing.Point(304, 16);
+            this.btnDelete.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnDelete.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnDelete.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnDelete.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ShowButtontext = true;
+            this.btnDelete.Size = new System.Drawing.Size(75, 33);
+            this.btnDelete.StartColor = System.Drawing.Color.Blue;
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.TextLocation_X = 24;
+            this.btnDelete.TextLocation_Y = 16;
+            this.btnDelete.Transparent1 = 75;
+            this.btnDelete.Transparent2 = 50;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BorderWidth = 2;
+            this.btnEdit.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
+            this.btnEdit.ButtonText = "";
+            this.btnEdit.EndColor = System.Drawing.Color.Blue;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.GradientAngle = 100;
+            this.btnEdit.Location = new System.Drawing.Point(183, 16);
+            this.btnEdit.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnEdit.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnEdit.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnEdit.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ShowButtontext = true;
+            this.btnEdit.Size = new System.Drawing.Size(75, 33);
+            this.btnEdit.StartColor = System.Drawing.Color.Blue;
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.TextLocation_X = 24;
+            this.btnEdit.TextLocation_Y = 16;
+            this.btnEdit.Transparent1 = 75;
+            this.btnEdit.Transparent2 = 50;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderWidth = 2;
+            this.btnAdd.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
+            this.btnAdd.ButtonText = "";
+            this.btnAdd.EndColor = System.Drawing.Color.Blue;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.GradientAngle = 100;
+            this.btnAdd.Location = new System.Drawing.Point(67, 16);
+            this.btnAdd.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnAdd.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnAdd.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnAdd.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ShowButtontext = true;
+            this.btnAdd.Size = new System.Drawing.Size(75, 33);
+            this.btnAdd.StartColor = System.Drawing.Color.Blue;
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextLocation_X = 24;
+            this.btnAdd.TextLocation_Y = 16;
+            this.btnAdd.Transparent1 = 75;
+            this.btnAdd.Transparent2 = 50;
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // tabManagement
             // 
@@ -109,7 +341,7 @@
             this.tabReven.Location = new System.Drawing.Point(4, 29);
             this.tabReven.Name = "tabReven";
             this.tabReven.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReven.Size = new System.Drawing.Size(495, 330);
+            this.tabReven.Size = new System.Drawing.Size(902, 436);
             this.tabReven.TabIndex = 3;
             this.tabReven.Text = "Doanh thu";
             this.tabReven.UseVisualStyleBackColor = true;
@@ -126,35 +358,20 @@
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
             // 
-            // buttonZ1
+            // cbCategory
             // 
-            this.buttonZ1.BackColor = System.Drawing.Color.Transparent;
-            this.buttonZ1.BorderColor = System.Drawing.Color.Transparent;
-            this.buttonZ1.BorderWidth = 2;
-            this.buttonZ1.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
-            this.buttonZ1.ButtonText = "";
-            this.buttonZ1.EndColor = System.Drawing.Color.Blue;
-            this.buttonZ1.FlatAppearance.BorderSize = 0;
-            this.buttonZ1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonZ1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonZ1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonZ1.GradientAngle = 100;
-            this.buttonZ1.Location = new System.Drawing.Point(353, 45);
-            this.buttonZ1.MouseClickColor1 = System.Drawing.Color.Yellow;
-            this.buttonZ1.MouseClickColor2 = System.Drawing.Color.Red;
-            this.buttonZ1.MouseHoverColor1 = System.Drawing.Color.Turquoise;
-            this.buttonZ1.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
-            this.buttonZ1.Name = "buttonZ1";
-            this.buttonZ1.ShowButtontext = true;
-            this.buttonZ1.Size = new System.Drawing.Size(75, 33);
-            this.buttonZ1.StartColor = System.Drawing.Color.Blue;
-            this.buttonZ1.TabIndex = 0;
-            this.buttonZ1.Text = "buttonZ1";
-            this.buttonZ1.TextLocation_X = 24;
-            this.buttonZ1.TextLocation_Y = 16;
-            this.buttonZ1.Transparent1 = 255;
-            this.buttonZ1.Transparent2 = 50;
-            this.buttonZ1.UseVisualStyleBackColor = false;
+            this.cbCategory.BackColor = System.Drawing.Color.LightCyan;
+            this.cbCategory.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.ItemHeight = 17;
+            this.cbCategory.Items.AddRange(new object[] {
+            "S",
+            "1"});
+            this.cbCategory.Location = new System.Drawing.Point(650, 197);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(212, 25);
+            this.cbCategory.TabIndex = 14;
             // 
             // Control
             // 
@@ -166,6 +383,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control";
             this.tabFood.ResumeLayout(false);
+            this.tabFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -178,6 +398,19 @@
         private System.Windows.Forms.TabPage tabAccount;
         private System.Windows.Forms.TabPage tabReven;
         private System.Windows.Forms.TabPage tabStatis;
-        private Custom_Controls_in_CS.ButtonZ buttonZ1;
+        private Custom_Controls_in_CS.ButtonZ btnAdd;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Custom_Controls_in_CS.ButtonZ btnDelete;
+        private Custom_Controls_in_CS.ButtonZ btnEdit;
+        private Custom_Controls_in_CS.ButtonZ btnSearch;
+        private TextBoxH txtSearch;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private TextBoxH txtDescription;
+        private System.Windows.Forms.Label label2;
+        private TextBoxH txtName;
+        private System.Windows.Forms.Label label1;
+        private ComboBoxH cbCategory;
     }
 }
