@@ -6,11 +6,11 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 namespace TabControlH
 {
-   public class TabControlH : System.Windows.Forms.TabControl
+    public class TabControlH : System.Windows.Forms.TabControl
     {
         private Color nonactive_color1 = Color.LightGreen;
         private Color nonactive_color2 = Color.DarkBlue;
-        private Color active_color1 = Color.Yellow;
+        private Color active_color1 = Color.Red;
         private Color active_color2 = Color.DarkOrange;
         public Color forecolor = Color.Navy;
         private int color1Transparent = 150;
@@ -18,7 +18,15 @@ namespace TabControlH
         private int angle = 90;
         private Color closebuttoncolor = Color.Red;
 
-       //Create Properties to read values
+        // Khởi tạo
+        public TabControlH()
+        {
+            this.DrawMode = TabDrawMode.OwnerDrawFixed;
+            this.Padding = new System.Drawing.Point(22, 4);
+            this.ItemSize = new Size(80, 25); // Tăng size (mặc định 80,25)
+        }
+
+        //Create Properties to read values
         public Color ActiveTabStartColor
         {
             get { return active_color1; }
@@ -101,13 +109,6 @@ namespace TabControlH
         }
 
 
-
-        public TabControlH()
-        {
-            this.DrawMode = TabDrawMode.OwnerDrawFixed;
-            this.Padding = new System.Drawing.Point(22, 4);
-        }
-
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
@@ -152,7 +153,7 @@ namespace TabControlH
             Point pad = this.Padding;
 
             //drawing close button to tab items
-            e.Graphics.DrawString("X", new Font("Microsoft YaHei UI", 10, FontStyle.Bold), new SolidBrush(closebuttoncolor), e.Bounds.Right + 1 - 18, e.Bounds.Top + pad.Y-2);
+            e.Graphics.DrawString("X", new Font("Microsoft YaHei UI", 10 , FontStyle.Bold), new SolidBrush(closebuttoncolor), e.Bounds.Right + 1 - 18, e.Bounds.Top + pad.Y-2);
             e.DrawFocusRectangle();
         }
 
