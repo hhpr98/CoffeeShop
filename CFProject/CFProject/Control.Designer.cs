@@ -34,6 +34,8 @@
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
+            this.buttonZ1 = new Custom_Controls_in_CS.ButtonZ();
+            this.tabFood.SuspendLayout();
             this.tabManagement.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             this.tabCategory.Location = new System.Drawing.Point(4, 29);
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCategory.Size = new System.Drawing.Size(495, 330);
+            this.tabCategory.Size = new System.Drawing.Size(902, 436);
             this.tabCategory.TabIndex = 1;
             this.tabCategory.Text = "Phân loại";
             this.tabCategory.UseVisualStyleBackColor = true;
@@ -52,11 +54,12 @@
             // tabFood
             // 
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabFood.Controls.Add(this.buttonZ1);
             this.tabFood.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabFood.Location = new System.Drawing.Point(4, 29);
             this.tabFood.Name = "tabFood";
             this.tabFood.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFood.Size = new System.Drawing.Size(495, 330);
+            this.tabFood.Size = new System.Drawing.Size(902, 436);
             this.tabFood.TabIndex = 0;
             this.tabFood.Text = "Món ăn";
             this.tabFood.UseVisualStyleBackColor = true;
@@ -94,7 +97,7 @@
             this.tabAccount.Location = new System.Drawing.Point(4, 29);
             this.tabAccount.Name = "tabAccount";
             this.tabAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAccount.Size = new System.Drawing.Size(495, 330);
+            this.tabAccount.Size = new System.Drawing.Size(902, 436);
             this.tabAccount.TabIndex = 2;
             this.tabAccount.Text = "Tài khoản";
             this.tabAccount.UseVisualStyleBackColor = true;
@@ -123,6 +126,36 @@
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
             // 
+            // buttonZ1
+            // 
+            this.buttonZ1.BackColor = System.Drawing.Color.Transparent;
+            this.buttonZ1.BorderColor = System.Drawing.Color.Transparent;
+            this.buttonZ1.BorderWidth = 2;
+            this.buttonZ1.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
+            this.buttonZ1.ButtonText = "";
+            this.buttonZ1.EndColor = System.Drawing.Color.Blue;
+            this.buttonZ1.FlatAppearance.BorderSize = 0;
+            this.buttonZ1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonZ1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonZ1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZ1.GradientAngle = 100;
+            this.buttonZ1.Location = new System.Drawing.Point(353, 45);
+            this.buttonZ1.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.buttonZ1.MouseClickColor2 = System.Drawing.Color.Red;
+            this.buttonZ1.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.buttonZ1.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.buttonZ1.Name = "buttonZ1";
+            this.buttonZ1.ShowButtontext = true;
+            this.buttonZ1.Size = new System.Drawing.Size(75, 33);
+            this.buttonZ1.StartColor = System.Drawing.Color.Blue;
+            this.buttonZ1.TabIndex = 0;
+            this.buttonZ1.Text = "buttonZ1";
+            this.buttonZ1.TextLocation_X = 24;
+            this.buttonZ1.TextLocation_Y = 16;
+            this.buttonZ1.Transparent1 = 255;
+            this.buttonZ1.Transparent2 = 50;
+            this.buttonZ1.UseVisualStyleBackColor = false;
+            // 
             // Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +165,7 @@
             this.Name = "Control";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control";
+            this.tabFood.ResumeLayout(false);
             this.tabManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -144,5 +178,6 @@
         private System.Windows.Forms.TabPage tabAccount;
         private System.Windows.Forms.TabPage tabReven;
         private System.Windows.Forms.TabPage tabStatis;
+        private Custom_Controls_in_CS.ButtonZ buttonZ1;
     }
 }

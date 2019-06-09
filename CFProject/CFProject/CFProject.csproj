@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CFButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Control.cs">
       <SubType>Form</SubType>
     </Compile>
