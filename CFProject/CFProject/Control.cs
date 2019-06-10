@@ -36,5 +36,26 @@ namespace CFProject
             grvFood.Columns[4].Width = 100;
         }
 
-    }
+		List<SanPham> SearchSPByName(string name)
+		{
+			List<SanPham> listSP = new List<SanPham>();
+			var db = new QLCafeEntities();
+			
+			foreach (var item in db.SanPhams.ToList())
+			{
+				if (item.TenSanPham.ToLower().Contains(name.ToLower()))
+				{
+					listSP.Add(item);
+				}
+			}
+			return listSP;
+		}
+		
+		private void btnSearch_Click(object sender, EventArgs e)
+		{
+			List<SanPham> k=SearchSPByName(txtSearch.Text);
+			grvFood.DataSource = k;
+		}
+		
+	}
 }
