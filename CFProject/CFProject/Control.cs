@@ -15,6 +15,7 @@ namespace CFProject
         public Control()
         {
             InitializeComponent();
+			
         }
 
         private void Control_Load(object sender, EventArgs e)
@@ -34,7 +35,8 @@ namespace CFProject
             grvFood.Columns[2].Width = 200;
             grvFood.Columns[3].Width = 100;
             grvFood.Columns[4].Width = 100;
-        }
+			AddSPBiding();
+		}
 
 		List<SanPham> SearchSPByName(string name)
 		{
@@ -50,11 +52,17 @@ namespace CFProject
 			}
 			return listSP;
 		}
-		
+		void AddSPBiding()
+		{
+			txtName.DataBindings.Add(new Binding("Text", grvFood.DataSource, "TenSanPham"));
+			txtDescription.DataBindings.Add(new Binding("Text", grvFood.DataSource, "MoTa"));
+			//cbCategory.DataBindings.Add(new Binding("Text", grvFood.DataSource, "MaNhom"));
+		}
 		private void btnSearch_Click(object sender, EventArgs e)
 		{
 			List<SanPham> k=SearchSPByName(txtSearch.Text);
 			grvFood.DataSource = k;
+			
 		}
 		
 	}
