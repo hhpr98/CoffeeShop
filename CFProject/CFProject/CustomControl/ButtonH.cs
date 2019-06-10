@@ -7,22 +7,22 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
 
-namespace Custom_Controls_in_CS
+namespace CFProject
 {
-    public class ButtonZ : System.Windows.Forms.Button
+    public class ButtonH : System.Windows.Forms.Button
     {
         Color clr1, clr2;
-        private Color color1 = Color.DodgerBlue;
-        private Color color2 = Color.MidnightBlue;
+        private Color color1 = Color.Blue;
+        private Color color2 = Color.Blue;
         private Color m_hovercolor1 = Color.Turquoise;
         private Color m_hovercolor2 = Color.DarkSlateGray;
-        private int color1Transparent = 250;
-        private int color2Transparent = 250;
+        private int color1Transparent = 75;
+        private int color2Transparent = 50;
         private Color clickcolor1 = Color.Yellow;
         private Color clickcolor2 = Color.Red;
         private int angle = 90;
-        private int textX = 100;
-        private int textY = 25;
+        private int textX = 24;
+        private int textY = 16;
         private String text = "";
         public Color buttonborder_1 = Color.FromArgb(220, 220, 220);
         public Color buttonborder_2 = Color.FromArgb(150, 150, 150);
@@ -184,7 +184,7 @@ namespace Custom_Controls_in_CS
         }
 
 
-        public ButtonZ()
+        public ButtonH()
         {
             this.Size = new Size(100, 40);
             this.BackColor = Color.Transparent;
@@ -192,7 +192,8 @@ namespace Custom_Controls_in_CS
             this.FlatAppearance.BorderSize = 0;
             this.FlatAppearance.MouseOverBackColor = Color.Transparent;
             this.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            text = this.Text;
+            this.Text = "Hòa";
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
 
