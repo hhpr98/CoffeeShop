@@ -30,6 +30,7 @@
         {
             this.tabCategory = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.cbCategory = new CFProject.ComboBoxH();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,12 +43,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnDelete = new Custom_Controls_in_CS.ButtonZ();
             this.btnEdit = new Custom_Controls_in_CS.ButtonZ();
-            this.btnAdd = new Custom_Controls_in_CS.ButtonZ();
             this.tabManagement = new TabControlH.TabControlH();
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
-            this.cbCategory = new CFProject.ComboBoxH();
+            this.btnAdd = new Custom_Controls_in_CS.ButtonZ();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -69,6 +69,7 @@
             // tabFood
             // 
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabFood.Controls.Add(this.btnAdd);
             this.tabFood.Controls.Add(this.cbCategory);
             this.tabFood.Controls.Add(this.pbImage);
             this.tabFood.Controls.Add(this.label4);
@@ -82,7 +83,6 @@
             this.tabFood.Controls.Add(this.dataGridView1);
             this.tabFood.Controls.Add(this.btnDelete);
             this.tabFood.Controls.Add(this.btnEdit);
-            this.tabFood.Controls.Add(this.btnAdd);
             this.tabFood.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabFood.Location = new System.Drawing.Point(4, 29);
             this.tabFood.Name = "tabFood";
@@ -91,6 +91,21 @@
             this.tabFood.TabIndex = 0;
             this.tabFood.Text = "Món ăn";
             this.tabFood.UseVisualStyleBackColor = true;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.BackColor = System.Drawing.Color.LightCyan;
+            this.cbCategory.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.ItemHeight = 17;
+            this.cbCategory.Items.AddRange(new object[] {
+            "S",
+            "1"});
+            this.cbCategory.Location = new System.Drawing.Point(650, 197);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(212, 25);
+            this.cbCategory.TabIndex = 14;
             // 
             // pbImage
             // 
@@ -265,37 +280,6 @@
             this.btnEdit.Transparent2 = 50;
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BorderColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BorderWidth = 2;
-            this.btnAdd.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
-            this.btnAdd.ButtonText = "";
-            this.btnAdd.EndColor = System.Drawing.Color.Blue;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.GradientAngle = 100;
-            this.btnAdd.Location = new System.Drawing.Point(67, 16);
-            this.btnAdd.MouseClickColor1 = System.Drawing.Color.Yellow;
-            this.btnAdd.MouseClickColor2 = System.Drawing.Color.Red;
-            this.btnAdd.MouseHoverColor1 = System.Drawing.Color.Turquoise;
-            this.btnAdd.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.ShowButtontext = true;
-            this.btnAdd.Size = new System.Drawing.Size(75, 33);
-            this.btnAdd.StartColor = System.Drawing.Color.Blue;
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextLocation_X = 24;
-            this.btnAdd.TextLocation_Y = 16;
-            this.btnAdd.Transparent1 = 75;
-            this.btnAdd.Transparent2 = 50;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
             // tabManagement
             // 
             this.tabManagement.ActiveTabEndColor = System.Drawing.Color.DarkOrange;
@@ -358,20 +342,36 @@
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
             // 
-            // cbCategory
+            // btnAdd
             // 
-            this.cbCategory.BackColor = System.Drawing.Color.LightCyan;
-            this.cbCategory.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCategory.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.ItemHeight = 17;
-            this.cbCategory.Items.AddRange(new object[] {
-            "S",
-            "1"});
-            this.cbCategory.Location = new System.Drawing.Point(650, 197);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(212, 25);
-            this.cbCategory.TabIndex = 14;
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderWidth = 2;
+            this.btnAdd.ButtonShape = Custom_Controls_in_CS.ButtonZ.ButtonsShapes.Rect;
+            this.btnAdd.ButtonText = "";
+            this.btnAdd.EndColor = System.Drawing.Color.Blue;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.GradientAngle = 100;
+            this.btnAdd.Location = new System.Drawing.Point(58, 16);
+            this.btnAdd.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnAdd.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnAdd.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnAdd.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ShowButtontext = true;
+            this.btnAdd.Size = new System.Drawing.Size(75, 33);
+            this.btnAdd.StartColor = System.Drawing.Color.Blue;
+            this.btnAdd.TabIndex = 15;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextLocation_X = 24;
+            this.btnAdd.TextLocation_Y = 16;
+            this.btnAdd.Transparent1 = 75;
+            this.btnAdd.Transparent2 = 50;
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // Control
             // 
@@ -398,7 +398,6 @@
         private System.Windows.Forms.TabPage tabAccount;
         private System.Windows.Forms.TabPage tabReven;
         private System.Windows.Forms.TabPage tabStatis;
-        private Custom_Controls_in_CS.ButtonZ btnAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Custom_Controls_in_CS.ButtonZ btnDelete;
         private Custom_Controls_in_CS.ButtonZ btnEdit;
@@ -412,5 +411,6 @@
         private TextBoxH txtName;
         private System.Windows.Forms.Label label1;
         private ComboBoxH cbCategory;
+        private Custom_Controls_in_CS.ButtonZ btnAdd;
     }
 }
