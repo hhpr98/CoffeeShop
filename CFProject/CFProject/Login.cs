@@ -25,10 +25,30 @@ namespace CFProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Main frmMain = new Main();
-            frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
-            frmMain.ShowDialog();
+            List<TaiKhoan> l;
+            using (var db = new QLCafeEntities())
+            {
+                l = db.TaiKhoans.ToList();
+            }
+
+            var username = txtUser.Text;
+            var password = txtPassword.Text;
+
+            foreach (var item in l)
+            {
+                if (item.TenDangNhap==username)
+                {
+                    if (item.MatKhau==password)
+                    {
+                        this.Hide();
+                        Main frmMain = new Main();
+                        frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
+                        frmMain.ShowDialog();
+                        return;
+                    }
+                }
+            }
+            MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
