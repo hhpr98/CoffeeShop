@@ -60,7 +60,7 @@
             this.tabCategory.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabCategory.Location = new System.Drawing.Point(4, 29);
             this.tabCategory.Name = "tabCategory";
-            this.tabCategory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabCategory.Padding = new System.Windows.Forms.Padding(3);
             this.tabCategory.Size = new System.Drawing.Size(1036, 538);
             this.tabCategory.TabIndex = 1;
             this.tabCategory.Text = "Phân loại";
@@ -87,7 +87,7 @@
             this.tabFood.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabFood.Location = new System.Drawing.Point(4, 29);
             this.tabFood.Name = "tabFood";
-            this.tabFood.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabFood.Padding = new System.Windows.Forms.Padding(3);
             this.tabFood.Size = new System.Drawing.Size(1036, 538);
             this.tabFood.TabIndex = 0;
             this.tabFood.Text = "Món ăn";
@@ -123,7 +123,6 @@
             this.btnSearch.Transparent1 = 75;
             this.btnSearch.Transparent2 = 50;
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -304,6 +303,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(241, 33);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.Food_TextChanged);
             // 
             // grvFood
             // 
@@ -345,7 +345,7 @@
             this.tabAccount.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabAccount.Location = new System.Drawing.Point(4, 29);
             this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAccount.Padding = new System.Windows.Forms.Padding(3);
             this.tabAccount.Size = new System.Drawing.Size(1036, 538);
             this.tabAccount.TabIndex = 2;
             this.tabAccount.Text = "Tài khoản";
@@ -357,7 +357,7 @@
             this.tabReven.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabReven.Location = new System.Drawing.Point(4, 29);
             this.tabReven.Name = "tabReven";
-            this.tabReven.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabReven.Padding = new System.Windows.Forms.Padding(3);
             this.tabReven.Size = new System.Drawing.Size(1036, 538);
             this.tabReven.TabIndex = 3;
             this.tabReven.Text = "Doanh thu";
@@ -369,7 +369,7 @@
             this.tabStatis.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabStatis.Location = new System.Drawing.Point(4, 29);
             this.tabStatis.Name = "tabStatis";
-            this.tabStatis.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStatis.Padding = new System.Windows.Forms.Padding(3);
             this.tabStatis.Size = new System.Drawing.Size(1036, 538);
             this.tabStatis.TabIndex = 4;
             this.tabStatis.Text = "Thống kê";

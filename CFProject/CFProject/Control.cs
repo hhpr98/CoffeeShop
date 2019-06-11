@@ -15,11 +15,12 @@ namespace CFProject
         public Control()
         {
             InitializeComponent();
-			
         }
 
         private void Control_Load(object sender, EventArgs e)
         {
+            #region TabFood
+
             using (var db = new QLCafeEntities())
             {
                 var l = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
@@ -35,35 +36,28 @@ namespace CFProject
             grvFood.Columns[2].Width = 200;
             grvFood.Columns[3].Width = 100;
             grvFood.Columns[4].Width = 100;
-			AddSPBiding();
-		}
 
-		List<SanPham> SearchSPByName(string name)
-		{
-			List<SanPham> listSP = new List<SanPham>();
-			var db = new QLCafeEntities();
-			
-			foreach (var item in db.SanPhams.ToList())
-			{
-				if (item.TenSanPham.ToLower().Contains(name.ToLower()))
-				{
-					listSP.Add(item);
-				}
-			}
-			return listSP;
-		}
-		void AddSPBiding()
-		{
-			txtName.DataBindings.Add(new Binding("Text", grvFood.DataSource, "TenSanPham"));
-			txtDescription.DataBindings.Add(new Binding("Text", grvFood.DataSource, "MoTa"));
-			//cbCategory.DataBindings.Add(new Binding("Text", grvFood.DataSource, "MaNhom"));
-		}
-		private void btnSearch_Click(object sender, EventArgs e)
-		{
-			List<SanPham> k=SearchSPByName(txtSearch.Text);
-			grvFood.DataSource = k;
-			
-		}
-		
-	}
+            #endregion
+
+        }
+
+        private void Food_TextChanged(object sender, EventArgs e)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var content = txtSearch.Text.ToLower();
+                if (content == "")
+                {
+                    grvFood.DataSource = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
+                }
+                else
+                {
+                    var l = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).Where(p => p.TenSanPham.Contains(content)).ToList();
+                    grvFood.DataSource = l;
+                }
+            }
+
+           
+        }
+    }
 }
