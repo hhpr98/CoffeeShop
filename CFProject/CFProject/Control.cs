@@ -40,6 +40,9 @@ namespace CFProject
         }
 
         #region FoodEvent
+        int selIndex = -1;
+        String tempImage = "";
+
         private void Food_TextChanged(object sender, EventArgs e)
         {
             using (var db = new QLCafeEntities())
@@ -56,8 +59,6 @@ namespace CFProject
                 }
             }
         }
-
-        int selIndex = -1;
 
         private void grvFood_SelectionChanged(object sender, EventArgs e)
         {
@@ -88,15 +89,39 @@ namespace CFProject
                 }
             }
             cbCategory.SelectedIndex = i;
+            tempImage = itemSelected.HinhAnh;
             try
             {
-                pbImage.Image = new Bitmap(itemSelected.HinhAnh);
+                pbImage.Image = new Bitmap(tempImage);
             }
             catch (Exception ex)
             {
                 pbImage.Image = null;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.InitialDirectory = @"C:\git\CoffeeShop\HinhAnh";
+            dlg.Filter = "JPG Image files (*.jpg)|*.jpg|PNG Image files (*.png)|*.png|BMP Image files (*.bmp)|*.bmp|All Files (*.*)|*.*";
+            dlg.RestoreDirectory = true;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                tempImage = dlg.FileName;
+                //FileNameLabel.Content = selectedFileName;
+                try
+                {
+                    pbImage.Image = new Bitmap(tempImage);
+                }
+                catch (Exception ex)
+                {
+                    pbImage.Image = null;
+                }
+            }
+        }
         #endregion
+
+
     }
 }

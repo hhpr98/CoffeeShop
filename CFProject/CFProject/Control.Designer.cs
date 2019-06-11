@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control));
             this.tabManagement = new TabControlH.TabControlH();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.txtNumber = new CFProject.TextBoxH();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtStatus = new CFProject.TextBoxH();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCost = new CFProject.TextBoxH();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new CFProject.ButtonH();
             this.btnDelete = new CFProject.ButtonH();
             this.btnEdit = new CFProject.ButtonH();
@@ -48,12 +55,7 @@
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
-            this.txtCost = new CFProject.TextBoxH();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtStatus = new CFProject.TextBoxH();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNumber = new CFProject.TextBoxH();
-            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -89,6 +91,7 @@
             // tabFood
             // 
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabFood.Controls.Add(this.button1);
             this.tabFood.Controls.Add(this.txtNumber);
             this.tabFood.Controls.Add(this.label7);
             this.tabFood.Controls.Add(this.txtStatus);
@@ -118,6 +121,60 @@
             this.tabFood.TabIndex = 0;
             this.tabFood.Text = "Món ăn";
             this.tabFood.UseVisualStyleBackColor = true;
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Location = new System.Drawing.Point(780, 298);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(212, 28);
+            this.txtNumber.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(666, 302);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 16);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Số lượng";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(780, 249);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(212, 28);
+            this.txtStatus.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(666, 255);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 16);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Tình trạng";
+            // 
+            // txtCost
+            // 
+            this.txtCost.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCost.Location = new System.Drawing.Point(780, 198);
+            this.txtCost.Name = "txtCost";
+            this.txtCost.Size = new System.Drawing.Size(212, 28);
+            this.txtCost.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(666, 204);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Giá bán";
             // 
             // btnSearch
             // 
@@ -388,59 +445,15 @@
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
             // 
-            // txtCost
+            // button1
             // 
-            this.txtCost.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCost.Location = new System.Drawing.Point(780, 198);
-            this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(212, 28);
-            this.txtCost.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(666, 204);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 16);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Giá bán";
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(780, 249);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(212, 28);
-            this.txtStatus.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(666, 255);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 16);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Tình trạng";
-            // 
-            // txtNumber
-            // 
-            this.txtNumber.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumber.Location = new System.Drawing.Point(780, 298);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(212, 28);
-            this.txtNumber.TabIndex = 24;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(666, 302);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 16);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Số lượng";
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(675, 426);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 40);
+            this.button1.TabIndex = 25;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Control
             // 
@@ -488,5 +501,6 @@
         private System.Windows.Forms.Label label6;
         private TextBoxH txtCost;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
