@@ -20,11 +20,7 @@ namespace CFProject
         private void Control_Load(object sender, EventArgs e)
         {
             #region TabFood
-            using (var db = new QLCafeEntities())
-            {
-                var l = db.SanPhams.Where(p=>p.isDeleted==0).Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
-                grvFood.DataSource = l;
-            }
+            RefreshFoodData();
             grvFood.Columns[0].HeaderText = "Mã";
             grvFood.Columns[1].HeaderText = "Tên SP";
             grvFood.Columns[2].HeaderText = "Mô tả";
@@ -42,6 +38,15 @@ namespace CFProject
         #region FoodEvent
         int selIndex = -1;
         String tempImage = "";
+
+        private void RefreshFoodData()
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var l = db.SanPhams.Where(p => p.isDeleted == 0).Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
+                grvFood.DataSource = l;
+            }
+        }
 
         private void Food_TextChanged(object sender, EventArgs e)
         {
@@ -119,6 +124,22 @@ namespace CFProject
                 {
                     pbImage.Image = null;
                 }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(grvFood.CurrentRow.Cells[0].Value.ToString());
+            var res = MessageBox.Show(String.Format("Bạn chắc chắn muốn xóa sản phẩm id = {0} ?", id),"Thông báo",MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (res==DialogResult.OK)
+            {
+                using (var db = new QLCafeEntities())
+                {
+                    var product = db.SanPhams.Find(id);
+                    product.isDeleted = 1;
+                    db.SaveChanges();
+                }
+                RefreshFoodData();
             }
         }
         #endregion

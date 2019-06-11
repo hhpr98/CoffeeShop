@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control));
             this.tabManagement = new TabControlH.TabControlH();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtNumber = new CFProject.TextBoxH();
             this.label7 = new System.Windows.Forms.Label();
             this.txtStatus = new CFProject.TextBoxH();
@@ -55,7 +56,6 @@
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -121,6 +121,16 @@
             this.tabFood.TabIndex = 0;
             this.tabFood.Text = "Món ăn";
             this.tabFood.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(675, 426);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 40);
+            this.button1.TabIndex = 25;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtNumber
             // 
@@ -237,6 +247,7 @@
             this.btnDelete.Transparent1 = 75;
             this.btnDelete.Transparent2 = 50;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -444,16 +455,6 @@
             this.tabStatis.TabIndex = 4;
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(675, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 25;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Control
             // 
