@@ -33,7 +33,6 @@ namespace CFProject
         public virtual DbSet<NguoiQuanLi> NguoiQuanLis { get; set; }
         public virtual DbSet<NhomSanPham> NhomSanPhams { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<ThongKe> ThongKes { get; set; }
     }

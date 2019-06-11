@@ -50,11 +50,12 @@ namespace CFProject
                 var content = txtSearch.Text.ToLower();
                 if (content == "")
                 {
-                    grvFood.DataSource = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
+                    var l = db.SanPhams.Where(p => p.isDeleted == 0).Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
+                    grvFood.DataSource = l;
                 }
                 else
                 {
-                    var l = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).Where(p => p.TenSanPham.Contains(content)).ToList();
+                    var l = db.SanPhams.Where(p => p.TenSanPham.Contains(content) && p.isDeleted == 0).Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
                     grvFood.DataSource = l;
                 }
             }

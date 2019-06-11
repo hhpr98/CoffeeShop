@@ -30,6 +30,7 @@ namespace CFProject
         public Nullable<int> SoLuong { get; set; }
         public string HinhAnh { get; set; }
         public Nullable<int> MaNhom { get; set; }
+        public Nullable<int> isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietGioHang> ChiTietGioHangs { get; set; }

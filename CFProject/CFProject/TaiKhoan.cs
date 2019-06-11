@@ -25,6 +25,7 @@ namespace CFProject
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
         public Nullable<int> MaNQL { get; set; }
+        public Nullable<int> isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GioHang> GioHangs { get; set; }

@@ -22,6 +22,7 @@ namespace CFProject
     
         public int MaNhom { get; set; }
         public string TenNhom { get; set; }
+        public Nullable<int> isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
