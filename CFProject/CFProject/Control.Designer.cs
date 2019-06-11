@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabCategory = new System.Windows.Forms.TabPage();
+            this.tabManagement = new TabControlH.TabControlH();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.btnSearch = new CFProject.ButtonH();
             this.btnDelete = new CFProject.ButtonH();
@@ -44,31 +44,57 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new CFProject.TextBoxH();
             this.grvFood = new System.Windows.Forms.DataGridView();
-            this.tabManagement = new TabControlH.TabControlH();
+            this.tabCategory = new System.Windows.Forms.TabPage();
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
+            this.txtCost = new CFProject.TextBoxH();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtStatus = new CFProject.TextBoxH();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNumber = new CFProject.TextBoxH();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFood)).BeginInit();
-            this.tabManagement.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabCategory
+            // tabManagement
             // 
-            this.tabCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabCategory.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabCategory.Location = new System.Drawing.Point(4, 29);
-            this.tabCategory.Name = "tabCategory";
-            this.tabCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCategory.Size = new System.Drawing.Size(1036, 538);
-            this.tabCategory.TabIndex = 1;
-            this.tabCategory.Text = "Phân loại";
-            this.tabCategory.UseVisualStyleBackColor = true;
+            this.tabManagement.ActiveTabEndColor = System.Drawing.Color.DarkOrange;
+            this.tabManagement.ActiveTabStartColor = System.Drawing.Color.Yellow;
+            this.tabManagement.CloseButtonColor = System.Drawing.Color.Red;
+            this.tabManagement.Controls.Add(this.tabFood);
+            this.tabManagement.Controls.Add(this.tabCategory);
+            this.tabManagement.Controls.Add(this.tabAccount);
+            this.tabManagement.Controls.Add(this.tabReven);
+            this.tabManagement.Controls.Add(this.tabStatis);
+            this.tabManagement.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabManagement.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabManagement.GradientAngle = 90;
+            this.tabManagement.ItemSize = new System.Drawing.Size(80, 25);
+            this.tabManagement.Location = new System.Drawing.Point(1, 2);
+            this.tabManagement.Name = "tabManagement";
+            this.tabManagement.NonActiveTabEndColor = System.Drawing.Color.Blue;
+            this.tabManagement.NonActiveTabStartColor = System.Drawing.Color.AntiqueWhite;
+            this.tabManagement.Padding = new System.Drawing.Point(22, 4);
+            this.tabManagement.SelectedIndex = 0;
+            this.tabManagement.Size = new System.Drawing.Size(1044, 571);
+            this.tabManagement.TabIndex = 0;
+            this.tabManagement.TextColor = System.Drawing.Color.Black;
+            this.tabManagement.Transparent1 = 255;
+            this.tabManagement.Transparent2 = 255;
             // 
             // tabFood
             // 
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabFood.Controls.Add(this.txtNumber);
+            this.tabFood.Controls.Add(this.label7);
+            this.tabFood.Controls.Add(this.txtStatus);
+            this.tabFood.Controls.Add(this.label6);
+            this.tabFood.Controls.Add(this.txtCost);
+            this.tabFood.Controls.Add(this.label5);
             this.tabFood.Controls.Add(this.btnSearch);
             this.tabFood.Controls.Add(this.btnDelete);
             this.tabFood.Controls.Add(this.btnEdit);
@@ -138,7 +164,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.GradientAngle = 90;
-            this.btnDelete.Location = new System.Drawing.Point(384, 16);
+            this.btnDelete.Location = new System.Drawing.Point(397, 16);
             this.btnDelete.MouseClickColor1 = System.Drawing.Color.Yellow;
             this.btnDelete.MouseClickColor2 = System.Drawing.Color.Red;
             this.btnDelete.MouseHoverColor1 = System.Drawing.Color.Turquoise;
@@ -169,7 +195,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.GradientAngle = 90;
-            this.btnEdit.Location = new System.Drawing.Point(213, 16);
+            this.btnEdit.Location = new System.Drawing.Point(218, 16);
             this.btnEdit.MouseClickColor1 = System.Drawing.Color.Yellow;
             this.btnEdit.MouseClickColor2 = System.Drawing.Color.Red;
             this.btnEdit.MouseHoverColor1 = System.Drawing.Color.Turquoise;
@@ -227,14 +253,14 @@
             this.cbCategory.Items.AddRange(new object[] {
             "S",
             "1"});
-            this.cbCategory.Location = new System.Drawing.Point(780, 197);
+            this.cbCategory.Location = new System.Drawing.Point(780, 346);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(212, 25);
             this.cbCategory.TabIndex = 14;
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(780, 252);
+            this.pbImage.Location = new System.Drawing.Point(780, 395);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(212, 133);
             this.pbImage.TabIndex = 13;
@@ -244,7 +270,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(666, 252);
+            this.label4.Location = new System.Drawing.Point(666, 392);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 16);
             this.label4.TabIndex = 12;
@@ -254,7 +280,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(666, 203);
+            this.label3.Location = new System.Drawing.Point(666, 348);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 10;
@@ -292,9 +318,9 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(666, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.Size = new System.Drawing.Size(98, 16);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Tên món";
+            this.label1.Text = "Tên sản phẩm";
             // 
             // txtSearch
             // 
@@ -312,32 +338,19 @@
             this.grvFood.Name = "grvFood";
             this.grvFood.Size = new System.Drawing.Size(628, 465);
             this.grvFood.TabIndex = 3;
+            this.grvFood.SelectionChanged += new System.EventHandler(this.grvFood_SelectionChanged);
             // 
-            // tabManagement
+            // tabCategory
             // 
-            this.tabManagement.ActiveTabEndColor = System.Drawing.Color.DarkOrange;
-            this.tabManagement.ActiveTabStartColor = System.Drawing.Color.Yellow;
-            this.tabManagement.CloseButtonColor = System.Drawing.Color.Red;
-            this.tabManagement.Controls.Add(this.tabFood);
-            this.tabManagement.Controls.Add(this.tabCategory);
-            this.tabManagement.Controls.Add(this.tabAccount);
-            this.tabManagement.Controls.Add(this.tabReven);
-            this.tabManagement.Controls.Add(this.tabStatis);
-            this.tabManagement.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabManagement.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabManagement.GradientAngle = 90;
-            this.tabManagement.ItemSize = new System.Drawing.Size(80, 25);
-            this.tabManagement.Location = new System.Drawing.Point(1, 2);
-            this.tabManagement.Name = "tabManagement";
-            this.tabManagement.NonActiveTabEndColor = System.Drawing.Color.Blue;
-            this.tabManagement.NonActiveTabStartColor = System.Drawing.Color.AntiqueWhite;
-            this.tabManagement.Padding = new System.Drawing.Point(22, 4);
-            this.tabManagement.SelectedIndex = 0;
-            this.tabManagement.Size = new System.Drawing.Size(1044, 571);
-            this.tabManagement.TabIndex = 0;
-            this.tabManagement.TextColor = System.Drawing.Color.Black;
-            this.tabManagement.Transparent1 = 255;
-            this.tabManagement.Transparent2 = 255;
+            this.tabCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabCategory.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabCategory.Location = new System.Drawing.Point(4, 29);
+            this.tabCategory.Name = "tabCategory";
+            this.tabCategory.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCategory.Size = new System.Drawing.Size(1036, 538);
+            this.tabCategory.TabIndex = 1;
+            this.tabCategory.Text = "Phân loại";
+            this.tabCategory.UseVisualStyleBackColor = true;
             // 
             // tabAccount
             // 
@@ -375,6 +388,60 @@
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
             // 
+            // txtCost
+            // 
+            this.txtCost.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCost.Location = new System.Drawing.Point(780, 198);
+            this.txtCost.Name = "txtCost";
+            this.txtCost.Size = new System.Drawing.Size(212, 28);
+            this.txtCost.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(666, 204);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Giá bán";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(780, 249);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(212, 28);
+            this.txtStatus.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(666, 255);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 16);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Tình trạng";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Location = new System.Drawing.Point(780, 298);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(212, 28);
+            this.txtNumber.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(666, 302);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 16);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Số lượng";
+            // 
             // Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,11 +452,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control";
             this.Load += new System.EventHandler(this.Control_Load);
+            this.tabManagement.ResumeLayout(false);
             this.tabFood.ResumeLayout(false);
             this.tabFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFood)).EndInit();
-            this.tabManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -415,5 +482,11 @@
         private ButtonH btnDelete;
         private ButtonH btnEdit;
         private ButtonH btnAdd;
+        private TextBoxH txtNumber;
+        private System.Windows.Forms.Label label7;
+        private TextBoxH txtStatus;
+        private System.Windows.Forms.Label label6;
+        private TextBoxH txtCost;
+        private System.Windows.Forms.Label label5;
     }
 }

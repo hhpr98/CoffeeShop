@@ -20,7 +20,6 @@ namespace CFProject
         private void Control_Load(object sender, EventArgs e)
         {
             #region TabFood
-
             using (var db = new QLCafeEntities())
             {
                 var l = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
@@ -36,11 +35,11 @@ namespace CFProject
             grvFood.Columns[2].Width = 200;
             grvFood.Columns[3].Width = 100;
             grvFood.Columns[4].Width = 100;
-
             #endregion
 
         }
 
+        #region FoodEvent
         private void Food_TextChanged(object sender, EventArgs e)
         {
             using (var db = new QLCafeEntities())
@@ -56,8 +55,48 @@ namespace CFProject
                     grvFood.DataSource = l;
                 }
             }
-
-           
         }
+
+        int selIndex = -1;
+
+        private void grvFood_SelectionChanged(object sender, EventArgs e)
+        {
+            var id = int.Parse(grvFood.CurrentRow.Cells[0].Value.ToString());
+            if (id == selIndex) return;
+            selIndex = id;
+            //MessageBox.Show(selIndex.ToString());
+            SanPham itemSelected;
+            List<NhomSanPham> lc;
+            using (var db = new QLCafeEntities())
+            {
+                itemSelected = db.SanPhams.Find(selIndex);
+                lc = db.NhomSanPhams.ToList();
+            }
+            txtName.Text = itemSelected.TenSanPham;
+            txtDescription.Text = itemSelected.MoTa;
+            txtCost.Text = itemSelected.GiaBan.ToString();
+            txtStatus.Text = itemSelected.TinhTrang;
+            txtNumber.Text = itemSelected.SoLuong.ToString();
+            cbCategory.DataSource = lc.Select(x=>x.TenNhom).ToList();
+            var i = -1;
+            foreach (var index in lc)
+            {
+                i++;
+                if (index.TenNhom==itemSelected.NhomSanPham.TenNhom)
+                {
+                    break;
+                }
+            }
+            cbCategory.SelectedIndex = i;
+            try
+            {
+                pbImage.Image = new Bitmap(itemSelected.HinhAnh);
+            }
+            catch (Exception ex)
+            {
+                pbImage.Image = null;
+            }
+        }
+        #endregion
     }
 }
