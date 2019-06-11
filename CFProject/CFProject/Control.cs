@@ -142,6 +142,28 @@ namespace CFProject
                 RefreshFoodData();
             }
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(grvFood.CurrentRow.Cells[0].Value.ToString());
+            using (var db = new QLCafeEntities())
+            {
+                var product = db.SanPhams.Find(id);
+                product.TenSanPham = txtName.Text;
+                product.MoTa = txtDescription.Text;
+                product.GiaBan = int.Parse(txtCost.Text);
+                product.TinhTrang = txtStatus.Text;
+                product.SoLuong = int.Parse(txtNumber.Text);
+                product.HinhAnh = tempImage;
+                var lc = db.NhomSanPhams.Where(p => p.isDeleted == 0).ToList();
+                var i = cbCategory.SelectedIndex;
+                product.NhomSanPham = lc[i];
+                db.SaveChanges();
+            }
+            MessageBox.Show(String.Format("Chỉnh sửa thành công sản phẩm id = {0} ?", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshFoodData();
+        }
+
         #endregion
 
 
