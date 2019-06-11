@@ -22,7 +22,7 @@ namespace CFProject
             #region TabFood
             using (var db = new QLCafeEntities())
             {
-                var l = db.SanPhams.Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
+                var l = db.SanPhams.Where(p=>p.isDeleted==0).Select(x => new { x.MaSanPham, x.TenSanPham, x.MoTa, x.GiaBan, x.SoLuong }).ToList();
                 grvFood.DataSource = l;
             }
             grvFood.Columns[0].HeaderText = "Mã";
@@ -72,7 +72,7 @@ namespace CFProject
             using (var db = new QLCafeEntities())
             {
                 itemSelected = db.SanPhams.Find(selIndex);
-                lc = db.NhomSanPhams.ToList();
+                lc = db.NhomSanPhams.Where(p=>p.isDeleted==0).ToList();
             }
             txtName.Text = itemSelected.TenSanPham;
             txtDescription.Text = itemSelected.MoTa;
