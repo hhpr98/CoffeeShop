@@ -160,12 +160,47 @@ namespace CFProject
                 product.NhomSanPham = lc[i];
                 db.SaveChanges();
             }
-            MessageBox.Show(String.Format("Chỉnh sửa thành công sản phẩm id = {0} ?", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(String.Format("Chỉnh sửa thành công sản phẩm id = {0} !", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshFoodData();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                // check tên sản phẩm đã tồn tại?
+                var name = txtName.Text;
+                var listName = db.SanPhams.Where(p => p.isDeleted == 0).Select(p => p.TenSanPham).ToList();
+                if (listName.Contains(name))
+                {
+                    MessageBox.Show("Tên sản phẩm đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                // thêm sản phẩm mới
+                SanPham product = new SanPham();
+                product.TenSanPham = txtName.Text;
+                product.MoTa = txtDescription.Text;
+                product.GiaBan = int.Parse(txtCost.Text);
+                product.TinhTrang = txtStatus.Text;
+                product.SoLuong = int.Parse(txtNumber.Text);
+                product.HinhAnh = tempImage;
+                var lc = db.NhomSanPhams.Where(p => p.isDeleted == 0).ToList();
+                var i = cbCategory.SelectedIndex;
+                product.NhomSanPham = lc[i];
+                product.isDeleted = 0;
+                db.SanPhams.Add(product);
+                db.SaveChanges();
+            }
+            MessageBox.Show(String.Format("Thêm thành công sản phẩm \"{0}\" !", txtName.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefreshFoodData();
         }
 
         #endregion
 
+        #region CategoryEvent
+        // doing something
 
+
+        #endregion
     }
 }

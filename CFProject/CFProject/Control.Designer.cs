@@ -311,6 +311,7 @@
             this.btnAdd.Transparent1 = 75;
             this.btnAdd.Transparent2 = 50;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cbCategory
             // 
