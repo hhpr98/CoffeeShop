@@ -278,6 +278,14 @@ namespace CFProject
         }
         #endregion
 
+        #region AccountEvent
+        #endregion
+
+        #region RevenEvent
+        #endregion
+
+        #region StatisEvent
+        #endregion
 
     }
 }
