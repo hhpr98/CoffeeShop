@@ -53,6 +53,11 @@
             this.txtSearch = new CFProject.TextBoxH();
             this.grvFood = new System.Windows.Forms.DataGridView();
             this.tabCategory = new System.Windows.Forms.TabPage();
+            this.txtCat = new CFProject.TextBoxH();
+            this.btnDeleteCategory = new CFProject.ButtonH();
+            this.btnEditCategory = new CFProject.ButtonH();
+            this.btnAddCategory = new CFProject.ButtonH();
+            this.grvCategory = new System.Windows.Forms.DataGridView();
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
@@ -60,6 +65,8 @@
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFood)).BeginInit();
+            this.tabCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // tabManagement
@@ -413,6 +420,12 @@
             // tabCategory
             // 
             this.tabCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabCategory.Controls.Add(this.txtCat);
+            this.tabCategory.Controls.Add(this.btnDeleteCategory);
+            this.tabCategory.Controls.Add(this.btnEditCategory);
+            this.tabCategory.Controls.Add(this.btnAddCategory);
+            this.tabCategory.Controls.Add(this.grvCategory);
+            this.tabCategory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCategory.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabCategory.Location = new System.Drawing.Point(4, 29);
             this.tabCategory.Name = "tabCategory";
@@ -421,6 +434,116 @@
             this.tabCategory.TabIndex = 1;
             this.tabCategory.Text = "Phân loại";
             this.tabCategory.UseVisualStyleBackColor = true;
+            // 
+            // txtCat
+            // 
+            this.txtCat.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCat.Location = new System.Drawing.Point(448, 118);
+            this.txtCat.Name = "txtCat";
+            this.txtCat.Size = new System.Drawing.Size(425, 40);
+            this.txtCat.TabIndex = 4;
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCategory.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCategory.BorderWidth = 2;
+            this.btnDeleteCategory.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnDeleteCategory.ButtonText = "";
+            this.btnDeleteCategory.EndColor = System.Drawing.Color.Blue;
+            this.btnDeleteCategory.FlatAppearance.BorderSize = 0;
+            this.btnDeleteCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCategory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCategory.GradientAngle = 90;
+            this.btnDeleteCategory.Location = new System.Drawing.Point(783, 45);
+            this.btnDeleteCategory.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnDeleteCategory.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnDeleteCategory.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnDeleteCategory.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.ShowButtontext = true;
+            this.btnDeleteCategory.Size = new System.Drawing.Size(90, 36);
+            this.btnDeleteCategory.StartColor = System.Drawing.Color.Blue;
+            this.btnDeleteCategory.TabIndex = 3;
+            this.btnDeleteCategory.Text = "Xóa";
+            this.btnDeleteCategory.TextLocation_X = 29;
+            this.btnDeleteCategory.TextLocation_Y = 17;
+            this.btnDeleteCategory.Transparent1 = 75;
+            this.btnDeleteCategory.Transparent2 = 50;
+            this.btnDeleteCategory.UseVisualStyleBackColor = false;
+            // 
+            // btnEditCategory
+            // 
+            this.btnEditCategory.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditCategory.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditCategory.BorderWidth = 2;
+            this.btnEditCategory.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnEditCategory.ButtonText = "";
+            this.btnEditCategory.EndColor = System.Drawing.Color.Blue;
+            this.btnEditCategory.FlatAppearance.BorderSize = 0;
+            this.btnEditCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEditCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEditCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCategory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCategory.GradientAngle = 90;
+            this.btnEditCategory.Location = new System.Drawing.Point(609, 45);
+            this.btnEditCategory.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnEditCategory.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnEditCategory.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnEditCategory.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.ShowButtontext = true;
+            this.btnEditCategory.Size = new System.Drawing.Size(90, 36);
+            this.btnEditCategory.StartColor = System.Drawing.Color.Blue;
+            this.btnEditCategory.TabIndex = 2;
+            this.btnEditCategory.Text = "Sửa";
+            this.btnEditCategory.TextLocation_X = 29;
+            this.btnEditCategory.TextLocation_Y = 17;
+            this.btnEditCategory.Transparent1 = 75;
+            this.btnEditCategory.Transparent2 = 50;
+            this.btnEditCategory.UseVisualStyleBackColor = false;
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddCategory.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddCategory.BorderWidth = 2;
+            this.btnAddCategory.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnAddCategory.ButtonText = "";
+            this.btnAddCategory.EndColor = System.Drawing.Color.Blue;
+            this.btnAddCategory.FlatAppearance.BorderSize = 0;
+            this.btnAddCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCategory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.GradientAngle = 90;
+            this.btnAddCategory.Location = new System.Drawing.Point(448, 45);
+            this.btnAddCategory.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnAddCategory.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnAddCategory.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnAddCategory.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.ShowButtontext = true;
+            this.btnAddCategory.Size = new System.Drawing.Size(90, 36);
+            this.btnAddCategory.StartColor = System.Drawing.Color.Blue;
+            this.btnAddCategory.TabIndex = 1;
+            this.btnAddCategory.Text = "Thêm";
+            this.btnAddCategory.TextLocation_X = 29;
+            this.btnAddCategory.TextLocation_Y = 17;
+            this.btnAddCategory.Transparent1 = 75;
+            this.btnAddCategory.Transparent2 = 50;
+            this.btnAddCategory.UseVisualStyleBackColor = false;
+            // 
+            // grvCategory
+            // 
+            this.grvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvCategory.Location = new System.Drawing.Point(25, 40);
+            this.grvCategory.Name = "grvCategory";
+            this.grvCategory.Size = new System.Drawing.Size(350, 469);
+            this.grvCategory.TabIndex = 0;
+            this.grvCategory.SelectionChanged += new System.EventHandler(this.grvCategory_SelectionChanged);
             // 
             // tabAccount
             // 
@@ -473,6 +596,8 @@
             this.tabFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFood)).EndInit();
+            this.tabCategory.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grvCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,5 +630,10 @@
         private TextBoxH txtCost;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView grvCategory;
+        private ButtonH btnAddCategory;
+        private ButtonH btnDeleteCategory;
+        private ButtonH btnEditCategory;
+        private TextBoxH txtCat;
     }
 }

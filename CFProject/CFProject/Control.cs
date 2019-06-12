@@ -19,7 +19,9 @@ namespace CFProject
 
         private void Control_Load(object sender, EventArgs e)
         {
-            #region TabFood
+            tabManagement.SelectedIndex = 1;
+
+            #region TabFoodProperties
             RefreshFoodData();
             grvFood.Columns[0].HeaderText = "Mã";
             grvFood.Columns[1].HeaderText = "Tên SP";
@@ -31,6 +33,14 @@ namespace CFProject
             grvFood.Columns[2].Width = 200;
             grvFood.Columns[3].Width = 100;
             grvFood.Columns[4].Width = 100;
+            #endregion
+
+            #region TabCategoryProperties
+            RefreshCategoryData();
+            grvCategory.Columns[0].HeaderText = "Mã nhóm";
+            grvCategory.Columns[1].HeaderText = "Tên nhóm sản phẩm";
+            grvCategory.Columns[0].Width = 100;
+            grvCategory.Columns[1].Width = 207;
             #endregion
 
         }
@@ -198,9 +208,30 @@ namespace CFProject
         #endregion
 
         #region CategoryEvent
-        // doing something
+
+        int catID = -1;
+        private void RefreshCategoryData()
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var l = db.NhomSanPhams.Where(c => c.isDeleted == 0).Select(c => new { c.MaNhom, c.TenNhom }).ToList();
+                grvCategory.DataSource = l;
+            }
+        }
+
+        private void grvCategory_SelectionChanged(object sender, EventArgs e)
+        {
+            var id = int.Parse(grvCategory.CurrentRow.Cells[0].Value.ToString());
+            if (id == catID) return;
+            catID = id;
+            using (var db = new QLCafeEntities())
+            {
+                txtCat.Text = db.NhomSanPhams.Find(catID).TenNhom;
+            }
+        }
 
 
         #endregion
+
     }
 }
