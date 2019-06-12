@@ -78,7 +78,7 @@
             this.tabManagement.ItemSize = new System.Drawing.Size(80, 25);
             this.tabManagement.Location = new System.Drawing.Point(1, 2);
             this.tabManagement.Name = "tabManagement";
-            this.tabManagement.NonActiveTabEndColor = System.Drawing.Color.Blue;
+            this.tabManagement.NonActiveTabEndColor = System.Drawing.Color.DodgerBlue;
             this.tabManagement.NonActiveTabStartColor = System.Drawing.Color.AntiqueWhite;
             this.tabManagement.Padding = new System.Drawing.Point(22, 4);
             this.tabManagement.SelectedIndex = 0;
@@ -462,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 574);
+            this.ClientSize = new System.Drawing.Size(1052, 581);
             this.Controls.Add(this.tabManagement);
             this.Name = "Control";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
