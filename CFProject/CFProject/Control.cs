@@ -120,8 +120,9 @@ namespace CFProject
         {
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.InitialDirectory = @"C:\git\CoffeeShop\HinhAnh";
-            dlg.Filter = "JPG Image files (*.jpg)|*.jpg|PNG Image files (*.png)|*.png|BMP Image files (*.bmp)|*.bmp|All Files (*.*)|*.*";
-            dlg.RestoreDirectory = true;
+			//dlg.DefaultExt = "png";
+			dlg.Filter = "Image File(*.jpg *.png *.bmp *.gif *.ico)|*.jpg;*.png;*.bmp;*.gif;*.ico|JPG Image files (*.jpg)|*.jpg|PNG Image files (*.png)|*.png|BMP Image files (*.bmp)|*.bmp|All Files (*.*)|*.*";
+			dlg.RestoreDirectory = true;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 tempImage = dlg.FileName;
