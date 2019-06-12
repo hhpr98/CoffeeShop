@@ -19,7 +19,7 @@ namespace CFProject
 
         private void Control_Load(object sender, EventArgs e)
         {
-            tabManagement.SelectedIndex = 1;
+            tabManagement.SelectedIndex = 0;
 
             #region TabFoodProperties
             RefreshFoodData();
