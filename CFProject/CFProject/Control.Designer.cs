@@ -473,6 +473,7 @@
             this.btnDeleteCategory.Transparent1 = 75;
             this.btnDeleteCategory.Transparent2 = 50;
             this.btnDeleteCategory.UseVisualStyleBackColor = false;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -504,6 +505,7 @@
             this.btnEditCategory.Transparent1 = 75;
             this.btnEditCategory.Transparent2 = 50;
             this.btnEditCategory.UseVisualStyleBackColor = false;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // btnAddCategory
             // 

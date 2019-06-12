@@ -229,9 +229,6 @@ namespace CFProject
             }
         }
 
-
-        #endregion
-
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
             var nameCat = txtCat.Text;
@@ -244,11 +241,32 @@ namespace CFProject
                     return;
                 }
 
-                db.NhomSanPhams.Add(new NhomSanPham() { TenNhom = nameCat,isDeleted=0});
+                db.NhomSanPhams.Add(new NhomSanPham() { TenNhom = nameCat, isDeleted = 0 });
                 db.SaveChanges();
             }
             MessageBox.Show(String.Format("Thêm thành công loại sản phẩm \"{0}\" !", txtCat.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefreshCategoryData();
         }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(grvCategory.CurrentRow.Cells[0].Value.ToString());
+            using (var db = new QLCafeEntities())
+            {
+                var catItem = db.NhomSanPhams.Find(id);
+                catItem.TenNhom = txtCat.Text;
+                db.SaveChanges();
+            }
+            MessageBox.Show(String.Format("Chỉnh sửa thành công nhóm sản phẩm id = {0} !", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshCategoryData();
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }
