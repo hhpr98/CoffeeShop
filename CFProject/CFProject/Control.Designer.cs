@@ -535,6 +535,7 @@
             this.btnAddCategory.Transparent1 = 75;
             this.btnAddCategory.Transparent2 = 50;
             this.btnAddCategory.UseVisualStyleBackColor = false;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // grvCategory
             // 

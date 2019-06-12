@@ -208,7 +208,6 @@ namespace CFProject
         #endregion
 
         #region CategoryEvent
-
         int catID = -1;
         private void RefreshCategoryData()
         {
@@ -233,5 +232,23 @@ namespace CFProject
 
         #endregion
 
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            var nameCat = txtCat.Text;
+            using (var db = new QLCafeEntities())
+            {
+                var lc = db.NhomSanPhams.Select(c => c.TenNhom).ToList();
+                if (lc.Contains(nameCat))
+                {
+                    MessageBox.Show("Tên nhóm sản phẩm đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                db.NhomSanPhams.Add(new NhomSanPham() { TenNhom = nameCat,isDeleted=0});
+                db.SaveChanges();
+            }
+            MessageBox.Show(String.Format("Thêm thành công loại sản phẩm \"{0}\" !", txtCat.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshCategoryData();
+        }
     }
 }
