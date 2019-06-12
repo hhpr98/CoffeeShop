@@ -263,7 +263,18 @@ namespace CFProject
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-
+            var id = int.Parse(grvCategory.CurrentRow.Cells[0].Value.ToString());
+            var res = MessageBox.Show(String.Format("Bạn chắc chắn muốn xóa nhóm sản phẩm id = {0} ?", id), "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (res == DialogResult.OK)
+            {
+                using (var db = new QLCafeEntities())
+                {
+                    var catItem = db.NhomSanPhams.Find(id);
+                    catItem.isDeleted = 1;
+                    db.SaveChanges();
+                }
+                RefreshCategoryData();
+            }
         }
         #endregion
 
