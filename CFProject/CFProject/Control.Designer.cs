@@ -601,8 +601,9 @@
 			this.grvAccount.Location = new System.Drawing.Point(6, 40);
 			this.grvAccount.Name = "grvAccount";
 			this.grvAccount.RowTemplate.Height = 33;
-			this.grvAccount.Size = new System.Drawing.Size(1500, 894);
+			this.grvAccount.Size = new System.Drawing.Size(884, 894);
 			this.grvAccount.TabIndex = 0;
+			this.grvAccount.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grvAccount_CellFormatting_1);
 			this.grvAccount.SelectionChanged += new System.EventHandler(this.grvAccount_SelectionChanged);
 			// 
 			// tabReven
@@ -637,7 +638,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(2104, 1117);
 			this.Controls.Add(this.tabManagement);
-			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Control";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Control";

@@ -46,21 +46,22 @@ namespace CFProject
 
 			#region TabAccountProperties
 			RefreshAccountData();
-			grvAccount.ColumnCount = 7;
+			
 			grvAccount.Columns[0].HeaderText = "Mã tài khoản";
 			grvAccount.Columns[1].HeaderText = "Tên đăng nhập";
+
 			grvAccount.Columns[2].HeaderText = "Mật khẩu";
-			grvAccount.Columns[3].HeaderText = "Tên người quản lý";
-			grvAccount.Columns[4].HeaderText = "CMND";
-			grvAccount.Columns[5].HeaderText = "Địa chỉ";
-			grvAccount.Columns[6].HeaderText = "SĐT";
+			grvAccount.Columns[3].HeaderText = "Mã NQL";
+			//grvAccount.Columns[4].HeaderText = "CMND";
+			//grvAccount.Columns[5].HeaderText = "Địa chỉ";
+			//grvAccount.Columns[6].HeaderText = "SĐT";
 			grvAccount.Columns[0].Width = 100;
 			grvAccount.Columns[1].Width = 100;
 			grvAccount.Columns[2].Width = 100;
 			grvAccount.Columns[3].Width = 150;
-			grvAccount.Columns[4].Width = 100;
-			grvAccount.Columns[5].Width = 100;
-			grvAccount.Columns[6].Width = 100;
+			//grvAccount.Columns[4].Width = 100;
+			//grvAccount.Columns[5].Width = 100;
+			//grvAccount.Columns[6].Width = 100;
 			#endregion
 
 
@@ -312,11 +313,21 @@ namespace CFProject
 		{
 			using (var db = new QLCafeEntities())
 			{
-				//var k =db.TaiKhoans.Where(x=>x.isDeleted==0 &&			
+				var l = db.TaiKhoans.Where(c => c.isDeleted == 0).Select(c => new { c.MaTaiKhoan, c.TenDangNhap,c.MatKhau, c.MaNQL }).ToList();
+				grvAccount.DataSource = l;
 			}
-			
-			
+		
 		}
+
+		private void grvAccount_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+			if (e.ColumnIndex == 2 && e.Value != null)
+			{
+				e.Value = new String('*', e.Value.ToString().Length);
+			}
+		}
+
+
 		private void grvAccount_SelectionChanged(object sender, EventArgs e)
 		{
 
