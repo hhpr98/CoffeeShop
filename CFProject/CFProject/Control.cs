@@ -41,12 +41,35 @@ namespace CFProject
             grvCategory.Columns[1].HeaderText = "Tên nhóm sản phẩm";
             grvCategory.Columns[0].Width = 100;
             grvCategory.Columns[1].Width = 207;
-            #endregion
+			#endregion
 
-        }
 
-        #region FoodEvent
-        int selIndex = -1;
+			#region TabAccountProperties
+			RefreshAccountData();
+			grvAccount.ColumnCount = 7;
+			grvAccount.Columns[0].HeaderText = "Mã tài khoản";
+			grvAccount.Columns[1].HeaderText = "Tên đăng nhập";
+			grvAccount.Columns[2].HeaderText = "Mật khẩu";
+			grvAccount.Columns[3].HeaderText = "Tên người quản lý";
+			grvAccount.Columns[4].HeaderText = "CMND";
+			grvAccount.Columns[5].HeaderText = "Địa chỉ";
+			grvAccount.Columns[6].HeaderText = "SĐT";
+			grvAccount.Columns[0].Width = 100;
+			grvAccount.Columns[1].Width = 100;
+			grvAccount.Columns[2].Width = 100;
+			grvAccount.Columns[3].Width = 150;
+			grvAccount.Columns[4].Width = 100;
+			grvAccount.Columns[5].Width = 100;
+			grvAccount.Columns[6].Width = 100;
+			#endregion
+
+
+
+
+		}
+
+		#region FoodEvent
+		int selIndex = -1;
         String tempImage = "";
 
         private void RefreshFoodData()
@@ -206,10 +229,15 @@ namespace CFProject
             RefreshFoodData();
         }
 
-        #endregion
+		private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+		{
 
-        #region CategoryEvent
-        int catID = -1;
+		}
+
+		#endregion
+
+		#region CategoryEvent
+		int catID = -1;
         private void RefreshCategoryData()
         {
             using (var db = new QLCafeEntities())
@@ -277,16 +305,30 @@ namespace CFProject
                 RefreshCategoryData();
             }
         }
-        #endregion
+		#endregion
 
-        #region AccountEvent
-        #endregion
+		#region AccountEvent
+		private void RefreshAccountData()
+		{
+			using (var db = new QLCafeEntities())
+			{
+				//var k =db.TaiKhoans.Where(x=>x.isDeleted==0 &&			
+			}
+			
+			
+		}
+		private void grvAccount_SelectionChanged(object sender, EventArgs e)
+		{
 
-        #region RevenEvent
-        #endregion
+		}
 
-        #region StatisEvent
-        #endregion
+		#endregion
 
-    }
+		#region RevenEvent
+		#endregion
+
+		#region StatisEvent
+		#endregion
+
+	}
 }
