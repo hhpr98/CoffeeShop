@@ -59,9 +59,18 @@
 			this.btnAddCategory = new CFProject.ButtonH();
 			this.grvCategory = new System.Windows.Forms.DataGridView();
 			this.tabAccount = new System.Windows.Forms.TabPage();
+			this.txtPassword = new System.Windows.Forms.TextBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.txtUser = new System.Windows.Forms.TextBox();
+			this.label8 = new System.Windows.Forms.Label();
+			this.btnDeleteAccount = new System.Windows.Forms.Button();
+			this.btnEditAccount = new System.Windows.Forms.Button();
+			this.btnAddAccount = new System.Windows.Forms.Button();
 			this.grvAccount = new System.Windows.Forms.DataGridView();
 			this.tabReven = new System.Windows.Forms.TabPage();
 			this.tabStatis = new System.Windows.Forms.TabPage();
+			this.label10 = new System.Windows.Forms.Label();
+			this.cmbMaNQL = new System.Windows.Forms.ComboBox();
 			this.tabManagement.SuspendLayout();
 			this.tabFood.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -584,6 +593,15 @@
 			// tabAccount
 			// 
 			this.tabAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.tabAccount.Controls.Add(this.cmbMaNQL);
+			this.tabAccount.Controls.Add(this.label10);
+			this.tabAccount.Controls.Add(this.txtPassword);
+			this.tabAccount.Controls.Add(this.label9);
+			this.tabAccount.Controls.Add(this.txtUser);
+			this.tabAccount.Controls.Add(this.label8);
+			this.tabAccount.Controls.Add(this.btnDeleteAccount);
+			this.tabAccount.Controls.Add(this.btnEditAccount);
+			this.tabAccount.Controls.Add(this.btnAddAccount);
 			this.tabAccount.Controls.Add(this.grvAccount);
 			this.tabAccount.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.tabAccount.Location = new System.Drawing.Point(4, 29);
@@ -595,13 +613,73 @@
 			this.tabAccount.Text = "Tài khoản";
 			this.tabAccount.UseVisualStyleBackColor = true;
 			// 
+			// txtPassword
+			// 
+			this.txtPassword.Location = new System.Drawing.Point(1259, 245);
+			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.PasswordChar = '*';
+			this.txtPassword.Size = new System.Drawing.Size(358, 37);
+			this.txtPassword.TabIndex = 7;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(1026, 252);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(125, 30);
+			this.label9.TabIndex = 6;
+			this.label9.Text = "Mật khẩu";
+			// 
+			// txtUser
+			// 
+			this.txtUser.Location = new System.Drawing.Point(1259, 136);
+			this.txtUser.Name = "txtUser";
+			this.txtUser.Size = new System.Drawing.Size(358, 37);
+			this.txtUser.TabIndex = 5;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(1026, 138);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(182, 30);
+			this.label8.TabIndex = 4;
+			this.label8.Text = "Tên đăng nhập";
+			// 
+			// btnDeleteAccount
+			// 
+			this.btnDeleteAccount.Location = new System.Drawing.Point(646, 35);
+			this.btnDeleteAccount.Name = "btnDeleteAccount";
+			this.btnDeleteAccount.Size = new System.Drawing.Size(137, 52);
+			this.btnDeleteAccount.TabIndex = 3;
+			this.btnDeleteAccount.Text = "Xóa";
+			this.btnDeleteAccount.UseVisualStyleBackColor = true;
+			// 
+			// btnEditAccount
+			// 
+			this.btnEditAccount.Location = new System.Drawing.Point(397, 35);
+			this.btnEditAccount.Name = "btnEditAccount";
+			this.btnEditAccount.Size = new System.Drawing.Size(137, 52);
+			this.btnEditAccount.TabIndex = 2;
+			this.btnEditAccount.Text = "Sửa";
+			this.btnEditAccount.UseVisualStyleBackColor = true;
+			// 
+			// btnAddAccount
+			// 
+			this.btnAddAccount.Location = new System.Drawing.Point(139, 35);
+			this.btnAddAccount.Name = "btnAddAccount";
+			this.btnAddAccount.Size = new System.Drawing.Size(137, 52);
+			this.btnAddAccount.TabIndex = 1;
+			this.btnAddAccount.Text = "Thêm";
+			this.btnAddAccount.UseVisualStyleBackColor = true;
+			// 
 			// grvAccount
 			// 
 			this.grvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grvAccount.Location = new System.Drawing.Point(6, 40);
+			this.grvAccount.Location = new System.Drawing.Point(6, 138);
 			this.grvAccount.Name = "grvAccount";
 			this.grvAccount.RowTemplate.Height = 33;
-			this.grvAccount.Size = new System.Drawing.Size(884, 894);
+			this.grvAccount.Size = new System.Drawing.Size(884, 796);
 			this.grvAccount.TabIndex = 0;
 			this.grvAccount.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grvAccount_CellFormatting_1);
 			this.grvAccount.SelectionChanged += new System.EventHandler(this.grvAccount_SelectionChanged);
@@ -632,6 +710,23 @@
 			this.tabStatis.Text = "Thống kê";
 			this.tabStatis.UseVisualStyleBackColor = true;
 			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(1026, 393);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(114, 30);
+			this.label10.TabIndex = 8;
+			this.label10.Text = "Mã NQL";
+			// 
+			// cmbMaNQL
+			// 
+			this.cmbMaNQL.FormattingEnabled = true;
+			this.cmbMaNQL.Location = new System.Drawing.Point(1259, 385);
+			this.cmbMaNQL.Name = "cmbMaNQL";
+			this.cmbMaNQL.Size = new System.Drawing.Size(358, 38);
+			this.cmbMaNQL.TabIndex = 9;
+			// 
 			// Control
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -651,6 +746,7 @@
 			this.tabCategory.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.grvCategory)).EndInit();
 			this.tabAccount.ResumeLayout(false);
+			this.tabAccount.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.grvAccount)).EndInit();
 			this.ResumeLayout(false);
 
@@ -690,5 +786,14 @@
         private ButtonH btnEditCategory;
         private TextBoxH txtCat;
 		private System.Windows.Forms.DataGridView grvAccount;
+		private System.Windows.Forms.Button btnDeleteAccount;
+		private System.Windows.Forms.Button btnEditAccount;
+		private System.Windows.Forms.Button btnAddAccount;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.TextBox txtPassword;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.TextBox txtUser;
+		private System.Windows.Forms.ComboBox cmbMaNQL;
+		private System.Windows.Forms.Label label10;
 	}
 }

@@ -330,7 +330,19 @@ namespace CFProject
 
 		private void grvAccount_SelectionChanged(object sender, EventArgs e)
 		{
-
+			var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
+			if(id==selIndex)return;
+			selIndex = id;
+			TaiKhoan taikhoanSelected;
+			//List<NguoiQuanLi> tk;
+			using (var db = new QLCafeEntities())
+			{
+				taikhoanSelected = db.TaiKhoans.Find(selIndex);
+				
+			}
+			txtUser.Text = taikhoanSelected.TenDangNhap;
+			txtPassword.Text = taikhoanSelected.MatKhau;
+			//cmbMaNQL.DataSource = tk.Select(x => x.MaNQL).ToList();
 		}
 
 		#endregion
@@ -341,5 +353,6 @@ namespace CFProject
 		#region StatisEvent
 		#endregion
 
+		
 	}
 }
