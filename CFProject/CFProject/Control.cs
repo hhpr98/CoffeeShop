@@ -327,7 +327,7 @@ namespace CFProject
 		{
 			if (e.ColumnIndex == 2 && e.Value != null)
 			{
-				e.Value = new String('*', e.Value.ToString().Length);
+				e.Value = new String('•', e.Value.ToString().Length);
 			}
 		}
 
@@ -444,6 +444,21 @@ namespace CFProject
                 RefreshAccountData();
             }
         }
+
+        int statusPassword = 0;
+        private void btnShowHidePass_Click(object sender, EventArgs e)
+        {
+            if (statusPassword == 0)
+            {
+                statusPassword = 1;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                statusPassword = 0;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
         #endregion
 
         #region RevenEvent
@@ -451,6 +466,7 @@ namespace CFProject
 
         #region StatisEvent
         #endregion
+
 
     }
 }
