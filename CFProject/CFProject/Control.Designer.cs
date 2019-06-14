@@ -602,7 +602,6 @@
             this.cmbMaNQL.Name = "cmbMaNQL";
             this.cmbMaNQL.Size = new System.Drawing.Size(181, 23);
             this.cmbMaNQL.TabIndex = 9;
-            this.cmbMaNQL.SelectedIndexChanged += new System.EventHandler(this.cmbMaNQL_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -613,7 +612,6 @@
             this.label10.Size = new System.Drawing.Size(54, 15);
             this.label10.TabIndex = 8;
             this.label10.Text = "Mã NQL";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtPassword
             // 
@@ -623,7 +621,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(181, 22);
             this.txtPassword.TabIndex = 7;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label9
             // 

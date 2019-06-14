@@ -19,7 +19,7 @@ namespace CFProject
 
         private void Control_Load(object sender, EventArgs e)
         {
-            tabManagement.SelectedIndex = 0;
+            tabManagement.SelectedIndex = 2;
 
             #region TabFoodProperties
             RefreshFoodData();
@@ -43,30 +43,23 @@ namespace CFProject
             grvCategory.Columns[1].Width = 207;
 			#endregion
 
-
 			#region TabAccountProperties
 			RefreshAccountData();
-			
-			grvAccount.Columns[0].HeaderText = "Mã tài khoản";
+			grvAccount.Columns[0].HeaderText = "Mã TK";
 			grvAccount.Columns[1].HeaderText = "Tên đăng nhập";
-
 			grvAccount.Columns[2].HeaderText = "Mật khẩu";
-			//grvAccount.Columns[3].HeaderText = "Mã NQL";
 			grvAccount.Columns[3].HeaderText = "Họ tên NQL";
 			grvAccount.Columns[4].HeaderText = "CMND";
 			grvAccount.Columns[5].HeaderText = "Địa chỉ";
 			grvAccount.Columns[6].HeaderText = "SĐT";
 			grvAccount.Columns[0].Width = 100;
-			grvAccount.Columns[1].Width = 100;
+			grvAccount.Columns[1].Width = 120;
 			grvAccount.Columns[2].Width = 100;
 			grvAccount.Columns[3].Width = 120;
 			grvAccount.Columns[4].Width = 80;
 			grvAccount.Columns[5].Width = 80;
 			grvAccount.Columns[6].Width = 80;
 			#endregion
-
-
-
 
 		}
 
@@ -314,17 +307,9 @@ namespace CFProject
 		{
 			using (var db = new QLCafeEntities())
 			{
-				var nql = db.NguoiQuanLis.ToList();
-				foreach(var item in nql)
-				{
-					var l = db.TaiKhoans.Where(c => c.isDeleted == 0 && c.MaNQL==item.MaNQL ).Select(c => new { c.MaTaiKhoan, c.TenDangNhap, c.MatKhau, item.HoTen,item.CMND
-						,item.DiaChi,item.SoDienThoai }).ToList();
-					grvAccount.DataSource = l;
-				}
-
-				
+                var nql = db.TaiKhoans.Where(u => u.isDeleted == 0).Select(u => new { u.MaTaiKhoan, u.TenDangNhap, u.MatKhau ,u.NguoiQuanLi.HoTen,u.NguoiQuanLi.CMND,u.NguoiQuanLi.DiaChi,u.NguoiQuanLi.SoDienThoai}).ToList();
+				grvAccount.DataSource = nql;
 			}
-		
 		}
 
 		private void grvAccount_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
@@ -430,26 +415,5 @@ namespace CFProject
 		#region StatisEvent
 		#endregion
 
-		private void tabManagement_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void txtPassword_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label10_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void cmbMaNQL_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		
 	}
 }
