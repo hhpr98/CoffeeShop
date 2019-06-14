@@ -33,6 +33,12 @@ namespace CFProject
             grvFood.Columns[2].Width = 200;
             grvFood.Columns[3].Width = 100;
             grvFood.Columns[4].Width = 100;
+            //grvFood.Columns[0].HeaderCell.Style.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            //grvFood.Columns[0].HeaderCell.Style.BackColor = System.Drawing.Color.Blue;
+            grvFood.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            grvFood.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            grvFood.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            grvFood.EnableHeadersVisualStyles = false;
             #endregion
 
             #region TabCategoryProperties
@@ -41,27 +47,31 @@ namespace CFProject
             grvCategory.Columns[1].HeaderText = "Tên nhóm sản phẩm";
             grvCategory.Columns[0].Width = 100;
             grvCategory.Columns[1].Width = 207;
-			#endregion
+            grvCategory.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            grvCategory.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            grvCategory.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            grvCategory.EnableHeadersVisualStyles = false;
+            #endregion
 
-			#region TabAccountProperties
-			RefreshAccountData();
+            #region TabAccountProperties
+            RefreshAccountData();
 			grvAccount.Columns[0].HeaderText = "Mã TK";
 			grvAccount.Columns[1].HeaderText = "Tên đăng nhập";
 			grvAccount.Columns[2].HeaderText = "Mật khẩu";
 			grvAccount.Columns[3].HeaderText = "Họ tên NQL";
-			grvAccount.Columns[4].HeaderText = "CMND";
-			grvAccount.Columns[5].HeaderText = "Địa chỉ";
-			grvAccount.Columns[6].HeaderText = "SĐT";
+			grvAccount.Columns[4].HeaderText = "Địa chỉ";
 			grvAccount.Columns[0].Width = 100;
-			grvAccount.Columns[1].Width = 120;
+			grvAccount.Columns[1].Width = 150;
 			grvAccount.Columns[2].Width = 100;
 			grvAccount.Columns[3].Width = 120;
-			grvAccount.Columns[4].Width = 80;
-			grvAccount.Columns[5].Width = 80;
-			grvAccount.Columns[6].Width = 80;
-			#endregion
+			grvAccount.Columns[4].Width = 200;
+            grvAccount.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            grvAccount.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            grvAccount.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            grvAccount.EnableHeadersVisualStyles = false;
+            #endregion
 
-		}
+        }
 
 		#region FoodEvent
 		int selIndex = -1;
@@ -300,19 +310,20 @@ namespace CFProject
                 RefreshCategoryData();
             }
         }
-		#endregion
+        #endregion
 
-		#region AccountEvent
+        #region AccountEvent
+        int selIndexAcc = -1;
 		private void RefreshAccountData()
 		{
 			using (var db = new QLCafeEntities())
 			{
-                var nql = db.TaiKhoans.Where(u => u.isDeleted == 0).Select(u => new { u.MaTaiKhoan, u.TenDangNhap, u.MatKhau ,u.NguoiQuanLi.HoTen,u.NguoiQuanLi.CMND,u.NguoiQuanLi.DiaChi,u.NguoiQuanLi.SoDienThoai}).ToList();
+                var nql = db.TaiKhoans.Where(u => u.isDeleted == 0).Select(u => new { u.MaTaiKhoan, u.TenDangNhap, u.MatKhau ,u.NguoiQuanLi.HoTen,u.NguoiQuanLi.DiaChi}).ToList();
 				grvAccount.DataSource = nql;
 			}
 		}
 
-		private void grvAccount_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
+		private void grvAccount_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
 			if (e.ColumnIndex == 2 && e.Value != null)
 			{
@@ -320,100 +331,91 @@ namespace CFProject
 			}
 		}
 
-
 		private void grvAccount_SelectionChanged(object sender, EventArgs e)
 		{
 			var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
-			if(id==selIndex)return;
-			selIndex = id;
-			TaiKhoan taikhoanSelected;
-			List<NguoiQuanLi> nql;
+			if(id == selIndexAcc) return;
+			selIndexAcc = id;
+            TaiKhoan acc;
 			using (var db = new QLCafeEntities())
 			{
-				taikhoanSelected = db.TaiKhoans.Find(selIndex);
-				nql = db.NguoiQuanLis.ToList();
-
-			}
-			txtUser.Text = taikhoanSelected.TenDangNhap;
-			txtPassword.Text = taikhoanSelected.MatKhau;
-			cmbMaNQL.DataSource = nql.Select(x => x.MaNQL).ToList();
-			var k = -1;
-			foreach(var index in nql)
-			{
-				k++;
-				if (index.MaNQL == taikhoanSelected.MaNQL)
-				{
-					break;
-				}
-			}
-			cmbMaNQL.SelectedIndex = k;
+                acc = db.TaiKhoans.Find(selIndexAcc);
+                txtUsername.Text = acc.TenDangNhap;
+                txtPassword.Text = acc.MatKhau;
+                txtUsermanagement.Text = acc.NguoiQuanLi.HoTen;
+                txtCMND.Text = acc.NguoiQuanLi.CMND;
+                txtAddress.Text = acc.NguoiQuanLi.DiaChi;
+                txtPhoneNumber.Text = acc.NguoiQuanLi.SoDienThoai;
+            }
 		}
+
 		private void btnAddAccount_Click(object sender, EventArgs e)
 		{
-			using (var db= new QLCafeEntities())
-			{
-				//kiem tra xem tai khoan da ton tai
-				var user = txtUser.Text;
-				var listUser = db.TaiKhoans.Where(p => p.isDeleted == 0).Select(p => p.TenDangNhap).ToList();
-				if (listUser.Contains(user))
-				{
-					MessageBox.Show("Tên đăng nhập đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					return;
-				}
-				//thêm tai khoan moi
-				TaiKhoan tk = new TaiKhoan();
-				tk.TenDangNhap = txtUser.Text;
-				tk.MatKhau = txtPassword.Text;
-				var li = db.NguoiQuanLis.Where(p=>p.HoTen!=null).ToList();
-				var t = cmbMaNQL.SelectedIndex;
-				tk.MaNQL = li[t].MaNQL;
-				tk.isDeleted = 0;
-				db.TaiKhoans.Add(tk);
-				db.SaveChanges();
-				
-			}
-			MessageBox.Show(String.Format("Thêm thành công tài khoản \"{0}\"!", txtUser.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			RefreshAccountData();
-		}
+            using (var db = new QLCafeEntities())
+            {
+                //kiem tra xem tai khoan da ton tai
+                var user = txtUsername.Text;
+                var listUser = db.TaiKhoans.Where(p => p.isDeleted == 0).Select(p => p.TenDangNhap).ToList();
+                if (listUser.Contains(user,StringComparer.Ordinal))
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //thêm tai khoan moi
+
+                //TaiKhoan tk = new TaiKhoan();
+                //tk.TenDangNhap = txtUser.Text;
+                //tk.MatKhau = txtPassword.Text;
+                //var li = db.NguoiQuanLis.Where(p => p.HoTen != null).ToList();
+                //var t = cmbMaNQL.SelectedIndex;
+                //tk.MaNQL = li[t].MaNQL;
+                //tk.isDeleted = 0;
+                //db.TaiKhoans.Add(tk);
+                //db.SaveChanges();
+
+            }
+            MessageBox.Show(String.Format("Thêm thành công tài khoản \"{0}\"!", txtUsername.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshAccountData();
+        }
 		private void btnEditAccount_Click(object sender, EventArgs e)
 		{
-			var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
-			using (var db = new QLCafeEntities())
-			{
-				var tkhoan = db.TaiKhoans.Find(id);
-				tkhoan.TenDangNhap = txtUser.Text;
-				tkhoan.MatKhau = txtPassword.Text;
-				var li = db.NguoiQuanLis.Where(p => p.HoTen != null).ToList();
-				var t = cmbMaNQL.SelectedIndex;
-				tkhoan.MaNQL = li[t].MaNQL;
-				db.SaveChanges();
+			//var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
+			//using (var db = new QLCafeEntities())
+			//{
+			//	var tkhoan = db.TaiKhoans.Find(id);
+			//	tkhoan.TenDangNhap = txtUser.Text;
+			//	tkhoan.MatKhau = txtPassword.Text;
+			//	var li = db.NguoiQuanLis.Where(p => p.HoTen != null).ToList();
+			//	var t = cmbMaNQL.SelectedIndex;
+			//	tkhoan.MaNQL = li[t].MaNQL;
+			//	db.SaveChanges();
 
-			}
-			MessageBox.Show(String.Format("Chỉnh sửa thành công tài khoản id = {0} !", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			RefreshAccountData();
+			//}
+			//MessageBox.Show(String.Format("Chỉnh sửa thành công tài khoản id = {0} !", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			//RefreshAccountData();
 		}
 		private void btnDeleteAccount_Click(object sender, EventArgs e)
 		{
-			var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
-			var res = MessageBox.Show(String.Format("Bạn chắc chắn muốn xóa sản phẩm id = {0} ?", id), "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-			if (res == DialogResult.OK)
-			{
-				using (var db = new QLCafeEntities())
-				{
-					var taikhoanxoa = db.TaiKhoans.Find(id);
-					taikhoanxoa.isDeleted = 1;
-					db.SaveChanges();
-				}
-				RefreshAccountData();
-			}
+			//var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
+			//var res = MessageBox.Show(String.Format("Bạn chắc chắn muốn xóa sản phẩm id = {0} ?", id), "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+			//if (res == DialogResult.OK)
+			//{
+			//	using (var db = new QLCafeEntities())
+			//	{
+			//		var taikhoanxoa = db.TaiKhoans.Find(id);
+			//		taikhoanxoa.isDeleted = 1;
+			//		db.SaveChanges();
+			//	}
+			//	RefreshAccountData();
+			//}
 		}
-		#endregion
+        #endregion
 
-		#region RevenEvent
-		#endregion
+        #region RevenEvent
+        #endregion
 
-		#region StatisEvent
-		#endregion
+        #region StatisEvent
+        #endregion
 
-	}
+    }
 }
