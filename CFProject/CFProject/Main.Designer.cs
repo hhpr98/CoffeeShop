@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngKsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,9 +40,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtNumber = new System.Windows.Forms.NumericUpDown();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxH1 = new CFProject.ComboBoxH();
+            this.btnBill = new CFProject.ButtonH();
+            this.btnAdd = new CFProject.ButtonH();
             this.cbProduct = new CFProject.ComboBoxH();
             this.cbCategory = new CFProject.ComboBoxH();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -53,7 +66,7 @@
             this.thôngTinToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1136, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,9 +79,25 @@
             // 
             // chứcNăngToolStripMenuItem
             // 
+            this.chứcNăngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.đăngNhậpToolStripMenuItem,
+            this.đăngKsToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem});
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
             this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
+            // 
+            // đăngNhậpToolStripMenuItem
+            // 
+            this.đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
+            this.đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngNhậpToolStripMenuItem.Text = "Đăng nhập";
+            // 
+            // đăngKsToolStripMenuItem
+            // 
+            this.đăngKsToolStripMenuItem.Name = "đăngKsToolStripMenuItem";
+            this.đăngKsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngKsToolStripMenuItem.Text = "Đăng kí";
             // 
             // thôngTinToolStripMenuItem
             // 
@@ -96,16 +125,16 @@
             // pnTable
             // 
             this.pnTable.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnTable.Location = new System.Drawing.Point(0, 31);
+            this.pnTable.Location = new System.Drawing.Point(11, 73);
             this.pnTable.Name = "pnTable";
-            this.pnTable.Size = new System.Drawing.Size(600, 530);
+            this.pnTable.Size = new System.Drawing.Size(486, 434);
             this.pnTable.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(619, 51);
+            this.label1.Location = new System.Drawing.Point(508, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 4;
@@ -115,7 +144,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(808, 51);
+            this.label2.Location = new System.Drawing.Point(697, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 6;
@@ -125,11 +154,148 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1007, 51);
+            this.label3.Location = new System.Drawing.Point(896, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 8;
             this.label3.Text = "Số lượng :";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.BackColor = System.Drawing.Color.LightCyan;
+            this.txtNumber.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Location = new System.Drawing.Point(977, 75);
+            this.txtNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(52, 26);
+            this.txtNumber.TabIndex = 9;
+            this.txtNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(557, 132);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(562, 375);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(343, 527);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Chuyển bàn";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 16);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Xin chào,";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(99, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 16);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "<Chưa đăng nhập>";
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            // 
+            // comboBoxH1
+            // 
+            this.comboBoxH1.BackColor = System.Drawing.Color.LightCyan;
+            this.comboBoxH1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxH1.FormattingEnabled = true;
+            this.comboBoxH1.ItemHeight = 20;
+            this.comboBoxH1.Location = new System.Drawing.Point(445, 521);
+            this.comboBoxH1.Name = "comboBoxH1";
+            this.comboBoxH1.Size = new System.Drawing.Size(52, 28);
+            this.comboBoxH1.TabIndex = 15;
+            // 
+            // btnBill
+            // 
+            this.btnBill.BackColor = System.Drawing.Color.Transparent;
+            this.btnBill.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBill.BorderWidth = 2;
+            this.btnBill.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnBill.ButtonText = "";
+            this.btnBill.EndColor = System.Drawing.Color.Orange;
+            this.btnBill.FlatAppearance.BorderSize = 0;
+            this.btnBill.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBill.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBill.GradientAngle = 90;
+            this.btnBill.Location = new System.Drawing.Point(1027, 527);
+            this.btnBill.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnBill.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnBill.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnBill.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnBill.Name = "btnBill";
+            this.btnBill.ShowButtontext = true;
+            this.btnBill.Size = new System.Drawing.Size(92, 28);
+            this.btnBill.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBill.TabIndex = 12;
+            this.btnBill.Text = "Thanh toán";
+            this.btnBill.TextLocation_X = 29;
+            this.btnBill.TextLocation_Y = 14;
+            this.btnBill.Transparent1 = 75;
+            this.btnBill.Transparent2 = 50;
+            this.btnBill.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderWidth = 2;
+            this.btnAdd.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnAdd.ButtonText = "";
+            this.btnAdd.EndColor = System.Drawing.Color.Orange;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.GradientAngle = 90;
+            this.btnAdd.Location = new System.Drawing.Point(1052, 73);
+            this.btnAdd.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnAdd.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnAdd.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnAdd.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ShowButtontext = true;
+            this.btnAdd.Size = new System.Drawing.Size(67, 28);
+            this.btnAdd.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAdd.TabIndex = 10;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextLocation_X = 21;
+            this.btnAdd.TextLocation_Y = 14;
+            this.btnAdd.Transparent1 = 75;
+            this.btnAdd.Transparent2 = 50;
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // cbProduct
             // 
@@ -137,7 +303,7 @@
             this.cbProduct.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProduct.FormattingEnabled = true;
             this.cbProduct.ItemHeight = 20;
-            this.cbProduct.Location = new System.Drawing.Point(880, 45);
+            this.cbProduct.Location = new System.Drawing.Point(769, 73);
             this.cbProduct.Name = "cbProduct";
             this.cbProduct.Size = new System.Drawing.Size(121, 28);
             this.cbProduct.TabIndex = 5;
@@ -148,7 +314,7 @@
             this.cbCategory.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.ItemHeight = 20;
-            this.cbCategory.Location = new System.Drawing.Point(666, 45);
+            this.cbCategory.Location = new System.Drawing.Point(555, 73);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 28);
             this.cbCategory.TabIndex = 3;
@@ -157,7 +323,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 749);
+            this.ClientSize = new System.Drawing.Size(1136, 563);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBoxH1);
+            this.Controls.Add(this.btnBill);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbProduct);
@@ -172,6 +346,8 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +366,17 @@
         private System.Windows.Forms.Label label2;
         private ComboBoxH cbProduct;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown txtNumber;
+        private ButtonH btnAdd;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private ButtonH btnBill;
+        private System.Windows.Forms.Label label4;
+        private ComboBoxH comboBoxH1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem đăngNhậpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đăngKsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }
 
