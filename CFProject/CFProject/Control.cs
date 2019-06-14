@@ -210,7 +210,7 @@ namespace CFProject
                 // check tên sản phẩm đã tồn tại?
                 var name = txtName.Text;
                 var listName = db.SanPhams.Where(p => p.isDeleted == 0).Select(p => p.TenSanPham).ToList();
-                if (listName.Contains(name))
+                if (listName.Contains(name, StringComparer.OrdinalIgnoreCase))
                 {
                     MessageBox.Show("Tên sản phẩm đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -269,7 +269,7 @@ namespace CFProject
             using (var db = new QLCafeEntities())
             {
                 var lc = db.NhomSanPhams.Select(c => c.TenNhom).ToList();
-                if (lc.Contains(nameCat))
+                if (lc.Contains(nameCat, StringComparer.OrdinalIgnoreCase))
                 {
                     MessageBox.Show("Tên nhóm sản phẩm đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -356,7 +356,7 @@ namespace CFProject
                 //kiem tra xem tai khoan da ton tai
                 var user = txtUsername.Text;
                 var listUser = db.TaiKhoans.Where(p => p.isDeleted == 0).Select(p => p.TenDangNhap).ToList();
-                if (listUser.Contains(user,StringComparer.Ordinal))
+                if (listUser.Contains(user,StringComparer.OrdinalIgnoreCase))
                 {
                     MessageBox.Show("Tên đăng nhập đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
