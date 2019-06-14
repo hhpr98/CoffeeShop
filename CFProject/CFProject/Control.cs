@@ -334,17 +334,58 @@ namespace CFProject
 			if(id==selIndex)return;
 			selIndex = id;
 			TaiKhoan taikhoanSelected;
-			//List<NguoiQuanLi> tk;
+			List<NguoiQuanLi> nql;
 			using (var db = new QLCafeEntities())
 			{
 				taikhoanSelected = db.TaiKhoans.Find(selIndex);
-				
+				nql = db.NguoiQuanLis.ToList();
+
 			}
 			txtUser.Text = taikhoanSelected.TenDangNhap;
 			txtPassword.Text = taikhoanSelected.MatKhau;
-			//cmbMaNQL.DataSource = tk.Select(x => x.MaNQL).ToList();
+			cmbMaNQL.DataSource = nql.Select(x => x.MaNQL).ToList();
+			var k = -1;
+			foreach(var index in nql)
+			{
+				k++;
+				if (index.MaNQL == taikhoanSelected.MaNQL)
+				{
+					break;
+				}
+			}
+			cmbMaNQL.SelectedIndex = k;
 		}
+		private void btnAddAccount_Click(object sender, EventArgs e)
+		{
+			using (var db= new QLCafeEntities())
+			{
+				//kiem tra xem tai khoan da ton tai
+				var user = txtUser.Text;
+				var listUser = db.TaiKhoans.Where(p => p.isDeleted == 0).Select(p => p.TenDangNhap).ToList();
+				if (listUser.Contains(user))
+				{
+					MessageBox.Show("Tên đăng nhập đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return;
+				}
+				//thêm tai khoan moi
+				TaiKhoan tk = new TaiKhoan();
+				tk.TenDangNhap = txtUser.Text;
+				tk.MatKhau = txtPassword.Text;
+				var li = db.NguoiQuanLis.Where(p=>p.HoTen!=null).ToList();
+				var t = cmbMaNQL.SelectedIndex;
+				tk.MaNQL = li[t].MaNQL;
+				tk.isDeleted = 0;
+				db.TaiKhoans.Add(tk);
+				db.SaveChanges();
+				
+			}
+			MessageBox.Show(String.Format("Thêm thành công tài khoản \"{0}\"!", txtUser.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			RefreshAccountData();
+		}
+		private void btnEditAccount_Click(object sender, EventArgs e)
+		{
 
+		}
 		#endregion
 
 		#region RevenEvent
@@ -352,6 +393,11 @@ namespace CFProject
 
 		#region StatisEvent
 		#endregion
+
+		private void tabManagement_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
 
 		
 	}
