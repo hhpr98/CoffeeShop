@@ -51,17 +51,18 @@ namespace CFProject
 			grvAccount.Columns[1].HeaderText = "Tên đăng nhập";
 
 			grvAccount.Columns[2].HeaderText = "Mật khẩu";
-			grvAccount.Columns[3].HeaderText = "Mã NQL";
-			//grvAccount.Columns[4].HeaderText = "CMND";
-			//grvAccount.Columns[5].HeaderText = "Địa chỉ";
-			//grvAccount.Columns[6].HeaderText = "SĐT";
+			//grvAccount.Columns[3].HeaderText = "Mã NQL";
+			grvAccount.Columns[3].HeaderText = "Họ tên NQL";
+			grvAccount.Columns[4].HeaderText = "CMND";
+			grvAccount.Columns[5].HeaderText = "Địa chỉ";
+			grvAccount.Columns[6].HeaderText = "SĐT";
 			grvAccount.Columns[0].Width = 100;
 			grvAccount.Columns[1].Width = 100;
 			grvAccount.Columns[2].Width = 100;
-			grvAccount.Columns[3].Width = 150;
-			//grvAccount.Columns[4].Width = 100;
-			//grvAccount.Columns[5].Width = 100;
-			//grvAccount.Columns[6].Width = 100;
+			grvAccount.Columns[3].Width = 120;
+			grvAccount.Columns[4].Width = 80;
+			grvAccount.Columns[5].Width = 80;
+			grvAccount.Columns[6].Width = 80;
 			#endregion
 
 
@@ -313,8 +314,15 @@ namespace CFProject
 		{
 			using (var db = new QLCafeEntities())
 			{
-				var l = db.TaiKhoans.Where(c => c.isDeleted == 0).Select(c => new { c.MaTaiKhoan, c.TenDangNhap,c.MatKhau, c.MaNQL }).ToList();
-				grvAccount.DataSource = l;
+				var nql = db.NguoiQuanLis.ToList();
+				foreach(var item in nql)
+				{
+					var l = db.TaiKhoans.Where(c => c.isDeleted == 0 && c.MaNQL==item.MaNQL ).Select(c => new { c.MaTaiKhoan, c.TenDangNhap, c.MatKhau, item.HoTen,item.CMND
+						,item.DiaChi,item.SoDienThoai }).ToList();
+					grvAccount.DataSource = l;
+				}
+
+				
 			}
 		
 		}
@@ -412,6 +420,9 @@ namespace CFProject
 
 		}
 
-		
+		private void txtPassword_TextChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

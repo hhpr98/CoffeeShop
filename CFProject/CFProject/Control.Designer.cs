@@ -64,7 +64,6 @@
 			this.label9 = new System.Windows.Forms.Label();
 			this.txtUser = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.btnDeleteAccount = new System.Windows.Forms.Button();
 			this.btnEditAccount = new System.Windows.Forms.Button();
 			this.btnAddAccount = new System.Windows.Forms.Button();
 			this.grvAccount = new System.Windows.Forms.DataGridView();
@@ -134,7 +133,7 @@
 			this.tabFood.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.tabFood.Location = new System.Drawing.Point(4, 29);
 			this.tabFood.Name = "tabFood";
-			this.tabFood.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabFood.Padding = new System.Windows.Forms.Padding(3);
 			this.tabFood.Size = new System.Drawing.Size(1036, 538);
 			this.tabFood.TabIndex = 0;
 			this.tabFood.Text = "Món ăn";
@@ -424,7 +423,7 @@
 			this.grvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grvFood.Location = new System.Drawing.Point(6, 65);
 			this.grvFood.Name = "grvFood";
-			this.grvFood.Size = new System.Drawing.Size(937, 578);
+			this.grvFood.Size = new System.Drawing.Size(626, 578);
 			this.grvFood.TabIndex = 3;
 			this.grvFood.SelectionChanged += new System.EventHandler(this.grvFood_SelectionChanged);
 			// 
@@ -440,7 +439,7 @@
 			this.tabCategory.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.tabCategory.Location = new System.Drawing.Point(4, 29);
 			this.tabCategory.Name = "tabCategory";
-			this.tabCategory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabCategory.Padding = new System.Windows.Forms.Padding(3);
 			this.tabCategory.Size = new System.Drawing.Size(1036, 538);
 			this.tabCategory.TabIndex = 1;
 			this.tabCategory.Text = "Phân loại";
@@ -568,14 +567,13 @@
 			this.tabAccount.Controls.Add(this.label9);
 			this.tabAccount.Controls.Add(this.txtUser);
 			this.tabAccount.Controls.Add(this.label8);
-			this.tabAccount.Controls.Add(this.btnDeleteAccount);
 			this.tabAccount.Controls.Add(this.btnEditAccount);
 			this.tabAccount.Controls.Add(this.btnAddAccount);
 			this.tabAccount.Controls.Add(this.grvAccount);
 			this.tabAccount.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.tabAccount.Location = new System.Drawing.Point(4, 29);
 			this.tabAccount.Name = "tabAccount";
-			this.tabAccount.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabAccount.Padding = new System.Windows.Forms.Padding(3);
 			this.tabAccount.Size = new System.Drawing.Size(1036, 538);
 			this.tabAccount.TabIndex = 2;
 			this.tabAccount.Text = "Tài khoản";
@@ -584,8 +582,8 @@
 			// cmbMaNQL
 			// 
 			this.cmbMaNQL.FormattingEnabled = true;
-			this.cmbMaNQL.Location = new System.Drawing.Point(630, 200);
-			this.cmbMaNQL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cmbMaNQL.Location = new System.Drawing.Point(802, 165);
+			this.cmbMaNQL.Margin = new System.Windows.Forms.Padding(2);
 			this.cmbMaNQL.Name = "cmbMaNQL";
 			this.cmbMaNQL.Size = new System.Drawing.Size(181, 23);
 			this.cmbMaNQL.TabIndex = 9;
@@ -593,7 +591,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(513, 204);
+			this.label10.Location = new System.Drawing.Point(733, 168);
 			this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(54, 15);
@@ -602,17 +600,18 @@
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(630, 127);
-			this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtPassword.Location = new System.Drawing.Point(802, 127);
+			this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '*';
 			this.txtPassword.Size = new System.Drawing.Size(181, 22);
 			this.txtPassword.TabIndex = 7;
+			this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(513, 131);
+			this.label9.Location = new System.Drawing.Point(731, 130);
 			this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(59, 15);
@@ -621,8 +620,8 @@
 			// 
 			// txtUser
 			// 
-			this.txtUser.Location = new System.Drawing.Point(630, 71);
-			this.txtUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtUser.Location = new System.Drawing.Point(802, 71);
+			this.txtUser.Margin = new System.Windows.Forms.Padding(2);
 			this.txtUser.Name = "txtUser";
 			this.txtUser.Size = new System.Drawing.Size(181, 22);
 			this.txtUser.TabIndex = 5;
@@ -630,27 +629,17 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(513, 72);
+			this.label8.Location = new System.Drawing.Point(708, 72);
 			this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(86, 15);
 			this.label8.TabIndex = 4;
 			this.label8.Text = "Tên đăng nhập";
 			// 
-			// btnDeleteAccount
-			// 
-			this.btnDeleteAccount.Location = new System.Drawing.Point(323, 18);
-			this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.btnDeleteAccount.Name = "btnDeleteAccount";
-			this.btnDeleteAccount.Size = new System.Drawing.Size(68, 27);
-			this.btnDeleteAccount.TabIndex = 3;
-			this.btnDeleteAccount.Text = "Xóa";
-			this.btnDeleteAccount.UseVisualStyleBackColor = true;
-			// 
 			// btnEditAccount
 			// 
 			this.btnEditAccount.Location = new System.Drawing.Point(198, 18);
-			this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2);
 			this.btnEditAccount.Name = "btnEditAccount";
 			this.btnEditAccount.Size = new System.Drawing.Size(68, 27);
 			this.btnEditAccount.TabIndex = 2;
@@ -661,7 +650,7 @@
 			// btnAddAccount
 			// 
 			this.btnAddAccount.Location = new System.Drawing.Point(70, 18);
-			this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2);
 			this.btnAddAccount.Name = "btnAddAccount";
 			this.btnAddAccount.Size = new System.Drawing.Size(68, 27);
 			this.btnAddAccount.TabIndex = 1;
@@ -673,10 +662,10 @@
 			// 
 			this.grvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grvAccount.Location = new System.Drawing.Point(3, 72);
-			this.grvAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.grvAccount.Margin = new System.Windows.Forms.Padding(2);
 			this.grvAccount.Name = "grvAccount";
 			this.grvAccount.RowTemplate.Height = 33;
-			this.grvAccount.Size = new System.Drawing.Size(442, 414);
+			this.grvAccount.Size = new System.Drawing.Size(701, 414);
 			this.grvAccount.TabIndex = 0;
 			this.grvAccount.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grvAccount_CellFormatting_1);
 			this.grvAccount.SelectionChanged += new System.EventHandler(this.grvAccount_SelectionChanged);
@@ -687,7 +676,7 @@
 			this.tabReven.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.tabReven.Location = new System.Drawing.Point(4, 29);
 			this.tabReven.Name = "tabReven";
-			this.tabReven.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabReven.Padding = new System.Windows.Forms.Padding(3);
 			this.tabReven.Size = new System.Drawing.Size(1036, 538);
 			this.tabReven.TabIndex = 3;
 			this.tabReven.Text = "Doanh thu";
@@ -699,7 +688,7 @@
 			this.tabStatis.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.tabStatis.Location = new System.Drawing.Point(4, 29);
 			this.tabStatis.Name = "tabStatis";
-			this.tabStatis.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.tabStatis.Padding = new System.Windows.Forms.Padding(3);
 			this.tabStatis.Size = new System.Drawing.Size(1036, 538);
 			this.tabStatis.TabIndex = 4;
 			this.tabStatis.Text = "Thống kê";
@@ -709,7 +698,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(642, 406);
+			this.ClientSize = new System.Drawing.Size(999, 406);
 			this.Controls.Add(this.tabManagement);
 			this.Name = "Control";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -762,7 +751,6 @@
         private ButtonH btnEditCategory;
         private TextBoxH txtCat;
 		private System.Windows.Forms.DataGridView grvAccount;
-		private System.Windows.Forms.Button btnDeleteAccount;
 		private System.Windows.Forms.Button btnEditAccount;
 		private System.Windows.Forms.Button btnAddAccount;
 		private System.Windows.Forms.Label label8;
