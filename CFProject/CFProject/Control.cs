@@ -353,7 +353,7 @@ namespace CFProject
 		{
             using (var db = new QLCafeEntities())
             {
-                //kiem tra xem tai khoan da ton tai
+                //kiểm tra xem tài khoản đã tồn tại?
                 var user = txtUsername.Text;
                 var listUser = db.TaiKhoans.Where(p => p.isDeleted == 0).Select(p => p.TenDangNhap).ToList();
                 if (listUser.Contains(user,StringComparer.OrdinalIgnoreCase))
@@ -361,22 +361,38 @@ namespace CFProject
                     MessageBox.Show("Tên đăng nhập đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                //thêm tai khoan moi
 
-                //TaiKhoan tk = new TaiKhoan();
-                //tk.TenDangNhap = txtUser.Text;
-                //tk.MatKhau = txtPassword.Text;
-                //var li = db.NguoiQuanLis.Where(p => p.HoTen != null).ToList();
-                //var t = cmbMaNQL.SelectedIndex;
-                //tk.MaNQL = li[t].MaNQL;
-                //tk.isDeleted = 0;
-                //db.TaiKhoans.Add(tk);
-                //db.SaveChanges();
+                //kiểm tra NQl đã tồn tại?
+                //var nql = db.NguoiQuanLis.Where(u => u.HoTen.ToString().ToLower() == txtUsermanagement.Text.ToLower()).ToList(); // err with next data
+                //var nql = db.NguoiQuanLis.Where(u => u.HoTen.Equals(txtUsermanagement.Text, StringComparison.OrdinalIgnoreCase));
+                var listUserManagement = db.NguoiQuanLis.ToList();
+                int uid = -1;
+                foreach (var index in listUserManagement)
+                {
+                    if (index.HoTen.ToLower() == txtUsermanagement.Text.ToLower())
+                    {
+                        uid = index.MaNQL;
+                        break;
+                    }
+                }
 
+                if (uid!=-1) // đã có người quản lí tài khoản này rồi
+                {
+                    var nql = db.NguoiQuanLis.Find(uid);
+                    db.TaiKhoans.Add(new TaiKhoan() { TenDangNhap = txtUsername.Text, MatKhau = txtPassword.Text, isDeleted = 0,MaNQL=nql.MaNQL });
+                }
+                else // chưa có? tại NQL mới
+                {
+                    var nql = new NguoiQuanLi() { HoTen = txtUsermanagement.Text, CMND = txtCMND.Text, DiaChi = txtAddress.Text, SoDienThoai = txtPhoneNumber.Text };
+                    db.NguoiQuanLis.Add(nql);
+                    db.TaiKhoans.Add(new TaiKhoan() { TenDangNhap = txtUsername.Text, MatKhau = txtPassword.Text, isDeleted = 0, NguoiQuanLi=nql});
+                }
+                db.SaveChanges();
             }
             MessageBox.Show(String.Format("Thêm thành công tài khoản \"{0}\"!", txtUsername.Text), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefreshAccountData();
         }
+
 		private void btnEditAccount_Click(object sender, EventArgs e)
 		{
 			//var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
