@@ -19,6 +19,9 @@ namespace CFProject
 
         private void Control_Load(object sender, EventArgs e)
         {
+            // chống lỗi size máy MAC
+            this.Size = new Size(1077, 627);
+
             tabManagement.SelectedIndex = 2;
 
             #region TabFoodProperties
