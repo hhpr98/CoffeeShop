@@ -69,6 +69,7 @@
 			this.grvAccount = new System.Windows.Forms.DataGridView();
 			this.tabReven = new System.Windows.Forms.TabPage();
 			this.tabStatis = new System.Windows.Forms.TabPage();
+			this.btnDeleteAccount = new System.Windows.Forms.Button();
 			this.tabManagement.SuspendLayout();
 			this.tabFood.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -561,6 +562,7 @@
 			// tabAccount
 			// 
 			this.tabAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.tabAccount.Controls.Add(this.btnDeleteAccount);
 			this.tabAccount.Controls.Add(this.cmbMaNQL);
 			this.tabAccount.Controls.Add(this.label10);
 			this.tabAccount.Controls.Add(this.txtPassword);
@@ -582,25 +584,27 @@
 			// cmbMaNQL
 			// 
 			this.cmbMaNQL.FormattingEnabled = true;
-			this.cmbMaNQL.Location = new System.Drawing.Point(802, 165);
+			this.cmbMaNQL.Location = new System.Drawing.Point(802, 153);
 			this.cmbMaNQL.Margin = new System.Windows.Forms.Padding(2);
 			this.cmbMaNQL.Name = "cmbMaNQL";
 			this.cmbMaNQL.Size = new System.Drawing.Size(181, 23);
 			this.cmbMaNQL.TabIndex = 9;
+			this.cmbMaNQL.SelectedIndexChanged += new System.EventHandler(this.cmbMaNQL_SelectedIndexChanged);
 			// 
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(733, 168);
+			this.label10.Location = new System.Drawing.Point(708, 156);
 			this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(54, 15);
 			this.label10.TabIndex = 8;
 			this.label10.Text = "Mã NQL";
+			this.label10.Click += new System.EventHandler(this.label10_Click);
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(802, 127);
+			this.txtPassword.Location = new System.Drawing.Point(802, 109);
 			this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '*';
@@ -611,7 +615,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(731, 130);
+			this.label9.Location = new System.Drawing.Point(708, 112);
 			this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(59, 15);
@@ -694,6 +698,17 @@
 			this.tabStatis.Text = "Thống kê";
 			this.tabStatis.UseVisualStyleBackColor = true;
 			// 
+			// btnDeleteAccount
+			// 
+			this.btnDeleteAccount.Location = new System.Drawing.Point(331, 18);
+			this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
+			this.btnDeleteAccount.Name = "btnDeleteAccount";
+			this.btnDeleteAccount.Size = new System.Drawing.Size(68, 27);
+			this.btnDeleteAccount.TabIndex = 10;
+			this.btnDeleteAccount.Text = "Xóa";
+			this.btnDeleteAccount.UseVisualStyleBackColor = true;
+			this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
+			// 
 			// Control
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,5 +774,6 @@
 		private System.Windows.Forms.TextBox txtUser;
 		private System.Windows.Forms.ComboBox cmbMaNQL;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Button btnDeleteAccount;
 	}
 }

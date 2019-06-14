@@ -407,6 +407,21 @@ namespace CFProject
 			MessageBox.Show(String.Format("Chỉnh sửa thành công tài khoản id = {0} !", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			RefreshAccountData();
 		}
+		private void btnDeleteAccount_Click(object sender, EventArgs e)
+		{
+			var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
+			var res = MessageBox.Show(String.Format("Bạn chắc chắn muốn xóa sản phẩm id = {0} ?", id), "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+			if (res == DialogResult.OK)
+			{
+				using (var db = new QLCafeEntities())
+				{
+					var taikhoanxoa = db.TaiKhoans.Find(id);
+					taikhoanxoa.isDeleted = 1;
+					db.SaveChanges();
+				}
+				RefreshAccountData();
+			}
+		}
 		#endregion
 
 		#region RevenEvent
@@ -424,5 +439,17 @@ namespace CFProject
 		{
 
 		}
+
+		private void label10_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void cmbMaNQL_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		
 	}
 }
