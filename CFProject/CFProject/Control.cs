@@ -384,7 +384,20 @@ namespace CFProject
 		}
 		private void btnEditAccount_Click(object sender, EventArgs e)
 		{
+			var id = int.Parse(grvAccount.CurrentRow.Cells[0].Value.ToString());
+			using (var db = new QLCafeEntities())
+			{
+				var tkhoan = db.TaiKhoans.Find(id);
+				tkhoan.TenDangNhap = txtUser.Text;
+				tkhoan.MatKhau = txtPassword.Text;
+				var li = db.NguoiQuanLis.Where(p => p.HoTen != null).ToList();
+				var t = cmbMaNQL.SelectedIndex;
+				tkhoan.MaNQL = li[t].MaNQL;
+				db.SaveChanges();
 
+			}
+			MessageBox.Show(String.Format("Chỉnh sửa thành công tài khoản id = {0} !", id), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			RefreshAccountData();
 		}
 		#endregion
 
