@@ -50,6 +50,7 @@ namespace CFProject
         int tableIndex = 1;
         public void LoadDataTable()
         {
+            pnTable.Controls.Clear();
             int xLocation = 5;
             int yLocation = 30;
             List<BanAn> lt;
@@ -62,7 +63,7 @@ namespace CFProject
             {
                 Button btn = new Button();
                 btn.Name = string.Format("Button{0}", table.MaBan);
-                btn.Text = table.TenBan;
+                btn.Text = table.TenBan+"\n\n"+table.TinhTrang;
                 btn.Location = new System.Drawing.Point(xLocation, yLocation);
                 btn.Size = new System.Drawing.Size(100, 100);
                 if (table.TinhTrang=="Trống")
@@ -82,7 +83,6 @@ namespace CFProject
                     yLocation += 120;
                 }
             }
-
         }
 
         private void Click_Event(object sender, EventArgs e)
@@ -94,7 +94,23 @@ namespace CFProject
             var idx = name.IndexOf('n');
             tableIndex = int.Parse(name.Substring(idx + 1, len - 1 - idx));
             //MessageBox.Show(tableIndex.ToString());
+            RefreshTableDetail();
+            lblTableSelected.Text = "Bàn " + tableIndex.ToString();
+        }
 
+        private void RefreshTableDetail()
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).Select(t => new { t.MaSanPham, t.SanPham.TenSanPham, t.SoLuong, t.DonGia }).ToList();
+                float TongTien = 0;
+                foreach (var index in lt)
+                {
+                    TongTien += (float)index.DonGia * (float)index.SoLuong;
+                }
+                lblThanhToan.Text = TongTien.ToString() + " VNĐ";
+                grvListTable.DataSource = lt;
+            }
         }
         #endregion
 
@@ -115,18 +131,14 @@ namespace CFProject
                 cbProduct.DataSource = lp;
             }
 
-            using (var db = new QLCafeEntities())
-            {
-                var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).Select(t=>new {t.MaSanPham,t.SanPham.TenSanPham,t.SoLuong,t.DonGia}).ToList();
-                grvListTable.DataSource = lt;
-
-            }
-            grvListTable.Columns[0].HeaderText = "Tên món";
-            grvListTable.Columns[1].HeaderText = "Số lượng";
-            grvListTable.Columns[2].HeaderText = "Đơn giá";
-            grvListTable.Columns[3].HeaderText = "Thành tiền";
-            grvListTable.Columns[0].Width = 200;
-            grvListTable.Columns[1].Width = 100;
+            RefreshTableDetail();
+            lblTableSelected.Text = "Bàn " + tableIndex.ToString();
+            grvListTable.Columns[0].HeaderText = "Mã";
+            grvListTable.Columns[1].HeaderText = "Tên món";
+            grvListTable.Columns[2].HeaderText = "Số lượng";
+            grvListTable.Columns[3].HeaderText = "Đơn giá";
+            grvListTable.Columns[0].Width = 50;
+            grvListTable.Columns[1].Width = 250;
             grvListTable.Columns[2].Width = 100;
             grvListTable.Columns[3].Width = 120;
             grvListTable.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
@@ -148,6 +160,27 @@ namespace CFProject
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var nameProduct = cbProduct.Text;
+            var numProduct = txtNumber.Value;
+            SanPham product;
+            using (var db = new QLCafeEntities())
+            {
+                var lp = db.SanPhams.Where(p => p.TenSanPham == nameProduct).ToList();
+                product = lp[0];
+                //MessageBox.Show(product.TenSanPham);
+                var table = db.BanAns.Find(tableIndex);
+                table.TinhTrang = "Có người";
+                db.ChiTietBanAns.Add(new ChiTietBanAn() { MaBan = tableIndex, MaSanPham = product.MaSanPham, SoLuong = (int?)numProduct, DonGia = product.GiaBan });
+                db.SaveChanges();
+            }
+            RefreshTableDetail();
+            LoadDataTable();
+        }
+
         #endregion
+
+
     }
 }

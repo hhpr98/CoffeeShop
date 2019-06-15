@@ -46,11 +46,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNameAcc = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblThanhToan = new System.Windows.Forms.Label();
             this.comboBoxH1 = new CFProject.ComboBoxH();
             this.btnBill = new CFProject.ButtonH();
             this.btnAdd = new CFProject.ButtonH();
             this.cbProduct = new CFProject.ComboBoxH();
             this.cbCategory = new CFProject.ComboBoxH();
+            this.lblTableSelected = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvListTable)).BeginInit();
@@ -224,6 +227,27 @@
             this.lblNameAcc.TabIndex = 18;
             this.lblNameAcc.Text = "<Chưa đăng nhập>";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(786, 533);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 16);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Tổng cộng : ";
+            // 
+            // lblThanhToan
+            // 
+            this.lblThanhToan.AutoSize = true;
+            this.lblThanhToan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThanhToan.ForeColor = System.Drawing.Color.Red;
+            this.lblThanhToan.Location = new System.Drawing.Point(884, 533);
+            this.lblThanhToan.Name = "lblThanhToan";
+            this.lblThanhToan.Size = new System.Drawing.Size(46, 16);
+            this.lblThanhToan.TabIndex = 20;
+            this.lblThanhToan.Text = "0 VNĐ";
+            // 
             // comboBoxH1
             // 
             this.comboBoxH1.BackColor = System.Drawing.Color.LightCyan;
@@ -296,6 +320,7 @@
             this.btnAdd.Transparent1 = 75;
             this.btnAdd.Transparent2 = 50;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cbProduct
             // 
@@ -320,11 +345,25 @@
             this.cbCategory.TabIndex = 3;
             this.cbCategory.TextChanged += new System.EventHandler(this.cbCatogory_TextChanged);
             // 
+            // lblTableSelected
+            // 
+            this.lblTableSelected.AutoSize = true;
+            this.lblTableSelected.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableSelected.ForeColor = System.Drawing.Color.Blue;
+            this.lblTableSelected.Location = new System.Drawing.Point(12, 527);
+            this.lblTableSelected.Name = "lblTableSelected";
+            this.lblTableSelected.Size = new System.Drawing.Size(44, 16);
+            this.lblTableSelected.TabIndex = 21;
+            this.lblTableSelected.Text = "Bàn 0";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 563);
+            this.Controls.Add(this.lblTableSelected);
+            this.Controls.Add(this.lblThanhToan);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblNameAcc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -378,6 +417,9 @@
         private System.Windows.Forms.ToolStripMenuItem đăngNhậpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngKsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblThanhToan;
+        private System.Windows.Forms.Label lblTableSelected;
     }
 }
 
