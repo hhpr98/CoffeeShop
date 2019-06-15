@@ -40,10 +40,13 @@ namespace CFProject
                 {
                     if (item.MatKhau==password)
                     {
-                        this.Hide();
                         Main frmMain = new Main();
-                        frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
+                        this.Hide();
+                        //frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
                         frmMain.ShowDialog();
+                        this.Show();
+                        txtUser.Text = "";
+                        txtPassword.Text = "";
                         return;
                     }
                 }
@@ -51,10 +54,10 @@ namespace CFProject
             MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
+        //private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    Application.Exit();
+        //}
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

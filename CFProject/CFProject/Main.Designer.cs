@@ -33,6 +33,7 @@
             this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngKsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBoxH1 = new CFProject.ComboBoxH();
             this.btnBill = new CFProject.ButtonH();
             this.btnAdd = new CFProject.ButtonH();
@@ -98,6 +98,12 @@
             this.đăngKsToolStripMenuItem.Name = "đăngKsToolStripMenuItem";
             this.đăngKsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.đăngKsToolStripMenuItem.Text = "Đăng kí";
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // thôngTinToolStripMenuItem
             // 
@@ -218,12 +224,6 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "<Chưa đăng nhập>";
             // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            // 
             // comboBoxH1
             // 
             this.comboBoxH1.BackColor = System.Drawing.Color.LightCyan;
@@ -300,24 +300,25 @@
             // cbProduct
             // 
             this.cbProduct.BackColor = System.Drawing.Color.LightCyan;
-            this.cbProduct.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProduct.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProduct.FormattingEnabled = true;
-            this.cbProduct.ItemHeight = 20;
+            this.cbProduct.ItemHeight = 18;
             this.cbProduct.Location = new System.Drawing.Point(769, 73);
             this.cbProduct.Name = "cbProduct";
-            this.cbProduct.Size = new System.Drawing.Size(121, 28);
+            this.cbProduct.Size = new System.Drawing.Size(121, 26);
             this.cbProduct.TabIndex = 5;
             // 
             // cbCategory
             // 
             this.cbCategory.BackColor = System.Drawing.Color.LightCyan;
-            this.cbCategory.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.ItemHeight = 20;
+            this.cbCategory.ItemHeight = 18;
             this.cbCategory.Location = new System.Drawing.Point(555, 73);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(121, 28);
+            this.cbCategory.Size = new System.Drawing.Size(121, 26);
             this.cbCategory.TabIndex = 3;
+            this.cbCategory.TextChanged += new System.EventHandler(this.cbCatogory_TextChanged);
             // 
             // Main
             // 
