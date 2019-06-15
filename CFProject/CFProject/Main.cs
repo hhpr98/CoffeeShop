@@ -79,6 +79,8 @@ namespace CFProject
         #region Checkout
         private void Main_Load(object sender, EventArgs e)
         {
+            LoadDataTable();
+
             using (var db = new QLCafeEntities())
             {
                 var lc = db.NhomSanPhams.Where(c => c.isDeleted == 0).ToList();
@@ -91,7 +93,6 @@ namespace CFProject
                 cbProduct.DataSource = lp;
             }
 
-            LoadDataTable();
         }
 
         private void cbCatogory_TextChanged(object sender, EventArgs e)
