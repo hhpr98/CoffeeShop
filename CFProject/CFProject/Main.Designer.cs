@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNumber = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grvListTable = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNameAcc = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.cbCategory = new CFProject.ComboBoxH();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvListTable)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -185,13 +185,13 @@
             0,
             0});
             // 
-            // dataGridView1
+            // grvListTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(557, 132);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(562, 375);
-            this.dataGridView1.TabIndex = 11;
+            this.grvListTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvListTable.Location = new System.Drawing.Point(557, 132);
+            this.grvListTable.Name = "grvListTable";
+            this.grvListTable.Size = new System.Drawing.Size(562, 375);
+            this.grvListTable.TabIndex = 11;
             // 
             // label4
             // 
@@ -330,7 +330,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxH1);
             this.Controls.Add(this.btnBill);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grvListTable);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.label3);
@@ -348,7 +348,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvListTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +369,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown txtNumber;
         private ButtonH btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grvListTable;
         private ButtonH btnBill;
         private System.Windows.Forms.Label label4;
         private ComboBoxH comboBoxH1;

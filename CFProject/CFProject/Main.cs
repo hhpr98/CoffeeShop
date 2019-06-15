@@ -46,18 +46,33 @@ namespace CFProject
         #endregion
 
         #region Table
+
+        int tableIndex = 1;
         public void LoadDataTable()
         {
             int xLocation = 5;
             int yLocation = 30;
-            for (int i = 0; i < 12; i++)
+            List<BanAn> lt;
+            using (var db = new QLCafeEntities())
+            {
+                lt = db.BanAns.ToList();
+            }
+
+            foreach (var table in lt)
             {
                 Button btn = new Button();
-                btn.Name = string.Format("Button{0}", i);
-                btn.Text = string.Format("Bàn {0}\n\nTrống", i+1);
+                btn.Name = string.Format("Button{0}", table.MaBan);
+                btn.Text = table.TenBan;
                 btn.Location = new System.Drawing.Point(xLocation, yLocation);
                 btn.Size = new System.Drawing.Size(100, 100);
-                btn.BackColor = Color.Brown;
+                if (table.TinhTrang=="Trống")
+                {
+                    btn.BackColor = Color.Brown;
+                }
+                else
+                {
+                    btn.BackColor = Color.Yellow;
+                }
                 pnTable.Controls.Add(btn);
                 btn.Click += Click_Event;
                 xLocation += 120;
@@ -67,12 +82,19 @@ namespace CFProject
                     yLocation += 120;
                 }
             }
+
         }
 
         private void Click_Event(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show(btn.Name.ToString());
+            //MessageBox.Show(btn.Name.ToString());
+            var name = btn.Name;
+            int len = name.Length;
+            var idx = name.IndexOf('n');
+            tableIndex = int.Parse(name.Substring(idx + 1, len - 1 - idx));
+            //MessageBox.Show(tableIndex.ToString());
+
         }
         #endregion
 
@@ -92,6 +114,25 @@ namespace CFProject
                 var lp = db.SanPhams.Where(p => p.isDeleted == 0 && p.MaNhom == cid).Select(p => p.TenSanPham).ToList();
                 cbProduct.DataSource = lp;
             }
+
+            using (var db = new QLCafeEntities())
+            {
+                var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).Select(t=>new {t.MaSanPham,t.SanPham.TenSanPham,t.SoLuong,t.DonGia}).ToList();
+                grvListTable.DataSource = lt;
+
+            }
+            grvListTable.Columns[0].HeaderText = "Tên món";
+            grvListTable.Columns[1].HeaderText = "Số lượng";
+            grvListTable.Columns[2].HeaderText = "Đơn giá";
+            grvListTable.Columns[3].HeaderText = "Thành tiền";
+            grvListTable.Columns[0].Width = 200;
+            grvListTable.Columns[1].Width = 100;
+            grvListTable.Columns[2].Width = 100;
+            grvListTable.Columns[3].Width = 120;
+            grvListTable.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            grvListTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            grvListTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            grvListTable.EnableHeadersVisualStyles = false;
 
         }
 
