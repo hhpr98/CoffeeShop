@@ -46,6 +46,34 @@ namespace CFProject
         #endregion
 
         #region Table
+        public void LoadDataTable()
+        {
+            int xLocation = 5;
+            int yLocation = 30;
+            for (int i = 0; i < 12; i++)
+            {
+                Button btn = new Button();
+                btn.Name = string.Format("Button{0}", i);
+                btn.Text = string.Format("Bàn {0}\n\nTrống", i+1);
+                btn.Location = new System.Drawing.Point(xLocation, yLocation);
+                btn.Size = new System.Drawing.Size(100, 100);
+                btn.BackColor = Color.Brown;
+                pnTable.Controls.Add(btn);
+                btn.Click += Click_Event;
+                xLocation += 120;
+                if (xLocation >= 400)
+                {
+                    xLocation = 5;
+                    yLocation += 120;
+                }
+            }
+        }
+
+        private void Click_Event(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show(btn.Name.ToString());
+        }
         #endregion
 
         #region Checkout
@@ -62,6 +90,8 @@ namespace CFProject
                 var lp = db.SanPhams.Where(p => p.isDeleted == 0 && p.MaNhom == cid).Select(p => p.TenSanPham).ToList();
                 cbProduct.DataSource = lp;
             }
+
+            LoadDataTable();
         }
 
         private void cbCatogory_TextChanged(object sender, EventArgs e)
@@ -75,8 +105,7 @@ namespace CFProject
                 cbProduct.DataSource = lp;
             }
         }
+
         #endregion
-
-
     }
 }
