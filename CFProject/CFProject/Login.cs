@@ -40,7 +40,7 @@ namespace CFProject
                 {
                     if (item.MatKhau==password)
                     {
-                        Main frmMain = new Main();
+                        Main frmMain = new Main(item);
                         this.Hide();
                         //frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
                         frmMain.ShowDialog();

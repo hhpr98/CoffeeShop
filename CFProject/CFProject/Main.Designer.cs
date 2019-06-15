@@ -45,7 +45,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblNameAcc = new System.Windows.Forms.Label();
             this.comboBoxH1 = new CFProject.ComboBoxH();
             this.btnBill = new CFProject.ButtonH();
             this.btnAdd = new CFProject.ButtonH();
@@ -213,16 +213,16 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Xin chào,";
             // 
-            // label6
+            // lblNameAcc
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(99, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 16);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "<Chưa đăng nhập>";
+            this.lblNameAcc.AutoSize = true;
+            this.lblNameAcc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameAcc.ForeColor = System.Drawing.Color.Red;
+            this.lblNameAcc.Location = new System.Drawing.Point(99, 37);
+            this.lblNameAcc.Name = "lblNameAcc";
+            this.lblNameAcc.Size = new System.Drawing.Size(130, 16);
+            this.lblNameAcc.TabIndex = 18;
+            this.lblNameAcc.Text = "<Chưa đăng nhập>";
             // 
             // comboBoxH1
             // 
@@ -325,7 +325,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 563);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblNameAcc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxH1);
@@ -374,7 +374,7 @@
         private System.Windows.Forms.Label label4;
         private ComboBoxH comboBoxH1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNameAcc;
         private System.Windows.Forms.ToolStripMenuItem đăngNhậpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngKsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;

@@ -12,9 +12,17 @@ namespace CFProject
 {
     public partial class Main : Form
     {
+        private TaiKhoan tk;
         public Main()
         {
             InitializeComponent();
+        }
+
+        public Main(TaiKhoan t)
+        {
+            InitializeComponent();
+            this.tk = t;
+            lblNameAcc.Text = t.TenDangNhap;
         }
 
         #region MenuStrip
