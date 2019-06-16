@@ -59,6 +59,7 @@
             this.btnAddCategory = new CFProject.ButtonH();
             this.grvCategory = new System.Windows.Forms.DataGridView();
             this.tabAccount = new System.Windows.Forms.TabPage();
+            this.btnShowHidePass = new System.Windows.Forms.Button();
             this.txtPhoneNumber = new CFProject.TextBoxH();
             this.label13 = new System.Windows.Forms.Label();
             this.txtAddress = new CFProject.TextBoxH();
@@ -77,7 +78,6 @@
             this.grvAccount = new System.Windows.Forms.DataGridView();
             this.tabReven = new System.Windows.Forms.TabPage();
             this.tabStatis = new System.Windows.Forms.TabPage();
-            this.btnShowHidePass = new System.Windows.Forms.Button();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -354,7 +354,6 @@
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(212, 25);
             this.cbCategory.TabIndex = 14;
-            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // pbImage
             // 
@@ -600,6 +599,16 @@
             this.tabAccount.Text = "Tài khoản";
             this.tabAccount.UseVisualStyleBackColor = true;
             // 
+            // btnShowHidePass
+            // 
+            this.btnShowHidePass.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHidePass.Image")));
+            this.btnShowHidePass.Location = new System.Drawing.Point(797, 118);
+            this.btnShowHidePass.Name = "btnShowHidePass";
+            this.btnShowHidePass.Size = new System.Drawing.Size(28, 23);
+            this.btnShowHidePass.TabIndex = 48;
+            this.btnShowHidePass.UseVisualStyleBackColor = true;
+            this.btnShowHidePass.Click += new System.EventHandler(this.btnShowHidePass_Click);
+            // 
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(826, 308);
@@ -840,16 +849,6 @@
             this.tabStatis.TabIndex = 4;
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
-            // 
-            // btnShowHidePass
-            // 
-            this.btnShowHidePass.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHidePass.Image")));
-            this.btnShowHidePass.Location = new System.Drawing.Point(797, 118);
-            this.btnShowHidePass.Name = "btnShowHidePass";
-            this.btnShowHidePass.Size = new System.Drawing.Size(28, 23);
-            this.btnShowHidePass.TabIndex = 48;
-            this.btnShowHidePass.UseVisualStyleBackColor = true;
-            this.btnShowHidePass.Click += new System.EventHandler(this.btnShowHidePass_Click);
             // 
             // Control
             // 

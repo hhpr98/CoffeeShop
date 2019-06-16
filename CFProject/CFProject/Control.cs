@@ -237,10 +237,6 @@ namespace CFProject
             RefreshFoodData();
         }
 
-		private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
 
 		#endregion
 
@@ -462,6 +458,7 @@ namespace CFProject
                 txtPassword.UseSystemPasswordChar = true;
             }
         }
+
         #endregion
 
         #region RevenEvent
@@ -469,7 +466,6 @@ namespace CFProject
 
         #region StatisEvent
         #endregion
-
 
     }
 }
