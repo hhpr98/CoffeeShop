@@ -15,9 +15,9 @@
         </EntityType>
         <EntityType Name="ChiTietBanAn">
           <Key>
-            <PropertyRef Name="MaBan" />
-            <PropertyRef Name="MaSanPham" />
+            <PropertyRef Name="MaChiTietBanAn" />
           </Key>
+          <Property Name="MaChiTietBanAn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaBan" Type="int" Nullable="false" />
           <Property Name="MaSanPham" Type="int" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
@@ -284,9 +284,9 @@
         </EntityType>
         <EntityType Name="ChiTietBanAn">
           <Key>
-            <PropertyRef Name="MaBan" />
-            <PropertyRef Name="MaSanPham" />
+            <PropertyRef Name="MaChiTietBanAn" />
           </Key>
+          <Property Name="MaChiTietBanAn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaBan" Type="Int32" Nullable="false" />
           <Property Name="MaSanPham" Type="Int32" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
@@ -572,6 +572,7 @@
           <EntitySetMapping Name="ChiTietBanAns">
             <EntityTypeMapping TypeName="QLCafeModel.ChiTietBanAn">
               <MappingFragment StoreEntitySet="ChiTietBanAn">
+                <ScalarProperty Name="MaChiTietBanAn" ColumnName="MaChiTietBanAn" />
                 <ScalarProperty Name="MaBan" ColumnName="MaBan" />
                 <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />

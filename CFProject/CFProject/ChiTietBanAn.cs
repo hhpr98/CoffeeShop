@@ -14,6 +14,7 @@ namespace CFProject
     
     public partial class ChiTietBanAn
     {
+        public int MaChiTietBanAn { get; set; }
         public int MaBan { get; set; }
         public int MaSanPham { get; set; }
         public Nullable<int> SoLuong { get; set; }

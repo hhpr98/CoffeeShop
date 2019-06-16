@@ -43,17 +43,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNumber = new System.Windows.Forms.NumericUpDown();
             this.grvListTable = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNameAcc = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblThanhToan = new System.Windows.Forms.Label();
-            this.comboBoxH1 = new CFProject.ComboBoxH();
+            this.lblTableSelected = new System.Windows.Forms.Label();
+            this.cbSwitch = new CFProject.ComboBoxH();
             this.btnBill = new CFProject.ButtonH();
             this.btnAdd = new CFProject.ButtonH();
             this.cbProduct = new CFProject.ComboBoxH();
             this.cbCategory = new CFProject.ComboBoxH();
-            this.lblTableSelected = new System.Windows.Forms.Label();
+            this.btnSwitch = new CFProject.ButtonH();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvListTable)).BeginInit();
@@ -196,16 +196,6 @@
             this.grvListTable.Size = new System.Drawing.Size(562, 375);
             this.grvListTable.TabIndex = 11;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(343, 527);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 16);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Chuyển bàn";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -248,16 +238,27 @@
             this.lblThanhToan.TabIndex = 20;
             this.lblThanhToan.Text = "0 VNĐ";
             // 
-            // comboBoxH1
+            // lblTableSelected
             // 
-            this.comboBoxH1.BackColor = System.Drawing.Color.LightCyan;
-            this.comboBoxH1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxH1.FormattingEnabled = true;
-            this.comboBoxH1.ItemHeight = 20;
-            this.comboBoxH1.Location = new System.Drawing.Point(445, 521);
-            this.comboBoxH1.Name = "comboBoxH1";
-            this.comboBoxH1.Size = new System.Drawing.Size(52, 28);
-            this.comboBoxH1.TabIndex = 15;
+            this.lblTableSelected.AutoSize = true;
+            this.lblTableSelected.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableSelected.ForeColor = System.Drawing.Color.Blue;
+            this.lblTableSelected.Location = new System.Drawing.Point(12, 527);
+            this.lblTableSelected.Name = "lblTableSelected";
+            this.lblTableSelected.Size = new System.Drawing.Size(44, 16);
+            this.lblTableSelected.TabIndex = 21;
+            this.lblTableSelected.Text = "Bàn 0";
+            // 
+            // cbSwitch
+            // 
+            this.cbSwitch.BackColor = System.Drawing.Color.LightCyan;
+            this.cbSwitch.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSwitch.FormattingEnabled = true;
+            this.cbSwitch.ItemHeight = 20;
+            this.cbSwitch.Location = new System.Drawing.Point(341, 521);
+            this.cbSwitch.Name = "cbSwitch";
+            this.cbSwitch.Size = new System.Drawing.Size(45, 28);
+            this.cbSwitch.TabIndex = 15;
             // 
             // btnBill
             // 
@@ -345,29 +346,50 @@
             this.cbCategory.TabIndex = 3;
             this.cbCategory.TextChanged += new System.EventHandler(this.cbCatogory_TextChanged);
             // 
-            // lblTableSelected
+            // btnSwitch
             // 
-            this.lblTableSelected.AutoSize = true;
-            this.lblTableSelected.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableSelected.ForeColor = System.Drawing.Color.Blue;
-            this.lblTableSelected.Location = new System.Drawing.Point(12, 527);
-            this.lblTableSelected.Name = "lblTableSelected";
-            this.lblTableSelected.Size = new System.Drawing.Size(44, 16);
-            this.lblTableSelected.TabIndex = 21;
-            this.lblTableSelected.Text = "Bàn 0";
+            this.btnSwitch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.BorderWidth = 2;
+            this.btnSwitch.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnSwitch.ButtonText = "";
+            this.btnSwitch.EndColor = System.Drawing.Color.Orange;
+            this.btnSwitch.FlatAppearance.BorderSize = 0;
+            this.btnSwitch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSwitch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitch.GradientAngle = 90;
+            this.btnSwitch.Location = new System.Drawing.Point(405, 521);
+            this.btnSwitch.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnSwitch.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnSwitch.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnSwitch.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.ShowButtontext = true;
+            this.btnSwitch.Size = new System.Drawing.Size(92, 28);
+            this.btnSwitch.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSwitch.TabIndex = 22;
+            this.btnSwitch.Text = "Chuyển bàn";
+            this.btnSwitch.TextLocation_X = 29;
+            this.btnSwitch.TextLocation_Y = 14;
+            this.btnSwitch.Transparent1 = 75;
+            this.btnSwitch.Transparent2 = 50;
+            this.btnSwitch.UseVisualStyleBackColor = false;
+            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 563);
+            this.Controls.Add(this.btnSwitch);
             this.Controls.Add(this.lblTableSelected);
             this.Controls.Add(this.lblThanhToan);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblNameAcc);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBoxH1);
+            this.Controls.Add(this.cbSwitch);
             this.Controls.Add(this.btnBill);
             this.Controls.Add(this.grvListTable);
             this.Controls.Add(this.btnAdd);
@@ -410,8 +432,7 @@
         private ButtonH btnAdd;
         private System.Windows.Forms.DataGridView grvListTable;
         private ButtonH btnBill;
-        private System.Windows.Forms.Label label4;
-        private ComboBoxH comboBoxH1;
+        private ComboBoxH cbSwitch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblNameAcc;
         private System.Windows.Forms.ToolStripMenuItem đăngNhậpToolStripMenuItem;
@@ -420,6 +441,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblThanhToan;
         private System.Windows.Forms.Label lblTableSelected;
+        private ButtonH btnSwitch;
     }
 }
 

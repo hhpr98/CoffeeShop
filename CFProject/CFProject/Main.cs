@@ -95,11 +95,11 @@ namespace CFProject
             tableIndex = int.Parse(name.Substring(idx + 1, len - 1 - idx));
             //MessageBox.Show(tableIndex.ToString());
             RefreshTableDetail();
-            lblTableSelected.Text = "Bàn " + tableIndex.ToString();
         }
 
         private void RefreshTableDetail()
         {
+            lblTableSelected.Text = "Bàn " + tableIndex.ToString();
             using (var db = new QLCafeEntities())
             {
                 var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).Select(t => new { t.MaSanPham, t.SanPham.TenSanPham, t.SoLuong, t.DonGia }).ToList();
@@ -112,13 +112,52 @@ namespace CFProject
                 grvListTable.DataSource = lt;
             }
         }
+
+        private void btnSwitch_Click(object sender, EventArgs e)
+        {
+            int idTableSwitch = int.Parse(cbSwitch.Text);
+            if (idTableSwitch==tableIndex)
+            {
+                MessageBox.Show("Bàn chuyển đến không thể là bàn đang chọn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else
+            {
+                using (var db = new QLCafeEntities())
+                {
+                    var table = db.BanAns.Find(idTableSwitch);
+                    var t = db.BanAns.Find(tableIndex);
+                    if (table.TinhTrang=="Có người")
+                    {
+                        MessageBox.Show("Bàn muốn chuyển đến đã có người ngồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        return;
+                    }
+                    // Ngược lại
+                    table.TinhTrang = "Có người"; // cập nhật bàn mới có người
+                    t.TinhTrang = "Trống"; // cập nhật bàn cũ trống
+                    foreach (var index in db.ChiTietBanAns) // chuyển món ăn bàn cũ sang bàn mới
+                    {
+                        if (index.MaBan==tableIndex)
+                        {
+                            index.MaBan = idTableSwitch;
+                        }
+                    }
+                    db.SaveChanges();
+                    // load lại dữ liệu
+                    tableIndex = idTableSwitch;
+                    LoadDataTable();
+                    RefreshTableDetail();
+                }
+            }
+        }
         #endregion
 
         #region Checkout
         private void Main_Load(object sender, EventArgs e)
         {
+            // load table
             LoadDataTable();
 
+            // load menu món
             using (var db = new QLCafeEntities())
             {
                 var lc = db.NhomSanPhams.Where(c => c.isDeleted == 0).ToList();
@@ -131,6 +170,7 @@ namespace CFProject
                 cbProduct.DataSource = lp;
             }
 
+            // load detail table
             RefreshTableDetail();
             lblTableSelected.Text = "Bàn " + tableIndex.ToString();
             grvListTable.Columns[0].HeaderText = "Mã";
@@ -146,6 +186,8 @@ namespace CFProject
             grvListTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             grvListTable.EnableHeadersVisualStyles = false;
 
+            // load other data
+            cbSwitch.DataSource = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
         }
 
         private void cbCatogory_TextChanged(object sender, EventArgs e)
@@ -179,8 +221,9 @@ namespace CFProject
             LoadDataTable();
         }
 
+
         #endregion
 
-
+        
     }
 }
