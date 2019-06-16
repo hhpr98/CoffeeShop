@@ -146,6 +146,7 @@ namespace CFProject
                     tableIndex = idTableSwitch;
                     LoadDataTable();
                     RefreshTableDetail();
+                    MessageBox.Show("Đã chuyển đến bàn " + tableIndex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
