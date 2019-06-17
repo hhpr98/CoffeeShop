@@ -68,7 +68,7 @@ namespace CFProject
             Register frm = new Register(tk);
             this.Hide();
             frm.ShowDialog();
-            this.Close();
+            this.Show();
         }
         #endregion
 
