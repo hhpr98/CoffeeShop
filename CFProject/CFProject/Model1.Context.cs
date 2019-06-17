@@ -28,13 +28,11 @@ namespace CFProject
         public virtual DbSet<BanAn> BanAns { get; set; }
         public virtual DbSet<ChiTietBanAn> ChiTietBanAns { get; set; }
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public virtual DbSet<ChiTietThongKe> ChiTietThongKes { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<NguoiQuanLi> NguoiQuanLis { get; set; }
         public virtual DbSet<NhomSanPham> NhomSanPhams { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public virtual DbSet<ThongKe> ThongKes { get; set; }
     }
 }

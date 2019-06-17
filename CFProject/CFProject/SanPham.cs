@@ -19,7 +19,6 @@ namespace CFProject
         {
             this.ChiTietBanAns = new HashSet<ChiTietBanAn>();
             this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            this.ChiTietThongKes = new HashSet<ChiTietThongKe>();
         }
     
         public int MaSanPham { get; set; }
@@ -36,8 +35,6 @@ namespace CFProject
         public virtual ICollection<ChiTietBanAn> ChiTietBanAns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietThongKe> ChiTietThongKes { get; set; }
         public virtual NhomSanPham NhomSanPham { get; set; }
     }
 }

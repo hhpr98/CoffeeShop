@@ -33,15 +33,6 @@
           <Property Name="SoLuong" Type="int" />
           <Property Name="DonGia" Type="float" />
         </EntityType>
-        <EntityType Name="ChiTietThongKe">
-          <Key>
-            <PropertyRef Name="MaSanPham" />
-            <PropertyRef Name="MaTaiKhoan" />
-          </Key>
-          <Property Name="MaSanPham" Type="int" Nullable="false" />
-          <Property Name="MaTaiKhoan" Type="int" Nullable="false" />
-          <Property Name="SoLuong" Type="int" />
-        </EntityType>
         <EntityType Name="HoaDon">
           <Key>
             <PropertyRef Name="MaHoaDon" />
@@ -103,14 +94,6 @@
           <Property Name="MaNQL" Type="int" />
           <Property Name="isDeleted" Type="int" />
         </EntityType>
-        <EntityType Name="ThongKe">
-          <Key>
-            <PropertyRef Name="MaTaiKhoan" />
-          </Key>
-          <Property Name="MaTaiKhoan" Type="int" Nullable="false" />
-          <Property Name="TongGiaTri" Type="float" />
-          <Property Name="GiaTriMoiThanhPhan" Type="float" />
-        </EntityType>
         <Association Name="FK_ChiTietBanAn_BanAn">
           <End Role="BanAn" Type="Self.BanAn" Multiplicity="1" />
           <End Role="ChiTietBanAn" Type="Self.ChiTietBanAn" Multiplicity="*" />
@@ -159,30 +142,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ChiTietThongKe_SanPham">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-          <End Role="ChiTietThongKe" Type="Self.ChiTietThongKe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="MaSanPham" />
-            </Principal>
-            <Dependent Role="ChiTietThongKe">
-              <PropertyRef Name="MaSanPham" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChiTietThongKe_ThongKe">
-          <End Role="ThongKe" Type="Self.ThongKe" Multiplicity="1" />
-          <End Role="ChiTietThongKe" Type="Self.ChiTietThongKe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ThongKe">
-              <PropertyRef Name="MaTaiKhoan" />
-            </Principal>
-            <Dependent Role="ChiTietThongKe">
-              <PropertyRef Name="MaTaiKhoan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_HoaDon_TaiKhoan">
           <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
           <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
@@ -223,14 +182,12 @@
           <EntitySet Name="BanAn" EntityType="Self.BanAn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChiTietBanAn" EntityType="Self.ChiTietBanAn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChiTietHoaDon" EntityType="Self.ChiTietHoaDon" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChiTietThongKe" EntityType="Self.ChiTietThongKe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NguoiQuanLi" EntityType="Self.NguoiQuanLi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhomSanPham" EntityType="Self.NhomSanPham" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ThongKe" EntityType="Self.ThongKe" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ChiTietBanAn_BanAn" Association="Self.FK_ChiTietBanAn_BanAn">
             <End Role="BanAn" EntitySet="BanAn" />
             <End Role="ChiTietBanAn" EntitySet="ChiTietBanAn" />
@@ -246,14 +203,6 @@
           <AssociationSet Name="FK_ChiTietHoaDon_SanPham" Association="Self.FK_ChiTietHoaDon_SanPham">
             <End Role="SanPham" EntitySet="SanPham" />
             <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChiTietThongKe_SanPham" Association="Self.FK_ChiTietThongKe_SanPham">
-            <End Role="SanPham" EntitySet="SanPham" />
-            <End Role="ChiTietThongKe" EntitySet="ChiTietThongKe" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChiTietThongKe_ThongKe" Association="Self.FK_ChiTietThongKe_ThongKe">
-            <End Role="ThongKe" EntitySet="ThongKe" />
-            <End Role="ChiTietThongKe" EntitySet="ChiTietThongKe" />
           </AssociationSet>
           <AssociationSet Name="FK_HoaDon_TaiKhoan" Association="Self.FK_HoaDon_TaiKhoan">
             <End Role="TaiKhoan" EntitySet="TaiKhoan" />
@@ -306,17 +255,6 @@
           <NavigationProperty Name="HoaDon" Relationship="Self.FK_ChiTietHoaDon_HoaDon" FromRole="ChiTietHoaDon" ToRole="HoaDon" />
           <NavigationProperty Name="SanPham" Relationship="Self.FK_ChiTietHoaDon_SanPham" FromRole="ChiTietHoaDon" ToRole="SanPham" />
         </EntityType>
-        <EntityType Name="ChiTietThongKe">
-          <Key>
-            <PropertyRef Name="MaSanPham" />
-            <PropertyRef Name="MaTaiKhoan" />
-          </Key>
-          <Property Name="MaSanPham" Type="Int32" Nullable="false" />
-          <Property Name="MaTaiKhoan" Type="Int32" Nullable="false" />
-          <Property Name="SoLuong" Type="Int32" />
-          <NavigationProperty Name="SanPham" Relationship="Self.FK_ChiTietThongKe_SanPham" FromRole="ChiTietThongKe" ToRole="SanPham" />
-          <NavigationProperty Name="ThongKe" Relationship="Self.FK_ChiTietThongKe_ThongKe" FromRole="ChiTietThongKe" ToRole="ThongKe" />
-        </EntityType>
         <EntityType Name="HoaDon">
           <Key>
             <PropertyRef Name="MaHoaDon" />
@@ -363,7 +301,6 @@
           <Property Name="isDeleted" Type="Int32" />
           <NavigationProperty Name="ChiTietBanAns" Relationship="Self.FK_ChiTietBanAn_SanPham" FromRole="SanPham" ToRole="ChiTietBanAn" />
           <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_SanPham" FromRole="SanPham" ToRole="ChiTietHoaDon" />
-          <NavigationProperty Name="ChiTietThongKes" Relationship="Self.FK_ChiTietThongKe_SanPham" FromRole="SanPham" ToRole="ChiTietThongKe" />
           <NavigationProperty Name="NhomSanPham" Relationship="Self.FK_SanPham_NhomSanPham" FromRole="SanPham" ToRole="NhomSanPham" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -387,15 +324,6 @@
           <Property Name="isDeleted" Type="Int32" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_TaiKhoan" FromRole="TaiKhoan" ToRole="HoaDon" />
           <NavigationProperty Name="NguoiQuanLi" Relationship="Self.FK_TaiKhoan_NguoiQuanLi" FromRole="TaiKhoan" ToRole="NguoiQuanLi" />
-        </EntityType>
-        <EntityType Name="ThongKe">
-          <Key>
-            <PropertyRef Name="MaTaiKhoan" />
-          </Key>
-          <Property Name="MaTaiKhoan" Type="Int32" Nullable="false" />
-          <Property Name="TongGiaTri" Type="Double" />
-          <Property Name="GiaTriMoiThanhPhan" Type="Double" />
-          <NavigationProperty Name="ChiTietThongKes" Relationship="Self.FK_ChiTietThongKe_ThongKe" FromRole="ThongKe" ToRole="ChiTietThongKe" />
         </EntityType>
         <Association Name="FK_ChiTietBanAn_BanAn">
           <End Role="BanAn" Type="Self.BanAn" Multiplicity="1" />
@@ -445,30 +373,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ChiTietThongKe_SanPham">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-          <End Role="ChiTietThongKe" Type="Self.ChiTietThongKe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="MaSanPham" />
-            </Principal>
-            <Dependent Role="ChiTietThongKe">
-              <PropertyRef Name="MaSanPham" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChiTietThongKe_ThongKe">
-          <End Role="ThongKe" Type="Self.ThongKe" Multiplicity="1" />
-          <End Role="ChiTietThongKe" Type="Self.ChiTietThongKe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ThongKe">
-              <PropertyRef Name="MaTaiKhoan" />
-            </Principal>
-            <Dependent Role="ChiTietThongKe">
-              <PropertyRef Name="MaTaiKhoan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_HoaDon_TaiKhoan">
           <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
           <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
@@ -509,14 +413,12 @@
           <EntitySet Name="BanAns" EntityType="Self.BanAn" />
           <EntitySet Name="ChiTietBanAns" EntityType="Self.ChiTietBanAn" />
           <EntitySet Name="ChiTietHoaDons" EntityType="Self.ChiTietHoaDon" />
-          <EntitySet Name="ChiTietThongKes" EntityType="Self.ChiTietThongKe" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="NguoiQuanLis" EntityType="Self.NguoiQuanLi" />
           <EntitySet Name="NhomSanPhams" EntityType="Self.NhomSanPham" />
           <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
-          <EntitySet Name="ThongKes" EntityType="Self.ThongKe" />
           <AssociationSet Name="FK_ChiTietBanAn_BanAn" Association="Self.FK_ChiTietBanAn_BanAn">
             <End Role="BanAn" EntitySet="BanAns" />
             <End Role="ChiTietBanAn" EntitySet="ChiTietBanAns" />
@@ -532,14 +434,6 @@
           <AssociationSet Name="FK_ChiTietHoaDon_SanPham" Association="Self.FK_ChiTietHoaDon_SanPham">
             <End Role="SanPham" EntitySet="SanPhams" />
             <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChiTietThongKe_SanPham" Association="Self.FK_ChiTietThongKe_SanPham">
-            <End Role="SanPham" EntitySet="SanPhams" />
-            <End Role="ChiTietThongKe" EntitySet="ChiTietThongKes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChiTietThongKe_ThongKe" Association="Self.FK_ChiTietThongKe_ThongKe">
-            <End Role="ThongKe" EntitySet="ThongKes" />
-            <End Role="ChiTietThongKe" EntitySet="ChiTietThongKes" />
           </AssociationSet>
           <AssociationSet Name="FK_HoaDon_TaiKhoan" Association="Self.FK_HoaDon_TaiKhoan">
             <End Role="TaiKhoan" EntitySet="TaiKhoans" />
@@ -587,15 +481,6 @@
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ChiTietThongKes">
-            <EntityTypeMapping TypeName="QLCafeModel.ChiTietThongKe">
-              <MappingFragment StoreEntitySet="ChiTietThongKe">
-                <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
-                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -663,15 +548,6 @@
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
                 <ScalarProperty Name="MaNQL" ColumnName="MaNQL" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ThongKes">
-            <EntityTypeMapping TypeName="QLCafeModel.ThongKe">
-              <MappingFragment StoreEntitySet="ThongKe">
-                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
-                <ScalarProperty Name="TongGiaTri" ColumnName="TongGiaTri" />
-                <ScalarProperty Name="GiaTriMoiThanhPhan" ColumnName="GiaTriMoiThanhPhan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
