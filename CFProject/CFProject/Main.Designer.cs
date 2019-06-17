@@ -102,6 +102,7 @@
             this.đăngKsToolStripMenuItem.Name = "đăngKsToolStripMenuItem";
             this.đăngKsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngKsToolStripMenuItem.Text = "Đăng kí";
+            this.đăngKsToolStripMenuItem.Click += new System.EventHandler(this.đăngKsToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 

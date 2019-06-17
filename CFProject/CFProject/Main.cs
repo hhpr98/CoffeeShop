@@ -48,6 +48,28 @@ namespace CFProject
             frmControl.ShowDialog();
             this.Show();
         }
+
+        private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Bạn đã đăng nhập rồi! Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (res == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void đăngKsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Register frm = new Register(tk);
+            this.Hide();
+            frm.ShowDialog();
+            this.Close();
+        }
         #endregion
 
         #region Table
@@ -156,19 +178,7 @@ namespace CFProject
             }
         }
 
-        private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var res = MessageBox.Show("Bạn đã đăng nhập rồi! Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (res==DialogResult.OK)
-            {
-                this.Close();
-            }
-        }
-
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
         #endregion
 
         #region Checkout
@@ -289,6 +299,7 @@ namespace CFProject
                 MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
 
 
