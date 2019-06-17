@@ -282,8 +282,9 @@ namespace CFProject
                 var d = DateTime.Now;
                 //MessageBox.Show(d.ToShortDateString());
                 bill.NgayLapHoaDon = d;
-                var len = lblThanhToan.Text.Length;
-                var money = lblThanhToan.Text.Remove(len - 3, 3);
+                var txt = lblThanhToan.Text;
+                var len = txt.Length;
+                var money = txt.Remove(len - 3, 3);
                 //MessageBox.Show(money);
                 bill.TongTien = float.Parse(money);
                 db.HoaDons.Add(bill);
@@ -309,7 +310,7 @@ namespace CFProject
                 db.SaveChanges();
                 LoadDataTable();
                 RefreshTableDetail();
-                MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tổng tiền bàn này là : " + txt, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
