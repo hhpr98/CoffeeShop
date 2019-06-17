@@ -222,9 +222,57 @@ namespace CFProject
             LoadDataTable();
         }
 
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                // kiểm tra bàn?
+                var tableSel = db.BanAns.Find(tableIndex);
+                if (tableSel.TinhTrang=="Trống")
+                {
+                    MessageBox.Show("Bàn đang trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //Tạo hóa đơn mới
+                var bill = new HoaDon();
+                bill.MaTaiKhoan = tk.MaTaiKhoan;
+                var d = DateTime.Now;
+                //MessageBox.Show(d.ToShortDateString());
+                bill.NgayLapHoaDon = d;
+                var len = lblThanhToan.Text.Length;
+                var money = lblThanhToan.Text.Remove(len - 3, 3);
+                //MessageBox.Show(money);
+                bill.TongTien = float.Parse(money);
+                db.HoaDons.Add(bill);
+                db.SaveChanges();
+                //MessageBox.Show(bill.MaHoaDon.ToString());
+
+                // Tạo các chi tiết hóa đơn mới
+                var tableDetail = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).ToList();
+                foreach (var index in tableDetail)
+                {
+                    db.ChiTietHoaDons.Add(new ChiTietHoaDon() { MaSanPham = index.MaSanPham, MaHoaDon = bill.MaHoaDon,SoLuong=index.SoLuong,DonGia=index.DonGia });
+                }
+                db.SaveChanges();
+
+                // Cập nhật lại bàn
+                tableSel.TinhTrang = "Trống";
+                var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).ToList();
+                foreach (var index in lt)
+                {
+                    var dt = db.ChiTietBanAns.Find(index.MaChiTietBanAn);
+                    db.ChiTietBanAns.Remove(dt);
+                }
+                db.SaveChanges();
+                LoadDataTable();
+                RefreshTableDetail();
+                MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         #endregion
 
-        
+
     }
 }

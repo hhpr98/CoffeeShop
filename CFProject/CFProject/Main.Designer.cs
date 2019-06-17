@@ -290,6 +290,7 @@
             this.btnBill.Transparent1 = 75;
             this.btnBill.Transparent2 = 50;
             this.btnBill.UseVisualStyleBackColor = false;
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // btnAdd
             // 
