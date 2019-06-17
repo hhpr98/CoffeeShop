@@ -93,19 +93,20 @@
             // đăngNhậpToolStripMenuItem
             // 
             this.đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
-            this.đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngNhậpToolStripMenuItem.Text = "Đăng nhập";
+            this.đăngNhậpToolStripMenuItem.Click += new System.EventHandler(this.đăngNhậpToolStripMenuItem_Click);
             // 
             // đăngKsToolStripMenuItem
             // 
             this.đăngKsToolStripMenuItem.Name = "đăngKsToolStripMenuItem";
-            this.đăngKsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngKsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngKsToolStripMenuItem.Text = "Đăng kí";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // thôngTinToolStripMenuItem
@@ -120,14 +121,14 @@
             // thôngTinToolStripMenuItem1
             // 
             this.thôngTinToolStripMenuItem1.Name = "thôngTinToolStripMenuItem1";
-            this.thôngTinToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.thôngTinToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.thôngTinToolStripMenuItem1.Text = "Thông tin";
             this.thôngTinToolStripMenuItem1.Click += new System.EventHandler(this.thôngTinToolStripMenuItem1_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 

@@ -155,6 +155,15 @@ namespace CFProject
                 }
             }
         }
+
+        private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Bạn đã đăng nhập rồi! Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (res==DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
         #endregion
 
         #region Checkout
@@ -276,8 +285,9 @@ namespace CFProject
             }
         }
 
+
         #endregion
 
-
+        
     }
 }
