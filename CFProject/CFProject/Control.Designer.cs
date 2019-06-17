@@ -77,6 +77,13 @@
             this.btnAddAccount = new CFProject.ButtonH();
             this.grvAccount = new System.Windows.Forms.DataGridView();
             this.tabReven = new System.Windows.Forms.TabPage();
+            this.linkDetail = new System.Windows.Forms.LinkLabel();
+            this.grvReven = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.tabStatis = new System.Windows.Forms.TabPage();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
@@ -86,6 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvCategory)).BeginInit();
             this.tabAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvAccount)).BeginInit();
+            this.tabReven.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvReven)).BeginInit();
             this.SuspendLayout();
             // 
             // tabManagement
@@ -832,6 +841,14 @@
             // tabReven
             // 
             this.tabReven.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabReven.Controls.Add(this.linkDetail);
+            this.tabReven.Controls.Add(this.grvReven);
+            this.tabReven.Controls.Add(this.button2);
+            this.tabReven.Controls.Add(this.label15);
+            this.tabReven.Controls.Add(this.dateTimePicker1);
+            this.tabReven.Controls.Add(this.label14);
+            this.tabReven.Controls.Add(this.dateStart);
+            this.tabReven.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabReven.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabReven.Location = new System.Drawing.Point(4, 29);
             this.tabReven.Name = "tabReven";
@@ -840,6 +857,75 @@
             this.tabReven.TabIndex = 3;
             this.tabReven.Text = "Doanh thu";
             this.tabReven.UseVisualStyleBackColor = true;
+            // 
+            // linkDetail
+            // 
+            this.linkDetail.ActiveLinkColor = System.Drawing.Color.White;
+            this.linkDetail.AutoSize = true;
+            this.linkDetail.Location = new System.Drawing.Point(511, 75);
+            this.linkDetail.Name = "linkDetail";
+            this.linkDetail.Size = new System.Drawing.Size(76, 16);
+            this.linkDetail.TabIndex = 6;
+            this.linkDetail.TabStop = true;
+            this.linkDetail.Text = "Xem chi tiết";
+            // 
+            // grvReven
+            // 
+            this.grvReven.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grvReven.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvReven.Location = new System.Drawing.Point(139, 103);
+            this.grvReven.Name = "grvReven";
+            this.grvReven.Size = new System.Drawing.Size(761, 408);
+            this.grvReven.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(509, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 34);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Tra cứu";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(746, 40);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(33, 16);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Đến";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(785, 36);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(113, 22);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(136, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(25, 16);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Từ";
+            // 
+            // dateStart
+            // 
+            this.dateStart.CustomFormat = "dd/MM/yyyy";
+            this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateStart.Location = new System.Drawing.Point(167, 34);
+            this.dateStart.Name = "dateStart";
+            this.dateStart.Size = new System.Drawing.Size(113, 22);
+            this.dateStart.TabIndex = 0;
             // 
             // tabStatis
             // 
@@ -873,6 +959,9 @@
             this.tabAccount.ResumeLayout(false);
             this.tabAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvAccount)).EndInit();
+            this.tabReven.ResumeLayout(false);
+            this.tabReven.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvReven)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -926,5 +1015,12 @@
         private TextBoxH txtUsername;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnShowHidePass;
+        private System.Windows.Forms.DateTimePicker dateStart;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridView grvReven;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.LinkLabel linkDetail;
     }
 }

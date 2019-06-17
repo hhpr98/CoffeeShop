@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace CFProject
         public Control()
         {
             InitializeComponent();
+            
         }
 
         private void Control_Load(object sender, EventArgs e)
@@ -22,7 +24,7 @@ namespace CFProject
             // chống lỗi size máy MAC
             this.Size = new Size(1077, 627);
 
-            tabManagement.SelectedIndex = 2;
+            tabManagement.SelectedIndex = 3;
 
             #region TabFoodProperties
             RefreshFoodData();
@@ -72,6 +74,24 @@ namespace CFProject
             grvAccount.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
             grvAccount.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             grvAccount.EnableHeadersVisualStyles = false;
+            #endregion
+
+            #region TableRevenProperties
+            RefreshRevenData();
+            grvReven.Columns[0].HeaderText = "Mã HD";
+            grvReven.Columns[1].HeaderText = "Mã TK";
+            grvReven.Columns[2].HeaderText = "Tên nhân viên";
+            grvReven.Columns[3].HeaderText = "Ngày lập hóa đơn";
+            grvReven.Columns[4].HeaderText = "Tổng tiền";
+            grvReven.Columns[0].Width = 100;
+            grvReven.Columns[1].Width = 100;
+            grvReven.Columns[2].Width = 200;
+            grvReven.Columns[3].Width = 150;
+            grvReven.Columns[4].Width = 180;
+            grvReven.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            grvReven.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            grvReven.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            grvReven.EnableHeadersVisualStyles = false;
             #endregion
 
         }
@@ -462,6 +482,15 @@ namespace CFProject
         #endregion
 
         #region RevenEvent
+        public void RefreshRevenData()
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var l = db.HoaDons.Select(d => new { d.MaHoaDon, d.MaTaiKhoan, d.TaiKhoan.NguoiQuanLi.HoTen, d.NgayLapHoaDon, d.TongTien }).ToList();
+                grvReven.DataSource = l;
+            }
+        }
+
         #endregion
 
         #region StatisEvent
