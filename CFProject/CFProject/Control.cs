@@ -491,10 +491,45 @@ namespace CFProject
             }
         }
 
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            var d1 = DateTime.Parse(dateStart.Value.ToShortDateString());
+            var d2 = DateTime.Parse(dateEnd.Value.ToShortDateString());
+            if (d1 > d2)
+            {
+                MessageBox.Show("Ngày bắt đầu không thể lớn hơn ngày kết thúc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                RefreshRevenData();
+                return;
+            }
+
+            using (var db = new QLCafeEntities())
+            {
+                var l = db.HoaDons.Where(d => d.NgayLapHoaDon >= d1 && d.NgayLapHoaDon <= d2).Select(d => new { d.MaHoaDon, d.MaTaiKhoan, d.TaiKhoan.NguoiQuanLi.HoTen, d.NgayLapHoaDon, d.TongTien }).ToList();
+                grvReven.DataSource = l;
+            }
+        }
+
+        private void linkDetail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            int id = -1;
+            try
+            {
+                id = int.Parse(grvReven.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không tìm thấy mã hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Detail frm = new Detail(id);
+            frm.ShowDialog();
+        }
         #endregion
 
         #region StatisEvent
         #endregion
+
 
     }
 }
