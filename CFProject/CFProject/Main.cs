@@ -164,6 +164,11 @@ namespace CFProject
                 this.Close();
             }
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
 
         #region Checkout
@@ -284,6 +289,7 @@ namespace CFProject
                 MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
 
         #endregion
