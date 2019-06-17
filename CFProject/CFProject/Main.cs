@@ -74,7 +74,9 @@ namespace CFProject
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Account frm = new Account(tk);
+            this.Hide();
             frm.ShowDialog();
+            this.Show();
         }
         #endregion
 
