@@ -430,6 +430,7 @@
             // 
             // grvFood
             // 
+            this.grvFood.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvFood.Location = new System.Drawing.Point(6, 65);
             this.grvFood.Name = "grvFood";
@@ -562,6 +563,7 @@
             // 
             // grvCategory
             // 
+            this.grvCategory.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvCategory.Location = new System.Drawing.Point(25, 40);
             this.grvCategory.Name = "grvCategory";
@@ -816,6 +818,7 @@
             // 
             // grvAccount
             // 
+            this.grvAccount.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvAccount.Location = new System.Drawing.Point(3, 72);
             this.grvAccount.Margin = new System.Windows.Forms.Padding(2);

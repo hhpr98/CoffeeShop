@@ -51,7 +51,7 @@ namespace CFProject
         public void LoadDataTable()
         {
             pnTable.Controls.Clear();
-            int xLocation = 5;
+            int xLocation = 10;
             int yLocation = 30;
             List<BanAn> lt;
             using (var db = new QLCafeEntities())
@@ -80,7 +80,7 @@ namespace CFProject
                 if (xLocation >= 400)
                 {
                     xLocation = 5;
-                    yLocation += 120;
+                    yLocation += 130;
                 }
             }
         }

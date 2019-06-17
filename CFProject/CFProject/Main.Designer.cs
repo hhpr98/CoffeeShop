@@ -48,12 +48,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblThanhToan = new System.Windows.Forms.Label();
             this.lblTableSelected = new System.Windows.Forms.Label();
+            this.btnSwitch = new CFProject.ButtonH();
             this.cbSwitch = new CFProject.ComboBoxH();
             this.btnBill = new CFProject.ButtonH();
             this.btnAdd = new CFProject.ButtonH();
             this.cbProduct = new CFProject.ComboBoxH();
             this.cbCategory = new CFProject.ComboBoxH();
-            this.btnSwitch = new CFProject.ButtonH();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvListTable)).BeginInit();
@@ -133,7 +133,7 @@
             // 
             // pnTable
             // 
-            this.pnTable.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnTable.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnTable.Location = new System.Drawing.Point(11, 73);
             this.pnTable.Name = "pnTable";
             this.pnTable.Size = new System.Drawing.Size(486, 434);
@@ -190,6 +190,7 @@
             // 
             // grvListTable
             // 
+            this.grvListTable.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grvListTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvListTable.Location = new System.Drawing.Point(557, 132);
             this.grvListTable.Name = "grvListTable";
@@ -248,6 +249,38 @@
             this.lblTableSelected.Size = new System.Drawing.Size(44, 16);
             this.lblTableSelected.TabIndex = 21;
             this.lblTableSelected.Text = "Bàn 0";
+            // 
+            // btnSwitch
+            // 
+            this.btnSwitch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.BorderWidth = 2;
+            this.btnSwitch.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
+            this.btnSwitch.ButtonText = "";
+            this.btnSwitch.EndColor = System.Drawing.Color.Orange;
+            this.btnSwitch.FlatAppearance.BorderSize = 0;
+            this.btnSwitch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSwitch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitch.GradientAngle = 90;
+            this.btnSwitch.Location = new System.Drawing.Point(405, 521);
+            this.btnSwitch.MouseClickColor1 = System.Drawing.Color.Yellow;
+            this.btnSwitch.MouseClickColor2 = System.Drawing.Color.Red;
+            this.btnSwitch.MouseHoverColor1 = System.Drawing.Color.Turquoise;
+            this.btnSwitch.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.ShowButtontext = true;
+            this.btnSwitch.Size = new System.Drawing.Size(92, 28);
+            this.btnSwitch.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSwitch.TabIndex = 22;
+            this.btnSwitch.Text = "Chuyển bàn";
+            this.btnSwitch.TextLocation_X = 29;
+            this.btnSwitch.TextLocation_Y = 14;
+            this.btnSwitch.Transparent1 = 75;
+            this.btnSwitch.Transparent2 = 50;
+            this.btnSwitch.UseVisualStyleBackColor = false;
+            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
             // 
             // cbSwitch
             // 
@@ -346,38 +379,6 @@
             this.cbCategory.Size = new System.Drawing.Size(121, 26);
             this.cbCategory.TabIndex = 3;
             this.cbCategory.TextChanged += new System.EventHandler(this.cbCatogory_TextChanged);
-            // 
-            // btnSwitch
-            // 
-            this.btnSwitch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSwitch.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSwitch.BorderWidth = 2;
-            this.btnSwitch.ButtonShape = CFProject.ButtonH.ButtonsShapes.Rect;
-            this.btnSwitch.ButtonText = "";
-            this.btnSwitch.EndColor = System.Drawing.Color.Orange;
-            this.btnSwitch.FlatAppearance.BorderSize = 0;
-            this.btnSwitch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSwitch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSwitch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwitch.GradientAngle = 90;
-            this.btnSwitch.Location = new System.Drawing.Point(405, 521);
-            this.btnSwitch.MouseClickColor1 = System.Drawing.Color.Yellow;
-            this.btnSwitch.MouseClickColor2 = System.Drawing.Color.Red;
-            this.btnSwitch.MouseHoverColor1 = System.Drawing.Color.Turquoise;
-            this.btnSwitch.MouseHoverColor2 = System.Drawing.Color.DarkSlateGray;
-            this.btnSwitch.Name = "btnSwitch";
-            this.btnSwitch.ShowButtontext = true;
-            this.btnSwitch.Size = new System.Drawing.Size(92, 28);
-            this.btnSwitch.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSwitch.TabIndex = 22;
-            this.btnSwitch.Text = "Chuyển bàn";
-            this.btnSwitch.TextLocation_X = 29;
-            this.btnSwitch.TextLocation_Y = 14;
-            this.btnSwitch.Transparent1 = 75;
-            this.btnSwitch.Transparent2 = 50;
-            this.btnSwitch.UseVisualStyleBackColor = false;
-            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
             // 
             // Main
             // 
