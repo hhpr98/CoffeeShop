@@ -38,6 +38,11 @@ namespace CFProject
 
         private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (tk.TenDangNhap!="admin")
+            {
+                MessageBox.Show("Chỉ admin mới vào quản lí được!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             Control frmControl = new Control();
             this.Hide();
             frmControl.ShowDialog();
