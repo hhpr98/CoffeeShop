@@ -311,6 +311,8 @@ namespace CFProject
                 LoadDataTable();
                 RefreshTableDetail();
                 MessageBox.Show("Tổng tiền bàn này là : " + txt, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Detail frm = new Detail(bill.MaHoaDon);
+                frm.ShowDialog();
             }
         }
 
