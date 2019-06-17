@@ -70,6 +70,12 @@ namespace CFProject
             frm.ShowDialog();
             this.Show();
         }
+
+        private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Account frm = new Account(tk);
+            frm.ShowDialog();
+        }
         #endregion
 
         #region Table
@@ -217,7 +223,12 @@ namespace CFProject
             grvListTable.EnableHeadersVisualStyles = false;
 
             // load other data
-            cbSwitch.DataSource = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+             var lt = new List<int>();
+            using (var db = new QLCafeEntities())
+            {
+                lt = db.BanAns.Select(t => t.MaBan).ToList();
+            }
+            cbSwitch.DataSource = lt;
         }
 
         private void cbCatogory_TextChanged(object sender, EventArgs e)
@@ -299,6 +310,7 @@ namespace CFProject
                 MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
 
 
