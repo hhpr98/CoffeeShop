@@ -532,18 +532,62 @@ namespace CFProject
         #region StatisEvent
         private void btnStatis_Click(object sender, EventArgs e)
         {
-            // Test chart
-            string[] x = { "A", "b" };
-            int[] y = { 1, 2 };
+            var d1 = DateTime.Parse(dStart.Value.ToShortDateString());
+            var d2 = DateTime.Parse(dEnd.Value.ToShortDateString());
+            if (d1 > d2)
+            {
+                MessageBox.Show("Ngày bắt đầu không thể lớn hơn ngày kết thúc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lưu vào từ điển, đếm số lượng
+            var dic = new Dictionary<string, int>();
+            using (var db = new QLCafeEntities())
+            {
+                // Tìm tất cả các hóa đơn trong khoảng thời gian
+                var l = db.HoaDons.Where(d => d.NgayLapHoaDon >= d1 && d.NgayLapHoaDon <= d2).ToList(); 
+                // Mỗi hóa đơn tìm chi tất cả chi tiết hóa đơn
+                foreach (var item in l)
+                {
+                    var listTemp = db.ChiTietHoaDons.Where(d => d.MaHoaDon == item.MaHoaDon).ToList();
+                    foreach (var itemSub in listTemp)
+                    {
+                        if (dic.ContainsKey(itemSub.SanPham.TenSanPham))  // đã tồn tại chuỗi này rồi
+                        {
+                            dic[itemSub.SanPham.TenSanPham] += (int)itemSub.SoLuong; // tăng value của chuỗi này lên số lượng
+                        }
+                        else
+                        {
+                            dic[itemSub.SanPham.TenSanPham] = (int)itemSub.SoLuong; // gán = x (ghi nhận chuỗi xuất hiện x lần)
+                        }
+                    }
+                }
+            }
+            List<string> x = new List<string>();
+            List<int> y = new List<int>();
+            foreach (var index in dic)
+            {
+                x.Add(index.Key);
+                y.Add(index.Value);
+            }
             chartMaster.Series[0].ChartType = SeriesChartType.Pie;
             chartMaster.Series[0].Points.DataBindXY(x, y);
             chartMaster.Legends[0].Enabled = true;
             chartMaster.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+
+            // Test chart
+            //string[] x = { "A", "b" };
+            //int[] y = { 1, 2 };
+            //chartMaster.Series[0].ChartType = SeriesChartType.Pie;
+            //chartMaster.Series[0].Points.DataBindXY(x, y);
+            //chartMaster.Legends[0].Enabled = true;
+            //chartMaster.ChartAreas[0].Area3DStyle.Enable3D = true;
         }
         #endregion
 
 
-       
+
     }
 
    
