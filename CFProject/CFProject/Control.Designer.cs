@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabManagement = new TabControlH.TabControlH();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -85,6 +88,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.tabStatis = new System.Windows.Forms.TabPage();
+            this.chartMaster = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnStatis = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -95,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvAccount)).BeginInit();
             this.tabReven.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvReven)).BeginInit();
+            this.tabStatis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaster)).BeginInit();
             this.SuspendLayout();
             // 
             // tabManagement
@@ -441,9 +452,9 @@
             // 
             this.grvFood.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvFood.Location = new System.Drawing.Point(6, 65);
+            this.grvFood.Location = new System.Drawing.Point(6, 80);
             this.grvFood.Name = "grvFood";
-            this.grvFood.Size = new System.Drawing.Size(626, 578);
+            this.grvFood.Size = new System.Drawing.Size(626, 448);
             this.grvFood.TabIndex = 3;
             this.grvFood.SelectionChanged += new System.EventHandler(this.grvFood_SelectionChanged);
             // 
@@ -932,6 +943,13 @@
             // tabStatis
             // 
             this.tabStatis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabStatis.Controls.Add(this.chartMaster);
+            this.tabStatis.Controls.Add(this.btnStatis);
+            this.tabStatis.Controls.Add(this.label16);
+            this.tabStatis.Controls.Add(this.dateTimePicker1);
+            this.tabStatis.Controls.Add(this.label17);
+            this.tabStatis.Controls.Add(this.dateTimePicker2);
+            this.tabStatis.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabStatis.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabStatis.Location = new System.Drawing.Point(4, 29);
             this.tabStatis.Name = "tabStatis";
@@ -940,6 +958,72 @@
             this.tabStatis.TabIndex = 4;
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
+            // 
+            // chartMaster
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartMaster.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartMaster.Legends.Add(legend3);
+            this.chartMaster.Location = new System.Drawing.Point(59, 154);
+            this.chartMaster.Name = "chartMaster";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartMaster.Series.Add(series3);
+            this.chartMaster.Size = new System.Drawing.Size(363, 300);
+            this.chartMaster.TabIndex = 9;
+            this.chartMaster.Text = "Doanh thu";
+            // 
+            // btnStatis
+            // 
+            this.btnStatis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnStatis.Location = new System.Drawing.Point(464, 13);
+            this.btnStatis.Name = "btnStatis";
+            this.btnStatis.Size = new System.Drawing.Size(88, 32);
+            this.btnStatis.TabIndex = 8;
+            this.btnStatis.Text = "Tra cứu";
+            this.btnStatis.UseVisualStyleBackColor = false;
+            this.btnStatis.Click += new System.EventHandler(this.btnStatis_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(733, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(33, 16);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "Đến";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(772, 18);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(113, 22);
+            this.dateTimePicker1.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(123, 20);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 16);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Từ";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(154, 16);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(113, 22);
+            this.dateTimePicker2.TabIndex = 4;
             // 
             // Control
             // 
@@ -964,6 +1048,9 @@
             this.tabReven.ResumeLayout(false);
             this.tabReven.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvReven)).EndInit();
+            this.tabStatis.ResumeLayout(false);
+            this.tabStatis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaster)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1024,5 +1111,11 @@
         private System.Windows.Forms.DataGridView grvReven;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.LinkLabel linkDetail;
+        private System.Windows.Forms.Button btnStatis;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMaster;
     }
 }

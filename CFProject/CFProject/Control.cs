@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace CFProject
 {
@@ -24,7 +25,7 @@ namespace CFProject
             // chống lỗi size máy MAC
             this.Size = new Size(1077, 627);
 
-            tabManagement.SelectedIndex = 3;
+            tabManagement.SelectedIndex = 4;
 
             #region TabFoodProperties
             RefreshFoodData();
@@ -525,11 +526,26 @@ namespace CFProject
             Detail frm = new Detail(id);
             frm.ShowDialog();
         }
+
         #endregion
 
         #region StatisEvent
+        private void btnStatis_Click(object sender, EventArgs e)
+        {
+            // Test chart
+            string[] x = { "A", "b" };
+            int[] y = { 1, 2 };
+            chartMaster.Series[0].ChartType = SeriesChartType.Pie;
+            chartMaster.Series[0].Points.DataBindXY(x, y);
+            chartMaster.Legends[0].Enabled = true;
+            chartMaster.ChartAreas[0].Area3DStyle.Enable3D = true;
+        }
         #endregion
 
 
+       
     }
+
+   
+
 }
