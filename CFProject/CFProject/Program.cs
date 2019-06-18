@@ -17,8 +17,8 @@ namespace CFProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
-            //Application.Run(new Control());
-            Application.Run(new Main());
+            Application.Run(new Control());
+            //Application.Run(new Main());
         }
     }
 }
