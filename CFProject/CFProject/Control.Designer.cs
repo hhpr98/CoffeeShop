@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabManagement = new TabControlH.TabControlH();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -85,6 +88,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.tabStatis = new System.Windows.Forms.TabPage();
+            this.chartMaster = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnStatis = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dEnd = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dStart = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -95,6 +106,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvAccount)).BeginInit();
             this.tabReven.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvReven)).BeginInit();
+            this.tabStatis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaster)).BeginInit();
             this.SuspendLayout();
             // 
             // tabManagement
@@ -441,9 +454,9 @@
             // 
             this.grvFood.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvFood.Location = new System.Drawing.Point(6, 65);
+            this.grvFood.Location = new System.Drawing.Point(6, 80);
             this.grvFood.Name = "grvFood";
-            this.grvFood.Size = new System.Drawing.Size(626, 578);
+            this.grvFood.Size = new System.Drawing.Size(626, 448);
             this.grvFood.TabIndex = 3;
             this.grvFood.SelectionChanged += new System.EventHandler(this.grvFood_SelectionChanged);
             // 
@@ -932,6 +945,15 @@
             // tabStatis
             // 
             this.tabStatis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabStatis.Controls.Add(this.label19);
+            this.tabStatis.Controls.Add(this.label18);
+            this.tabStatis.Controls.Add(this.chartMaster);
+            this.tabStatis.Controls.Add(this.btnStatis);
+            this.tabStatis.Controls.Add(this.label16);
+            this.tabStatis.Controls.Add(this.dEnd);
+            this.tabStatis.Controls.Add(this.label17);
+            this.tabStatis.Controls.Add(this.dStart);
+            this.tabStatis.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabStatis.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabStatis.Location = new System.Drawing.Point(4, 29);
             this.tabStatis.Name = "tabStatis";
@@ -940,6 +962,94 @@
             this.tabStatis.TabIndex = 4;
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
+            // 
+            // chartMaster
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartMaster.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartMaster.Legends.Add(legend1);
+            this.chartMaster.Location = new System.Drawing.Point(46, 174);
+            this.chartMaster.Name = "chartMaster";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartMaster.Series.Add(series1);
+            this.chartMaster.Size = new System.Drawing.Size(402, 325);
+            this.chartMaster.TabIndex = 9;
+            this.chartMaster.Text = "Doanh thu";
+            // 
+            // btnStatis
+            // 
+            this.btnStatis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnStatis.Location = new System.Drawing.Point(464, 13);
+            this.btnStatis.Name = "btnStatis";
+            this.btnStatis.Size = new System.Drawing.Size(88, 32);
+            this.btnStatis.TabIndex = 8;
+            this.btnStatis.Text = "Tra cứu";
+            this.btnStatis.UseVisualStyleBackColor = false;
+            this.btnStatis.Click += new System.EventHandler(this.btnStatis_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(733, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(33, 16);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "Đến";
+            // 
+            // dEnd
+            // 
+            this.dEnd.CustomFormat = "dd/MM/yyyy";
+            this.dEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dEnd.Location = new System.Drawing.Point(772, 18);
+            this.dEnd.Name = "dEnd";
+            this.dEnd.Size = new System.Drawing.Size(113, 22);
+            this.dEnd.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(123, 20);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 16);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Từ";
+            // 
+            // dStart
+            // 
+            this.dStart.CustomFormat = "dd/MM/yyyy";
+            this.dStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dStart.Location = new System.Drawing.Point(154, 16);
+            this.dStart.Name = "dStart";
+            this.dStart.Size = new System.Drawing.Size(113, 22);
+            this.dStart.TabIndex = 4;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Blue;
+            this.label18.Location = new System.Drawing.Point(151, 98);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(155, 16);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "thống kê theo số lượng";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Blue;
+            this.label19.Location = new System.Drawing.Point(733, 98);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(163, 16);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "thống kê theo doanh thu";
             // 
             // Control
             // 
@@ -964,6 +1074,9 @@
             this.tabReven.ResumeLayout(false);
             this.tabReven.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvReven)).EndInit();
+            this.tabStatis.ResumeLayout(false);
+            this.tabStatis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaster)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1024,5 +1137,13 @@
         private System.Windows.Forms.DataGridView grvReven;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.LinkLabel linkDetail;
+        private System.Windows.Forms.Button btnStatis;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dEnd;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dStart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMaster;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
     }
 }
