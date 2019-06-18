@@ -32,6 +32,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabManagement = new TabControlH.TabControlH();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -88,14 +91,15 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.tabStatis = new System.Windows.Forms.TabPage();
+            this.chartReven = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.chartMaster = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnStatis = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.dEnd = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.dStart = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabManagement.SuspendLayout();
             this.tabFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -107,6 +111,7 @@
             this.tabReven.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvReven)).BeginInit();
             this.tabStatis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReven)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMaster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -945,6 +950,7 @@
             // tabStatis
             // 
             this.tabStatis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabStatis.Controls.Add(this.chartReven);
             this.tabStatis.Controls.Add(this.label19);
             this.tabStatis.Controls.Add(this.label18);
             this.tabStatis.Controls.Add(this.chartMaster);
@@ -963,20 +969,59 @@
             this.tabStatis.Text = "Thống kê";
             this.tabStatis.UseVisualStyleBackColor = true;
             // 
-            // chartMaster
+            // chartReven
             // 
             chartArea1.Name = "ChartArea1";
-            this.chartMaster.ChartAreas.Add(chartArea1);
+            this.chartReven.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
             legend1.Name = "Legend1";
-            this.chartMaster.Legends.Add(legend1);
-            this.chartMaster.Location = new System.Drawing.Point(46, 174);
-            this.chartMaster.Name = "chartMaster";
+            this.chartReven.Legends.Add(legend1);
+            this.chartReven.Location = new System.Drawing.Point(527, 149);
+            this.chartReven.Name = "chartReven";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chartMaster.Series.Add(series1);
-            this.chartMaster.Size = new System.Drawing.Size(402, 325);
+            this.chartReven.Series.Add(series1);
+            this.chartReven.Size = new System.Drawing.Size(456, 353);
+            this.chartReven.TabIndex = 12;
+            this.chartReven.Text = "chart1";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Blue;
+            this.label19.Location = new System.Drawing.Point(733, 98);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(163, 16);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "thống kê theo doanh thu";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Blue;
+            this.label18.Location = new System.Drawing.Point(151, 98);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(155, 16);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "thống kê theo số lượng";
+            // 
+            // chartMaster
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartMaster.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartMaster.Legends.Add(legend2);
+            this.chartMaster.Location = new System.Drawing.Point(23, 149);
+            this.chartMaster.Name = "chartMaster";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartMaster.Series.Add(series2);
+            this.chartMaster.Size = new System.Drawing.Size(469, 353);
             this.chartMaster.TabIndex = 9;
             this.chartMaster.Text = "Doanh thu";
             // 
@@ -1029,28 +1074,6 @@
             this.dStart.Size = new System.Drawing.Size(113, 22);
             this.dStart.TabIndex = 4;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Blue;
-            this.label18.Location = new System.Drawing.Point(151, 98);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(155, 16);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "thống kê theo số lượng";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Blue;
-            this.label19.Location = new System.Drawing.Point(733, 98);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(163, 16);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "thống kê theo doanh thu";
-            // 
             // Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1076,6 +1099,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvReven)).EndInit();
             this.tabStatis.ResumeLayout(false);
             this.tabStatis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReven)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMaster)).EndInit();
             this.ResumeLayout(false);
 
@@ -1145,5 +1169,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMaster;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartReven;
     }
 }

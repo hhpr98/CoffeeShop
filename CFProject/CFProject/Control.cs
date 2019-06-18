@@ -25,7 +25,7 @@ namespace CFProject
             // chống lỗi size máy MAC
             this.Size = new Size(1077, 627);
 
-            tabManagement.SelectedIndex = 4;
+            tabManagement.SelectedIndex = 0;
 
             #region TabFoodProperties
             RefreshFoodData();
@@ -542,10 +542,15 @@ namespace CFProject
 
             // Lưu vào từ điển, đếm số lượng
             var dic = new Dictionary<string, int>();
+            var dicReven = new Dictionary<string, float>();
             using (var db = new QLCafeEntities())
             {
                 // Tìm tất cả các hóa đơn trong khoảng thời gian
-                var l = db.HoaDons.Where(d => d.NgayLapHoaDon >= d1 && d.NgayLapHoaDon <= d2).ToList(); 
+                var l = db.HoaDons.Where(d => d.NgayLapHoaDon >= d1 && d.NgayLapHoaDon <= d2).ToList();
+                if (l.Count()==0)
+                {
+                    MessageBox.Show("Không tìm thấy số liệu trong khoảng thời gian này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 // Mỗi hóa đơn tìm chi tất cả chi tiết hóa đơn
                 foreach (var item in l)
                 {
@@ -559,6 +564,15 @@ namespace CFProject
                         else
                         {
                             dic[itemSub.SanPham.TenSanPham] = (int)itemSub.SoLuong; // gán = x (ghi nhận chuỗi xuất hiện x lần)
+                        }
+
+                        if (dicReven.ContainsKey(itemSub.SanPham.TenSanPham))
+                        {
+                            dicReven[itemSub.SanPham.TenSanPham] += (float)itemSub.SoLuong*(float)itemSub.DonGia;
+                        }
+                        else
+                        {
+                            dicReven[itemSub.SanPham.TenSanPham] = (float)itemSub.SoLuong * (float)itemSub.DonGia;
                         }
                     }
                 }
@@ -575,6 +589,20 @@ namespace CFProject
             chartMaster.Legends[0].Enabled = true;
             chartMaster.ChartAreas[0].Area3DStyle.Enable3D = true;
 
+            List<string> xReven = new List<string>();
+            List<float> yReven = new List<float>();
+            foreach (var index in dicReven)
+            {
+                xReven.Add(index.Key);
+                yReven.Add(index.Value);
+            }
+            chartReven.Series[0].ChartType = SeriesChartType.Column;
+            chartReven.Series[0].Points.DataBindXY(xReven, yReven);
+            chartReven.Legends[0].Enabled = false;
+            chartReven.ChartAreas[0].Area3DStyle.Enable3D = false;
+            chartReven.ChartAreas[0].AxisY.Title = "(nghìn đồng)";
+            chartReven.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Far;
+            chartReven.ChartAreas[0].AxisY.TitleForeColor = Color.Red;
 
             // Test chart
             //string[] x = { "A", "b" };
