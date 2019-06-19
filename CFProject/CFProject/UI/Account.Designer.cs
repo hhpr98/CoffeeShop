@@ -39,13 +39,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtRepassword = new CFProject.TextBoxH();
             this.btnChangedPassword = new CFProject.ButtonH();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtNewpassword = new CFProject.TextBoxH();
             this.txtOldpassword = new CFProject.TextBoxH();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new CFProject.TextBoxH();
             this.txtAddress = new CFProject.TextBoxH();
             this.txtCMND = new CFProject.TextBoxH();
@@ -168,26 +168,6 @@
             this.panel1.Size = new System.Drawing.Size(359, 223);
             this.panel1.TabIndex = 66;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(401, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "Đổi mật khẩu";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 73);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 16);
-            this.label4.TabIndex = 66;
-            this.label4.Text = "Mật khẩu mới";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -240,6 +220,17 @@
             this.btnChangedPassword.UseVisualStyleBackColor = false;
             this.btnChangedPassword.Click += new System.EventHandler(this.btnChangedPassword_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(15, 73);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 16);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Mật khẩu mới";
+            // 
             // txtNewpassword
             // 
             this.txtNewpassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -257,6 +248,15 @@
             this.txtOldpassword.Size = new System.Drawing.Size(189, 27);
             this.txtOldpassword.TabIndex = 65;
             this.txtOldpassword.UseSystemPasswordChar = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(401, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "Đổi mật khẩu";
             // 
             // txtPhoneNumber
             // 
@@ -328,9 +328,10 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label8);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Account";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Account";
+            this.Text = "Thông tin tài khoản";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
