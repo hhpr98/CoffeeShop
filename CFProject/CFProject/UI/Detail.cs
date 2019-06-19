@@ -48,27 +48,27 @@ namespace CFProject
                 lblCost.Text = billInfo.TongTien.ToString() + " VNĐ";
 
                 var l = db.ChiTietHoaDons.Where(d => d.MaHoaDon == id).ToList();
-                int[] xLocation = { 10, 100, 300, 400 };
+                int[] xLocation = { 10, 60, 230, 300, 400 };
                 var yLocation = 10;
                 int stt = 1;
                 foreach (var index in l)
                 {
                     Label lblID = new Label();
-                    lblID.Size = new Size(90, 20);
+                    lblID.Size = new Size(50, 20);
                     lblID.Text = stt.ToString();
                     lblID.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
                     lblID.Location = new System.Drawing.Point(xLocation[0], yLocation);
                     pnDetail.Controls.Add(lblID);
 
                     Label lblName = new Label();
-                    lblName.Size = new Size(200, 20);
+                    lblName.Size = new Size(150, 20);
                     lblName.Text = index.SanPham.TenSanPham;
                     lblName.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
                     lblName.Location = new System.Drawing.Point(xLocation[1], yLocation);
                     pnDetail.Controls.Add(lblName);
 
                     Label lblNumber = new Label();
-                    lblNumber.Size = new Size(100, 20);
+                    lblNumber.Size = new Size(70, 20);
                     lblNumber.Text = index.SoLuong.ToString();
                     lblNumber.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
                     lblNumber.Location = new System.Drawing.Point(xLocation[2], yLocation);
@@ -80,6 +80,13 @@ namespace CFProject
                     lblCost.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
                     lblCost.Location = new System.Drawing.Point(xLocation[3], yLocation);
                     pnDetail.Controls.Add(lblCost);
+
+                    Label lblTotal = new Label();
+                    lblTotal.Size = new Size(100, 20);
+                    lblTotal.Text = (index.DonGia * index.SoLuong).ToString() + " đ";
+                    lblTotal.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
+                    lblTotal.Location = new System.Drawing.Point(xLocation[4], yLocation);
+                    pnDetail.Controls.Add(lblTotal);
 
                     yLocation += 40;
                     stt++;
