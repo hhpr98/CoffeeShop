@@ -1080,9 +1080,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 588);
             this.Controls.Add(this.tabManagement);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Control";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Control";
+            this.Text = "Quản lí (admin)";
             this.Load += new System.EventHandler(this.Control_Load);
             this.tabManagement.ResumeLayout(false);
             this.tabFood.ResumeLayout(false);

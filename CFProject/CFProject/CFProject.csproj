@@ -226,6 +226,9 @@
     <Content Include="Resources\avatar.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\icon_app.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\icon_open.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
