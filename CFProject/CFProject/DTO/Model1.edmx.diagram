@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce8c73b9a7074dec8a5303b0daf7fd0d" Name="Diagram1">
+        <EntityTypeShape EntityType="QLCafeModel.BanAn" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.ChiTietBanAn" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.ChiTietHoaDon" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.HoaDon" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.NguoiQuanLi" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.NhomSanPham" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.SanPham" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.sysdiagram" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCafeModel.TaiKhoan" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="QLCafeModel.FK_ChiTietBanAn_BanAn" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCafeModel.FK_ChiTietBanAn_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCafeModel.FK_ChiTietHoaDon_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCafeModel.FK_ChiTietHoaDon_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCafeModel.FK_HoaDon_TaiKhoan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCafeModel.FK_TaiKhoan_NguoiQuanLi" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCafeModel.FK_SanPham_NhomSanPham" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
