@@ -71,16 +71,19 @@
     <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\DetailBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
+    <Compile Include="BUS\MainBUS.cs" />
     <Compile Include="BUS\RegisterBUS.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DTO\BanAn.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\ChiTietBanAn.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\ChiTietBanAnClass.cs" />
     <Compile Include="DTO\ChiTietHoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

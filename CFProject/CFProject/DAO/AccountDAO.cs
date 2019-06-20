@@ -42,7 +42,7 @@ namespace CFProject.DAO
         {
             using (var db = new QLCafeEntities())
             {
-                return db.TaiKhoans.ToList();
+                return db.TaiKhoans.Where(a=>a.isDeleted==0).ToList();
             }
         }
         #endregion

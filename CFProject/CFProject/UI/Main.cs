@@ -1,4 +1,5 @@
 ﻿using CFProject.DTO;
+using CFProject.BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,14 +87,10 @@ namespace CFProject
         int tableIndex = 1;
         public void LoadDataTable()
         {
-            pnTable.Controls.Clear();
+            pnTable.Controls.Clear(); // clear
             int xLocation = 10;
             int yLocation = 30;
-            List<BanAn> lt;
-            using (var db = new QLCafeEntities())
-            {
-                lt = db.BanAns.ToList();
-            }
+            var lt = new MainBUS().getAllTable(); // get all table
 
             foreach (var table in lt)
             {
@@ -136,17 +133,14 @@ namespace CFProject
         private void RefreshTableDetail()
         {
             lblTableSelected.Text = "Bàn " + tableIndex.ToString();
-            using (var db = new QLCafeEntities())
+            var lt = new MainBUS().getTableDetailByID(tableIndex);
+            float TongTien = 0;
+            foreach (var index in lt)
             {
-                var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).Select(t => new { t.MaSanPham, t.SanPham.TenSanPham, t.SoLuong, t.DonGia }).ToList();
-                float TongTien = 0;
-                foreach (var index in lt)
-                {
-                    TongTien += (float)index.DonGia * (float)index.SoLuong;
-                }
-                lblThanhToan.Text = TongTien.ToString() + " VNĐ";
-                grvListTable.DataSource = lt;
+                TongTien += (float)index.DonGia * (float)index.SoLuong;
             }
+            lblThanhToan.Text = TongTien.ToString() + " VNĐ";
+            grvListTable.DataSource = lt;
         }
 
         private void btnSwitch_Click(object sender, EventArgs e)
@@ -158,36 +152,20 @@ namespace CFProject
             }
             else
             {
-                using (var db = new QLCafeEntities())
+                // Chuyển bàn
+                var res = new MainBUS().switchTable(tableIndex,idTableSwitch);
+                if (res == 1)
                 {
-                    var table = db.BanAns.Find(idTableSwitch);
-                    var t = db.BanAns.Find(tableIndex);
-                    if (table.TinhTrang=="Có người")
-                    {
-                        MessageBox.Show("Bàn muốn chuyển đến đã có người ngồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        return;
-                    }
-                    // Ngược lại
-                    table.TinhTrang = "Có người"; // cập nhật bàn mới có người
-                    t.TinhTrang = "Trống"; // cập nhật bàn cũ trống
-                    foreach (var index in db.ChiTietBanAns) // chuyển món ăn bàn cũ sang bàn mới
-                    {
-                        if (index.MaBan==tableIndex)
-                        {
-                            index.MaBan = idTableSwitch;
-                        }
-                    }
-                    db.SaveChanges();
-                    // load lại dữ liệu
-                    tableIndex = idTableSwitch;
-                    LoadDataTable();
-                    RefreshTableDetail();
-                    MessageBox.Show("Đã chuyển đến bàn " + tableIndex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bàn muốn chuyển đến đã có người ngồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
                 }
+                // load lại dữ liệu
+                tableIndex = idTableSwitch;
+                LoadDataTable();
+                RefreshTableDetail();
+                MessageBox.Show("Đã chuyển đến bàn " + tableIndex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        
         #endregion
 
         #region Checkout
