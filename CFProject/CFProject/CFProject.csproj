@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\AccountBUS.cs" />
+    <Compile Include="BUS\ControlBUS.cs" />
     <Compile Include="BUS\DetailBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\MainBUS.cs" />

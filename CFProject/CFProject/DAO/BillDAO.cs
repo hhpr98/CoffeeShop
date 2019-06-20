@@ -26,5 +26,18 @@ namespace CFProject.DAO
             }
         }
         #endregion
+
+        #region forMainScreen
+        public int addBill(HoaDon bill)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                db.HoaDons.Add(bill);
+                db.SaveChanges();
+                //MessageBox.Show(bill.MaHoaDon.ToString());
+                return bill.MaHoaDon;
+            }
+        }
+        #endregion
     }
 }

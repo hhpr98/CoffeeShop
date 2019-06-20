@@ -58,6 +58,43 @@ namespace CFProject.DAO
                 db.SaveChanges();
             }
         }
+
+        public void updateTable(int tableId,string status)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var table = db.BanAns.Find(tableId);
+                table.TinhTrang = status;
+                db.SaveChanges();
+            }
+        }
+
+        public void addBillDetail(ChiTietHoaDon billDetail)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                db.ChiTietHoaDons.Add(billDetail);
+                db.SaveChanges();
+            }
+        }
+
+        public void removeTableDetail(int tableDetailID)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                var detail = db.ChiTietBanAns.Find(tableDetailID);
+                db.ChiTietBanAns.Remove(detail);
+                db.SaveChanges();
+            }
+        }
+
+        public List<ChiTietBanAn> getTableDetailyByIDFull(int id)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                return db.ChiTietBanAns.Where(t => t.MaBan == id).ToList();
+            }
+        }
         #endregion
     }
 }

@@ -175,27 +175,21 @@ namespace CFProject
             LoadDataTable();
 
             // load menu món
-            using (var db = new QLCafeEntities())
-            {
-                var lc = db.NhomSanPhams.Where(c => c.isDeleted == 0).ToList();
-                var lcData = lc.Select(c => c.TenNhom).ToList();
-                cbCategory.DataSource = lcData;
-                //var lp = db.SanPhams.Where(p => p.isDeleted == 0).Select(p => p.TenSanPham).ToList();
-                //cbProduct.DataSource = lp;
-                int cid = lc[0].MaNhom;
-                var lp = db.SanPhams.Where(p => p.isDeleted == 0 && p.MaNhom == cid).Select(p => p.TenSanPham).ToList();
-                cbProduct.DataSource = lp;
-            }
+            var lc = new MainBUS().loadCategoryName();
+            cbCategory.DataSource = lc;
+            var cname = lc[0];
+            var lp = new MainBUS().loadProductName(cname);
+            cbProduct.DataSource = lp;
 
             // load detail table
             RefreshTableDetail();
             lblTableSelected.Text = "Bàn " + tableIndex.ToString();
-            grvListTable.Columns[0].HeaderText = "Mã";
+            grvListTable.Columns[0].HeaderText = "Mã SP";
             grvListTable.Columns[1].HeaderText = "Tên món";
             grvListTable.Columns[2].HeaderText = "Số lượng";
             grvListTable.Columns[3].HeaderText = "Đơn giá";
-            grvListTable.Columns[0].Width = 50;
-            grvListTable.Columns[1].Width = 250;
+            grvListTable.Columns[0].Width = 80;
+            grvListTable.Columns[1].Width = 220;
             grvListTable.Columns[2].Width = 100;
             grvListTable.Columns[3].Width = 120;
             grvListTable.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.75F, FontStyle.Bold);
@@ -203,42 +197,22 @@ namespace CFProject
             grvListTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             grvListTable.EnableHeadersVisualStyles = false;
 
-            // load other data
-             var lt = new List<int>();
-            using (var db = new QLCafeEntities())
-            {
-                lt = db.BanAns.Select(t => t.MaBan).ToList();
-            }
+            // load id talbe of switch combobox
+            var lt = new MainBUS().getAllIdTable();
             cbSwitch.DataSource = lt;
         }
 
         private void cbCatogory_TextChanged(object sender, EventArgs e)
         {
-            using (var db = new QLCafeEntities())
-            {
-                var lc = db.NhomSanPhams.Where(c => c.isDeleted == 0).ToList();
-                int selIndex = cbCategory.SelectedIndex;
-                int cid = lc[selIndex].MaNhom;
-                var lp = db.SanPhams.Where(p => p.isDeleted == 0 && p.MaNhom == cid).Select(p => p.TenSanPham).ToList();
-                cbProduct.DataSource = lp;
-            }
+            var lp = new MainBUS().loadProductName(cbCategory.Text);
+            cbProduct.DataSource = lp;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var nameProduct = cbProduct.Text;
             var numProduct = txtNumber.Value;
-            SanPham product;
-            using (var db = new QLCafeEntities())
-            {
-                var lp = db.SanPhams.Where(p => p.TenSanPham == nameProduct).ToList();
-                product = lp[0];
-                //MessageBox.Show(product.TenSanPham);
-                var table = db.BanAns.Find(tableIndex);
-                table.TinhTrang = "Có người";
-                db.ChiTietBanAns.Add(new ChiTietBanAn() { MaBan = tableIndex, MaSanPham = product.MaSanPham, SoLuong = (int?)numProduct, DonGia = product.GiaBan });
-                db.SaveChanges();
-            }
+            new MainBUS().updateTableDetail(tableIndex, nameProduct, (int)numProduct);
             RefreshTableDetail();
             LoadDataTable();
         }
@@ -248,59 +222,45 @@ namespace CFProject
             using (var db = new QLCafeEntities())
             {
                 // kiểm tra bàn?
-                var tableSel = db.BanAns.Find(tableIndex);
-                if (tableSel.TinhTrang=="Trống")
+                var check = new MainBUS().checkTableStatus(tableIndex);
+                if (check==0)
                 {
                     MessageBox.Show("Bàn đang trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                //Tạo hóa đơn mới
-                var bill = new HoaDon();
-                bill.MaTaiKhoan = tk.MaTaiKhoan;
+                //Tạo hóa đơn mới & trả về mã hóa đơn
+                var billToAdd = new HoaDon();
+                billToAdd.MaTaiKhoan = tk.MaTaiKhoan;
                 var d = DateTime.Now;
                 //MessageBox.Show(d.ToShortDateString());
-                bill.NgayLapHoaDon = d;
+                billToAdd.NgayLapHoaDon = d;
                 var txt = lblThanhToan.Text;
                 var len = txt.Length;
                 var money = txt.Remove(len - 3, 3);
                 //MessageBox.Show(money);
-                bill.TongTien = float.Parse(money);
-                db.HoaDons.Add(bill);
-                db.SaveChanges();
-                //MessageBox.Show(bill.MaHoaDon.ToString());
+                billToAdd.TongTien = float.Parse(money);
+                var billId = new MainBUS().addBill(billToAdd);
 
                 // Tạo các chi tiết hóa đơn mới
-                var tableDetail = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).ToList();
-                foreach (var index in tableDetail)
-                {
-                    db.ChiTietHoaDons.Add(new ChiTietHoaDon() { MaSanPham = index.MaSanPham, MaHoaDon = bill.MaHoaDon,SoLuong=index.SoLuong,DonGia=index.DonGia });
-                }
-                db.SaveChanges();
+                new MainBUS().createBillDetail(tableIndex, billId);
 
                 // Cập nhật lại bàn
-                tableSel.TinhTrang = "Trống";
-                var lt = db.ChiTietBanAns.Where(t => t.MaBan == tableIndex).ToList();
-                foreach (var index in lt)
-                {
-                    var dt = db.ChiTietBanAns.Find(index.MaChiTietBanAn);
-                    db.ChiTietBanAns.Remove(dt);
-                }
-                db.SaveChanges();
+                new MainBUS().updateTable(tableIndex, "Trống");
+
+                // Xóa các chi tiết bàn ăn đã thanh toán
+                new MainBUS().RemoveTableDetail(tableIndex);
+
+                // Refresh data
                 LoadDataTable();
                 RefreshTableDetail();
+
+                // Show bill
                 MessageBox.Show("Tổng tiền bàn này là : " + txt, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Detail frm = new Detail(bill.MaHoaDon);
+                Detail frm = new Detail(billId);
                 frm.ShowDialog();
             }
         }
-
-
-
-
-
         #endregion
-
-        
     }
 }
