@@ -46,5 +46,24 @@ namespace CFProject.DAO
             }
         }
         #endregion
+
+        #region forRegisterScreen
+        public List<TaiKhoan> listAccountSame(string user)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                return db.TaiKhoans.Where(a => a.TenDangNhap.ToLower() == user.ToLower()).ToList();
+            }
+        }
+
+        public void registerNewAccount(string user,string pass,int manager)
+        {
+            using (var db = new QLCafeEntities())
+            {
+                db.TaiKhoans.Add(new TaiKhoan() { TenDangNhap = user, MatKhau = pass, MaNQL = manager, isDeleted = 0 });
+                db.SaveChanges();
+            }
+        }
+        #endregion
     }
 }

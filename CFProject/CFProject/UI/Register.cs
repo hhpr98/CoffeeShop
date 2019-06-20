@@ -1,4 +1,5 @@
-﻿using CFProject.DTO;
+﻿using CFProject.BUS;
+using CFProject.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,12 +48,14 @@ namespace CFProject
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            // check double password
             if (txtPassword.Text != txtRepassword.Text)
             {
                 MessageBox.Show("Mật khẩu không khớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // check authen
             if (txtAuth.Text != authString)
             {
                 MessageBox.Show("Mã xác thực không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -61,20 +64,22 @@ namespace CFProject
                 return;
             }
 
-            using (var db = new QLCafeEntities())
+            // check username is exists??
+            var user = txtUser.Text;
+            int checkAcc = new RegisterBUS().checkAccountIsExist(user);
+            if (checkAcc == 1)
             {
-                var checkAcc = db.TaiKhoans.Where(a => a.TenDangNhap.ToLower() == txtUser.Text.ToLower()).ToList();
-                if (checkAcc.Count()>0)
-                {
-                    MessageBox.Show("Tên đăng nhập đã tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                db.TaiKhoans.Add(new TaiKhoan() { TenDangNhap = txtUser.Text, MatKhau = txtPassword.Text, MaNQL = tk.MaNQL, isDeleted = 0 });
-                db.SaveChanges();
-                MessageBox.Show("Đăng kí tài khoản thành công ! Bạn có thể sử dụng tài khoản này để đăng nhập lần sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                MessageBox.Show("Tên đăng nhập đã tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                authString = authList[r.Next(authList.Count())];
+                lblAuth.Text = authString;
+                return;
             }
+            // register new account
+            new RegisterBUS().registerNewAccount(txtUser.Text, txtPassword.Text, (int)tk.MaNQL);
+         
+            // message success
+            MessageBox.Show("Đăng kí tài khoản thành công ! Bạn có thể sử dụng tài khoản này để đăng nhập lần sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

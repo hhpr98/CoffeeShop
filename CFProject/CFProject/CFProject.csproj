@@ -71,6 +71,7 @@
     <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\DetailBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
+    <Compile Include="BUS\RegisterBUS.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
