@@ -9,6 +9,7 @@ namespace CFProject.DAO
 {
     class ProductDAO
     {
+        #region forDetailScreen
         public SanPham findProductByID(int id)
         {
             using (var db = new QLCafeEntities())
@@ -16,5 +17,6 @@ namespace CFProject.DAO
                 return db.SanPhams.Find(id);
             }
         }
+        #endregion
     }
 }

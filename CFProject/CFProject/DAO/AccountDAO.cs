@@ -9,6 +9,7 @@ namespace CFProject.DAO
 {
     class AccountDAO
     {
+        #region forAccountScreen
         public TaiKhoan findAccountByID(int id)
         {
             using (var db = new QLCafeEntities())
@@ -34,5 +35,16 @@ namespace CFProject.DAO
                 db.SaveChanges();
             }
         }
+        #endregion
+
+        #region forLoginScreen
+        public List<TaiKhoan> getListAccount()
+        {
+            using (var db = new QLCafeEntities())
+            {
+                return db.TaiKhoans.ToList();
+            }
+        }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using CFProject.DTO;
+﻿using CFProject.BUS;
+using CFProject.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,39 +27,23 @@ namespace CFProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            List<TaiKhoan> l;
-            using (var db = new QLCafeEntities())
-            {
-                l = db.TaiKhoans.ToList();
-            }
-
             var username = txtUser.Text;
             var password = txtPassword.Text;
-
-            foreach (var item in l)
+            var res = new LoginBUS().checkLogin(username, password);
+            if (res.TenDangNhap != "")
             {
-                if (item.TenDangNhap==username)
-                {
-                    if (item.MatKhau==password)
-                    {
-                        Main frmMain = new Main(item);
-                        this.Hide();
-                        //frmMain.FormClosed += FrmMain_FormClosed; // nếu không có event này thì khi run lại hoặc build lại thì sẽ lỗi, thì app chưa thoát hoàn toàn
-                        frmMain.ShowDialog();
-                        this.Show();
-                        txtUser.Text = "";
-                        txtPassword.Text = "";
-                        return;
-                    }
-                }
+                Main frmMain = new Main(res);
+                this.Hide();
+                frmMain.ShowDialog();
+                this.Show();
+                txtUser.Text = "";
+                txtPassword.Text = "";
             }
-            MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
-        //private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    Application.Exit();
-        //}
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -80,7 +65,6 @@ namespace CFProject
                 //txtPassword.PasswordChar = c;
                 txtPassword.UseSystemPasswordChar = true;
             }
-           
         }
     }
 }

@@ -9,6 +9,7 @@ namespace CFProject.DAO
 {
     class BillDAO
     {
+        #region forDetailScreen
         public HoaDon findBillByID(int id)
         {
             using (var db = new QLCafeEntities())
@@ -24,5 +25,6 @@ namespace CFProject.DAO
                 return db.ChiTietHoaDons.Where(d => d.MaHoaDon == id).ToList();
             }
         }
+        #endregion
     }
 }
