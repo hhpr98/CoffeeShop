@@ -1,4 +1,5 @@
-﻿using CFProject.DTO;
+﻿using CFProject.BUS;
+using CFProject.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,59 +39,60 @@ namespace CFProject
             Bitmap avt = new Bitmap(Application.StartupPath + "\\Resources\\avatar.jpg");
             pbAvatar.Image = avt;
 
-            using (var db = new QLCafeEntities())
+            // declare
+            var billInfo = new DetailBUS().findBillByID(id);
+            var accInfo = new AccountBUS().findAccountByID((int)billInfo.MaTaiKhoan);
+            var manInfo = new AccountBUS().findManager((int)billInfo.MaTaiKhoan);
+            var l = new DetailBUS().findBillDetailByID(id);
+            int[] xLocation = { 10, 60, 230, 300, 400 };
+            var yLocation = 10;
+            int stt = 1;
+
+            // set data
+            lblMaNV.Text = "NV" + accInfo.MaTaiKhoan.ToString();
+            lblName.Text = manInfo.HoTen;
+            lblDate.Text = billInfo.NgayLapHoaDon.ToString();
+            lblCost.Text = billInfo.TongTien.ToString() + " VNĐ";
+            
+            foreach (var index in l)
             {
-                var billInfo = db.HoaDons.Find(id);
-                var accInfo = db.TaiKhoans.Find(billInfo.MaTaiKhoan);
-                lblMaNV.Text = "NV" + accInfo.MaTaiKhoan.ToString();
-                lblName.Text = accInfo.NguoiQuanLi.HoTen;
-                lblDate.Text = billInfo.NgayLapHoaDon.ToString();
-                lblCost.Text = billInfo.TongTien.ToString() + " VNĐ";
+                Label lblID = new Label();
+                lblID.Size = new Size(50, 20);
+                lblID.Text = stt.ToString();
+                lblID.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
+                lblID.Location = new System.Drawing.Point(xLocation[0], yLocation);
+                pnDetail.Controls.Add(lblID);
 
-                var l = db.ChiTietHoaDons.Where(d => d.MaHoaDon == id).ToList();
-                int[] xLocation = { 10, 60, 230, 300, 400 };
-                var yLocation = 10;
-                int stt = 1;
-                foreach (var index in l)
-                {
-                    Label lblID = new Label();
-                    lblID.Size = new Size(50, 20);
-                    lblID.Text = stt.ToString();
-                    lblID.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
-                    lblID.Location = new System.Drawing.Point(xLocation[0], yLocation);
-                    pnDetail.Controls.Add(lblID);
+                Label lblName = new Label();
+                lblName.Size = new Size(150, 20);
+                lblName.Text = new DetailBUS().findProductByID(index.MaSanPham).TenSanPham;
+                lblName.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
+                lblName.Location = new System.Drawing.Point(xLocation[1], yLocation);
+                pnDetail.Controls.Add(lblName);
 
-                    Label lblName = new Label();
-                    lblName.Size = new Size(150, 20);
-                    lblName.Text = index.SanPham.TenSanPham;
-                    lblName.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
-                    lblName.Location = new System.Drawing.Point(xLocation[1], yLocation);
-                    pnDetail.Controls.Add(lblName);
+                Label lblNumber = new Label();
+                lblNumber.Size = new Size(70, 20);
+                lblNumber.Text = index.SoLuong.ToString();
+                lblNumber.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
+                lblNumber.Location = new System.Drawing.Point(xLocation[2], yLocation);
+                pnDetail.Controls.Add(lblNumber);
 
-                    Label lblNumber = new Label();
-                    lblNumber.Size = new Size(70, 20);
-                    lblNumber.Text = index.SoLuong.ToString();
-                    lblNumber.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
-                    lblNumber.Location = new System.Drawing.Point(xLocation[2], yLocation);
-                    pnDetail.Controls.Add(lblNumber);
+                Label lblCost = new Label();
+                lblCost.Size = new Size(100, 20);
+                lblCost.Text = index.DonGia.ToString() + " đ";
+                lblCost.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
+                lblCost.Location = new System.Drawing.Point(xLocation[3], yLocation);
+                pnDetail.Controls.Add(lblCost);
 
-                    Label lblCost = new Label();
-                    lblCost.Size = new Size(100, 20);
-                    lblCost.Text = index.DonGia.ToString() + " đ";
-                    lblCost.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
-                    lblCost.Location = new System.Drawing.Point(xLocation[3], yLocation);
-                    pnDetail.Controls.Add(lblCost);
+                Label lblTotal = new Label();
+                lblTotal.Size = new Size(100, 20);
+                lblTotal.Text = (index.DonGia * index.SoLuong).ToString() + " đ";
+                lblTotal.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
+                lblTotal.Location = new System.Drawing.Point(xLocation[4], yLocation);
+                pnDetail.Controls.Add(lblTotal);
 
-                    Label lblTotal = new Label();
-                    lblTotal.Size = new Size(100, 20);
-                    lblTotal.Text = (index.DonGia * index.SoLuong).ToString() + " đ";
-                    lblTotal.Font = new Font("Time New Roman", 9.75F, FontStyle.Regular);
-                    lblTotal.Location = new System.Drawing.Point(xLocation[4], yLocation);
-                    pnDetail.Controls.Add(lblTotal);
-
-                    yLocation += 40;
-                    stt++;
-                }
+                yLocation += 40;
+                stt++;
             }
         }
 
@@ -128,7 +130,5 @@ namespace CFProject
         {
             e.Graphics.DrawImage(memoryImage, 0, 0);
         }
-
-        
     }
 }
