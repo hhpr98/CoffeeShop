@@ -19,6 +19,7 @@ namespace CFProject
             Application.Run(new Login());
             //Application.Run(new Control());
             //Application.Run(new Main());
+            //Application.Run(new Detail(4));
         }
     }
 }
