@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace CFProject
         {
             Bitmap avt = new Bitmap(Application.StartupPath + "\\Resources\\avatar.jpg");
             pbAvatar.Image = avt;
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(btnInstallDB, "Cài đặt CSDL");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -65,6 +68,11 @@ namespace CFProject
                 //txtPassword.PasswordChar = c;
                 txtPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void btnInstallDB_Click(object sender, EventArgs e)
+        {
+            new LoginBUS().doInstallDatabase();
         }
     }
 }

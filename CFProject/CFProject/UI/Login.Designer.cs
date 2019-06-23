@@ -39,6 +39,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbShow = new System.Windows.Forms.CheckBox();
+            this.btnInstallDB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,22 @@
             this.cbShow.UseVisualStyleBackColor = true;
             this.cbShow.CheckedChanged += new System.EventHandler(this.cbShow_CheckedChanged);
             // 
+            // btnInstallDB
+            // 
+            this.btnInstallDB.Image = ((System.Drawing.Image)(resources.GetObject("btnInstallDB.Image")));
+            this.btnInstallDB.Location = new System.Drawing.Point(12, 192);
+            this.btnInstallDB.Name = "btnInstallDB";
+            this.btnInstallDB.Size = new System.Drawing.Size(55, 55);
+            this.btnInstallDB.TabIndex = 10;
+            this.btnInstallDB.UseVisualStyleBackColor = true;
+            this.btnInstallDB.Click += new System.EventHandler(this.btnInstallDB_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 259);
+            this.Controls.Add(this.btnInstallDB);
             this.Controls.Add(this.cbShow);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox cbShow;
+        private System.Windows.Forms.Button btnInstallDB;
     }
 }
