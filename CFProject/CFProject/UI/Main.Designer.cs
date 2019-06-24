@@ -56,6 +56,8 @@
             this.btnAdd = new CFProject.ButtonH();
             this.cbProduct = new CFProject.ComboBoxH();
             this.cbCategory = new CFProject.ComboBoxH();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvListTable)).BeginInit();
@@ -393,12 +395,33 @@
             this.cbCategory.TabIndex = 3;
             this.cbCategory.TextChanged += new System.EventHandler(this.cbCatogory_TextChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1066, 36);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(53, 21);
+            this.comboBox1.TabIndex = 23;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(976, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 16);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Giao diện";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1136, 563);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnSwitch);
             this.Controls.Add(this.lblTableSelected);
             this.Controls.Add(this.lblThanhToan);
@@ -417,6 +440,7 @@
             this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.pnTable);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
@@ -460,6 +484,8 @@
         private System.Windows.Forms.Label lblTableSelected;
         private ButtonH btnSwitch;
         private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
 

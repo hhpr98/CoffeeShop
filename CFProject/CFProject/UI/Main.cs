@@ -27,6 +27,50 @@ namespace CFProject
             lblNameAcc.Text = t.TenDangNhap;
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selSkin = (int)comboBox1.SelectedIndex;
+            switch (selSkin)
+            {
+                case 0:
+                    this.BackColor = SystemColors.Control;
+                    Color_Empty = Color.Brown;
+                    Color_Full = Color.Yellow;
+                    LoadDataTable();
+                    break;
+                case 1:
+                    this.BackColor = Color.SkyBlue;
+                    Color_Empty = Color.DarkSalmon;
+                    Color_Full = Color.OrangeRed;
+                    LoadDataTable();
+                    break;
+                case 2:
+                    this.BackColor = SystemColors.ControlDark;
+                    Color_Empty = Color.White;
+                    Color_Full = Color.Pink;
+                    LoadDataTable();
+                    break;
+                case 3:
+                    this.BackColor = Color.IndianRed;
+                    Color_Empty = Color.White;
+                    Color_Full = Color.SkyBlue;
+                    LoadDataTable();
+                    break;
+                case 4:
+                    this.BackColor = Color.OrangeRed;
+                    Color_Empty = Color.Violet;
+                    Color_Full = Color.White;
+                    LoadDataTable();
+                    break;
+                case 5:
+                    this.BackColor = Color.Yellow;
+                    Color_Empty = Color.Green;
+                    Color_Full = Color.Blue;
+                    LoadDataTable();
+                    break;
+            }
+        }
+
         #region MenuStrip
         private void thôngTinToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -83,6 +127,8 @@ namespace CFProject
         #endregion
 
         #region Table
+        Color Color_Empty = Color.Brown;
+        Color Color_Full = Color.Yellow;
 
         int tableIndex = 1;
         public void LoadDataTable()
@@ -101,11 +147,11 @@ namespace CFProject
                 btn.Size = new System.Drawing.Size(100, 100);
                 if (table.TinhTrang=="Trống")
                 {
-                    btn.BackColor = Color.Brown;
+                    btn.BackColor = Color_Empty;
                 }
                 else
                 {
-                    btn.BackColor = Color.Yellow;
+                    btn.BackColor = Color_Full;
                 }
                 pnTable.Controls.Add(btn);
                 btn.Click += Click_Event;
@@ -200,6 +246,11 @@ namespace CFProject
             // load id talbe of switch combobox
             var lt = new MainBUS().getAllIdTable();
             cbSwitch.DataSource = lt;
+
+            // load skin background
+            var l = new List<string>() { "Chuẩn", "Xanh", "Xám" ,"Hồng","Cam","Vàng"};
+            comboBox1.DataSource = l;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void cbCatogory_TextChanged(object sender, EventArgs e)
@@ -262,5 +313,7 @@ namespace CFProject
             }
         }
         #endregion
+
+        
     }
 }
