@@ -2,6 +2,9 @@
 using CFProject.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -52,12 +55,20 @@ namespace CFProject.BUS
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 command = command + dlg.FileName;
-                ExecuteCommand(command);
+                var res = ExecuteCommand(command);
+
+                if (res == 0)
+                {
+                    MessageBox.Show("Cài đặt database thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi cài đặt database!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-
-        public void ExecuteCommand(string command)
+        public int ExecuteCommand(string command)
         {
             int ExitCode;
             ProcessStartInfo ProcessInfo;
@@ -72,19 +83,11 @@ namespace CFProject.BUS
 
             ExitCode = Process.ExitCode;
             Process.Close();
-
             //MessageBox.Show("ExitCode: " + ExitCode.ToString(), "ExecuteCommand");
-            if (ExitCode == 0)
-            {
-                MessageBox.Show("Cài đặt database thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Đã xảy ra lỗi khi cài đặt database!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            return ExitCode;
         }
 
-        public void ExecuteCommand2(string command) // cách này cũng ok nhưng không trả về exitcode
+        public int ExecuteCommand2(string command)
         {
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe";
@@ -100,6 +103,74 @@ namespace CFProject.BUS
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
             Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+            return cmd.ExitCode;
+        }
+
+        public void doBackupDatabase()
+        {
+            //SqlCmd -E -S .\SQLEXPRESS –Q "BACKUP DATABASE QLCafe TO DISK='D:\backupCoffee\backup.bak'"
+
+            // Code dưới đây cmd không hiểu tham số "BACKUP DATABASE QLCafe TO DISK='D:\\backup.bak'\" 
+            //var command = "SqlCmd -E -S .\\SQLEXPRESS –Q \"BACKUP DATABASE QLCafe TO DISK='D:\\backup.bak'\"";
+            //var res = ExecuteCommand2(command);
+
+            //if (res == 0)
+            //{
+            //    MessageBox.Show("Backup database thành công, vị trí file : D:\\backup.bak", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Đã xảy ra lỗi khi backup database!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+            System.IO.Directory.CreateDirectory(@"C:\backupCoffee");
+            SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+            var query = "BACKUP DATABASE QLCafe TO DISK='C:\\backupCoffee\\backup.bak'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Backup database thành công, vị trí file : C:\\backupCoffee\\backup.bak", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("Error Generated. Details: " + e.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void doRestoreDatabase()
+        {
+            //SqlCmd -E -S .\SQLEXPRESS –Q "RESTORE DATABASE QLCafe FROM DISK='D:\backup.bak'"
+            System.IO.Directory.CreateDirectory(@"C:\backupCoffee");
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.InitialDirectory = @"C:\backupCoffee";
+            dlg.Filter = "Backup file (*.bak)|*.bak";
+            dlg.RestoreDirectory = true;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+                var query = "RESTORE DATABASE QLCafe FROM DISK='" + dlg.FileName + "'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Restore database thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
     }
 }

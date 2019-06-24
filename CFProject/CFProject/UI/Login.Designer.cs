@@ -40,6 +40,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbShow = new System.Windows.Forms.CheckBox();
             this.btnInstallDB = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
+            this.btnRestore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,19 +143,44 @@
             // 
             // btnInstallDB
             // 
+            this.btnInstallDB.BackColor = System.Drawing.SystemColors.Control;
             this.btnInstallDB.Image = ((System.Drawing.Image)(resources.GetObject("btnInstallDB.Image")));
-            this.btnInstallDB.Location = new System.Drawing.Point(12, 192);
+            this.btnInstallDB.Location = new System.Drawing.Point(12, 224);
             this.btnInstallDB.Name = "btnInstallDB";
-            this.btnInstallDB.Size = new System.Drawing.Size(55, 55);
+            this.btnInstallDB.Size = new System.Drawing.Size(40, 40);
             this.btnInstallDB.TabIndex = 10;
-            this.btnInstallDB.UseVisualStyleBackColor = true;
+            this.btnInstallDB.UseVisualStyleBackColor = false;
             this.btnInstallDB.Click += new System.EventHandler(this.btnInstallDB_Click);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.Image")));
+            this.btnBackup.Location = new System.Drawing.Point(73, 224);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(40, 40);
+            this.btnBackup.TabIndex = 11;
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRestore.Image = ((System.Drawing.Image)(resources.GetObject("btnRestore.Image")));
+            this.btnRestore.Location = new System.Drawing.Point(134, 224);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(40, 40);
+            this.btnRestore.TabIndex = 12;
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 259);
+            this.ClientSize = new System.Drawing.Size(505, 271);
+            this.Controls.Add(this.btnRestore);
+            this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.btnInstallDB);
             this.Controls.Add(this.cbShow);
             this.Controls.Add(this.btnCancel);
@@ -189,5 +216,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox cbShow;
         private System.Windows.Forms.Button btnInstallDB;
+        private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.Button btnRestore;
     }
 }

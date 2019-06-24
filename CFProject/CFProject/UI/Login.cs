@@ -26,6 +26,8 @@ namespace CFProject
             pbAvatar.Image = avt;
             ToolTip tt = new ToolTip();
             tt.SetToolTip(btnInstallDB, "Cài đặt CSDL");
+            tt.SetToolTip(btnBackup, "Backup CSDL");
+            tt.SetToolTip(btnRestore, "Restore CSDL");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -73,6 +75,16 @@ namespace CFProject
         private void btnInstallDB_Click(object sender, EventArgs e)
         {
             new LoginBUS().doInstallDatabase();
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            new LoginBUS().doBackupDatabase();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            new LoginBUS().doRestoreDatabase();
         }
     }
 }
