@@ -47,3 +47,4 @@ Demo at		:
 - Dùng tool phân tích và vẽ biểu đồ
 - Kết nối máy in và in hóa đơn 
 - Backup/Restore database
+- Custom Control
