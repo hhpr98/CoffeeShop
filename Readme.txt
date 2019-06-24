@@ -12,7 +12,7 @@ DĐ	: 0982327118
 ---------------------------------------------------------
 
 Git project	: https://github.com/hhpr98/CoffeeShop
-Demo at		: 
+Demo at		: https://youtu.be/6kkiufNmsx0 hoặc thư mục demo
 
 ---------------------------------------------------------
 
@@ -28,9 +28,11 @@ Demo at		:
 - Đăng nhập
 - Load bàn ăn, tình trạng bàn.
 - Thêm món vào từng bàn.
+- Chuyển bàn.
 - Tính tiền và thanh toán từng bàn.
 - In hóa đơn.
 - Quản lí món.
+- Tìm kiếm.
 - Quản lí loại.
 - Quản lí tài khoản.
 - Xem thống kê.
